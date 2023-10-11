@@ -21,14 +21,14 @@ body{
 
 @media screen and (min-width: 375px) {
     .container {
-        max-width: 375px;
+        max-width: 335px;
         margin: 0 auto;
     }
 }
 
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 768px;
+        max-width: 704px;
         padding-left: 32px;
         padding-right: 32px;
     }
@@ -36,7 +36,7 @@ body{
 
 @media screen and (min-width: 1440px) {
     .container {
-        max-width: 1440px;
+        max-width: 1392px;
         padding-left: 24px;
         padding-right: 24px;
     }
