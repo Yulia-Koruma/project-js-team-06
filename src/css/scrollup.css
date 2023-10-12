@@ -1,0 +1,9 @@
+.btn-scroll-up {
+  background-color: var(--accent-color-first);
+  color: var(--white);
+  border-radius: 50%;
+  border: 5px solid rgba(79, 46, 232, 0, 3);
+  padding: 15px;
+  cursor: pointer;
+  font-size: 0;
+}
