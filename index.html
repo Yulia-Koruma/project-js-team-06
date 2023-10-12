@@ -13,54 +13,58 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/project-js-team-06/assets/styles-a76c8721.js"></script>
-    <link rel="stylesheet" href="/project-js-team-06/assets/styles-3a93fa85.css">
+    <script type="module" crossorigin src="/project-js-team-06/assets/index-675b3276.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-js-team-06/assets/styles-ffa70196.js">
+    <link rel="stylesheet" href="/project-js-team-06/assets/styles-7e4c8079.css">
   </head>
   <body>
     <!-- HEADER -->
     <header class="header">
-    <div class="header container">
+    <div class="container header-inner">
         <div class="header-logo">
             <a href="./index.html" class="header-logo-svg link">
                 <svg class="header-logo-svg" width="24" height="24">
-                  <use href=""></use>
+                  <use href="../img/icons.svg#icon-logo"></use>
                 </svg>
+                <!-- <span class="header-logo-text">Bookshelf</span> -->
                 <svg class="header-logo-text-svg" width="77" height="13.27">
-                    <use href=""></use>
+                    <use href="../img/icons.svg#"></use>
                   </svg>
               </a>
         </div>
         <nav class="header-nav">
             <ul class="header-nav-list list">
                 <li class="header-nav-item">
-                  <a class="header-nav-link link" href="./index.html">HOME</a>
+                  <a class="header-nav-link link current" href="./index.html">HOME</a>
                 </li>
                 <li class="header-nav-item">
                   <a class="header-nav-link link" href="../shopping-list.html">
                     <span class="header-nav-text">SHOPPING LIST</span>
                     <svg class="header-nav-svg" width="20" height="20">
-                    <use href=""></use>
+                    <use href="../img/icons.svg#icon-shoping-bag"></use>
                   </svg>
                 </a>
                 </li>                
               </ul>
         </nav>
-        <label id="switch" class="switch">
+        <div class="switch-btn-blocks">       
+          <label id="switch" class="switch">
             <input type="checkbox" onchange="toggleTheme()" id="slider">
             <span class="slider round"></span>
             <svg class="switch-svg" width="40" height="20">
                 <use href=""></use>
             </svg>
-        </label>
-        <button type="button" class="burger-btn btn js-open-menu">
+          </label>
+          <button type="button" class="burger-btn btn js-open-menu">
             <svg class="burger-svg" width="28" height="28">
-              <use href=""></use>
+              <use href="../img/icons.svg#icon-burger"></use>
             </svg>
           </button>
+        </div>
         <div class="header-actions">
             <a href="./modal-sing-up.html"><span class="header-actions-text">Sing up</span>
                 <svg class="header-actions-svg" width="20" height="20">
-                    <use href=""></use>
+                    <use href="../img/icons.svg#icon-arrow-right"></use>
                 </svg>
             </a>
         </div>             
@@ -75,7 +79,12 @@
       <section>
         <div>
           <!--   блок з переліком усіх категорій книг -->
-          
+          <aside class="category-box">
+  <h2 class="category-title">All categories</h2>
+  <div class="category-list"></div>
+  <div class="book-list"></div>
+</aside>
+
           <!--   блок з переліком благодійних фондів у вигляді вертикального слайдеру -->
           
         </div>
@@ -84,14 +93,20 @@
       </section>
     </main>
     <!-- Modal shopping-list -->
-    <div class="backdrop is-hidden">
+    <div id="container-modal-shop-list"></div>
+
+<!-- <div class="backdrop is-hidden">
   <div class="modal-shop-list">
-    <button type="button" class="button modal-shop-list-close">x</button>
+    <button type="button" class="button modal-shop-list-close">
+      <svg class="modal-shop-list-icon" width="24" height="24">
+        <use href="./img/icons.svg#icon-x-close"></use>
+      </svg>
+    </button>
     <div class="modal-shop-list-wrap">
       <img src="" alt="" width="287" height="408" />
       <div class="modal-shop-list-info">
-        <h2 class="modal-shop-list-title">title</h2>
-        <h3 class="modal-shop-list-author">autor</h3>
+        <h1 class="modal-shop-list-title">title</h1>
+        <h2 class="modal-shop-list-author">author</h2>
         <p class="modal-shop-list-desc">descrition</p>
         <div class="modal-shop-list-buy">
           <a
@@ -115,12 +130,18 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
     <!-- Modal Sing-up -->
     
     <!-- Skroll-up -->
-    <load src="./partials/scroll-up.html"></load>
+    <button type="button" class="btn-scroll-up">
+  <svg class="up-btn-icon" width="24" height="24">
+    <use>href="./img/icons.svg#icon-arrow-up"</use>
+  </svg>
+</button>
+
+    
     
   </body>
 </html>
