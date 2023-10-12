@@ -1,0 +1,14 @@
+.empty-message {
+    display: none;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    color: #777;
+}
+
+
+.empty-image {
+    display: none;
+    max-width: 100%;
+    margin: 20px auto;
+}
