@@ -1,56 +1,49 @@
 import Notiflix from 'notiflix';
 import axios from 'axios';
 
-const axios = require('axios').default;
+// const axios = require('axios').default;
 
+const BASE_URL = 'https://books-backend.p.goit.global/books/';
 
 // вибір списку книг
 export async function fetchCategoryList() {
-    try {
-        const { data } = await axios.get('https://books-backend.p.goit.global/books/category-list');
-
-        return data;
-
-    } catch (error) {
-        Notiflix.Notify.failure('Something went wrong. Please try again!');
-    } finally {
-    }
+  try {
+    const { data } = await axios.get(`${BASE_URL}category-list`);
+    return data;
+  } catch (error) {
+    Notiflix.Notify.failure('Something went wrong. Please try again!');
+  } finally {
+  }
 }
 
 // вибір топ-книг, що відображаються на стартовій сторінці
 export async function fetchTopBooks() {
-    try {
-        const { data } = await axios.get('https://books-backend.p.goit.global/books/top-books');
-
-        let books = await data.map(category => category.books);
-        return books;
-
-    } catch (error) {
-        Notiflix.Notify.failure('Something went wrong. Please try again!');
-    }
+  try {
+    const { data } = await axios.get(`${BASE_URL}top-books`);
+    return data;
+  } catch (error) {
+    Notiflix.Notify.failure('Something went wrong. Please try again!');
+  }
 }
 
-// Вибір категорії
-export async function fetchSomeCategory(selectedCategory) {
-    try {
-        let { data } = await axios.get('https://books-backend.p.goit.global/books/category', {
-            params: {
-                category: selectedCategory,
-            }
-        })
-        return data;
-    } catch (error) {
-        Notiflix.Notify.failure('Something went wrong. Please try again!');
-    }
+// Вибір
+export async function fetchBooksByCategory(category) {
+  try {
+    const { data } = await axios.get(
+      `${BASE_URL}category?category=${category}`
+    );
+    return data;
+  } catch (error) {
+    Notiflix.Notify.failure('Something went wrong. Please try again!');
+  }
 }
 
 // вибір книги
 export async function fetchSelectedBook(bookId) {
-    try {
-        let books = await axios.get(`https://books-backend.p.goit.global/books/${bookId}`)
-        let book = await books.data;
-        return book;
-    } catch (error) {
-        Notiflix.Notify.failure('Something went wrong. Please try again!');
-    }
+  try {
+    const response = await axios.get(`${BASE_URL}${bookId}`);
+    return response.data;
+  } catch (error) {
+    Notiflix.Notify.failure('Something went wrong. Please try again!');
+  }
 }
