@@ -1,1 +1,1 @@
-import { shop-list } from './js/shop-list';
+import {  } from './js/shop-list';
