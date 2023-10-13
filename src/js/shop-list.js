@@ -1,6 +1,9 @@
 import './api';
 
 document.addEventListener('DOMContentLoaded', function () {
+  const booksPerPage = 10; 
+  let currentPage = 1; 
+
   function createBookCard(bookData) {
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
@@ -70,7 +73,13 @@ document.addEventListener('DOMContentLoaded', function () {
     emptyMessage.style.display = 'none';
 
     const savedBooks = JSON.parse(localStorage.getItem('shoppingList'));
-    savedBooks.forEach(book => {
+
+    
+    const startIndex = (currentPage - 1) * booksPerPage;
+    const endIndex = startIndex + booksPerPage;
+    const booksToDisplay = savedBooks.slice(startIndex, endIndex);
+
+    booksToDisplay.forEach(book => {
       const bookCard = createBookCard(book);
       shoppingList.appendChild(bookCard);
     });
@@ -88,5 +97,52 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  function updatePaginationUI() {
+    const savedBooks = JSON.parse(localStorage.getItem('shoppingList'));
+    const totalPages = Math.ceil(savedBooks.length / booksPerPage);
+
+    const pageNumbers = document.querySelector('.page-numbers');
+    pageNumbers.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageButton = document.createElement('button');
+      pageButton.textContent = i;
+      pageButton.addEventListener('click', () => {
+        currentPage = i;
+        displayBooks();
+        updatePaginationUI();
+      });
+      pageNumbers.appendChild(pageButton);
+    }
+  }
+
+  const prevButton = document.querySelector('.prev-button');
+  prevButton.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      displayBooks();
+      updatePaginationUI();
+    }
+  });
+
+  const nextButton = document.querySelector('.next-button');
+  nextButton.addEventListener('click', () => {
+    const savedBooks = JSON.parse(localStorage.getItem('shoppingList'));
+    if (currentPage * booksPerPage < savedBooks.length) {
+      currentPage++;
+      displayBooks();
+      updatePaginationUI();
+    }
+  });
+
   displayBooks();
+  updatePaginationUI();
 });
+
+export {
+  createBookCard,
+  hasBooksInLocalStorage,
+  displayEmptyMessage,
+  displayBooks,
+  removeBookFromList,
+};
