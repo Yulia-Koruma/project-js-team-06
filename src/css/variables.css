@@ -1,43 +1,44 @@
-:root{
-    --black: #111;
-    --white: #FFF;
-    --background-dark: #202024;
-    --accent-color-first: #4F2EE8;
-    --accent-color-second: #EAC645;
-    --text-color-first: #B4AFAF;
-    --text-color-second: rgba(17, 17, 17, 0.60);
-    --text-color-third: rgba(17, 17, 17, 0.50);
+:root {
+  --black: #111;
+  --white: #fff;
+  --background-dark: #202024;
+  --accent-color-first: #4f2ee8;
+  --accent-color-second: #eac645;
+  --text-color-first: #b4afaf;
+  --text-color-second: rgba(17, 17, 17, 0.6);
+  --text-color-third: rgba(17, 17, 17, 0.5);
+  --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body{
-    font-family: 'DM Sans', sans-serif;
+body {
+  font-family: 'DM Sans', sans-serif;
 }
 
 .container {
-    max-width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 @media screen and (min-width: 375px) {
-    .container {
-        max-width: 375px;
-        margin: 0 auto;
-    }
+  .container {
+    max-width: 375px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .container {
-        max-width: 768px;
-        padding-left: 32px;
-        padding-right: 32px;
-    }
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .container {
-        max-width: 1440px;
-        padding-left: 24px;
-        padding-right: 24px;
-    }
+  .container {
+    max-width: 1440px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
