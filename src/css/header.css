@@ -1,0 +1,127 @@
+.header {
+    background: var(--white);
+    border-radius: 0px 0px 8px 8px;
+    border: 1.5px solid #111; 
+}
+.header-inner {
+    width: 100%;
+    max-height: 64px;
+    /* display: flex; */
+    /* align-items: center;  */
+    display: inline-flex;
+/* height: 64px; */
+align-items: flex-start;
+
+}
+
+.header-logo {
+    padding-top: 18px;
+    padding-bottom: 18px;
+   
+    display: flex;
+    align-items: center;   
+    
+}
+
+.header-logo-svg {
+    margin-right: 8px;
+}
+.link {
+}
+.header-logo-text {
+}
+.switch-btn-blocks {
+    padding-top: 18px;
+    padding-bottom: 18px;   
+}
+
+
+/*TODO Mob media*/
+@media screen and (max-width: 767px) {
+    .header-nav {
+      display: none;
+    }
+
+    .header-actions {
+      display: none; 
+    }
+          
+    /* .header-container {
+      justify-content: space-between;
+    } */
+
+    /*TODO Burger*/
+  .burger-btn {
+    fill: var(----black);    
+  }
+
+  /* .menu-close-btn-icon {
+   stroke: var(--logo-bg-cl);
+  } */
+}   
+
+/*TODO Tablet media*/
+@media screen and (min-width: 768px) {
+    .header-logo {
+        padding-top: 22px;
+        padding-bottom: 22px;   
+    }
+
+    .header-nav {
+        padding-top: 19px;
+        padding-bottom: 19px;   
+    }
+
+    .switch-btn-blocks {
+        padding-top: 24px;
+        padding-bottom: 24px;   
+    }
+
+    .header-actions {
+        padding-top: 14px;
+        padding-bottom: 13px;   
+    }
+
+
+    .burger-btn {
+        display: none;      
+    }
+}  
+
+
+.header-nav {
+}
+.header-nav-list {
+}
+.list {
+}
+.header-nav-item {
+}
+.header-nav-link {
+}
+.header-nav-text {
+}
+.header-nav-svg {
+}
+.switch {
+}
+.slider {
+}
+.round {
+}
+.switch-svg {
+}
+.burger-btn {
+}
+.btn {
+}
+.js-open-menu {
+}
+.burger-svg {
+}
+.header-actions {
+}
+.header-actions-text {
+}
+.header-actions-svg {
+}
