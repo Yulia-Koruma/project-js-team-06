@@ -3,20 +3,20 @@ import { createMarkupModalShopList } from "./createMarkupModalShopList";
 
 const refs = {
     containerModalShopList: document.querySelector('#container-modal-shop-list'),
-    bookCard: document.querySelector('.bookCard'),
+    bookCard: document.querySelector('.js-book-card'),
 };
 
-// refs.bookCard.addEventListener('click', handleBookCardClick);
+refs.bookCard.addEventListener('click', handleBookCardClick);
 
-// async function handleBookCardClick(event) {
-//     const li = event.target.closest('.bookCard');
-//     const id = li.dataset.id;
+async function handleBookCardClick(event) {
+    const li = event.target.closest('.bookCard');
+    const id = li.dataset.id;
     
-//     const book = await fetchSelectedBook(id);
-//     const markup = createMarkupModalShopList(book);
+    const book = await fetchSelectedBook(id);
+    const markup = createMarkupModalShopList(book);
 
-//     refs.containerModalShopList.innerHTML = markup;
-// }
+    refs.containerModalShopList.innerHTML = markup;
+}
 
 
 async function renderMarkup() {
