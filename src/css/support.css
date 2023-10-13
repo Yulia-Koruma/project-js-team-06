@@ -1,0 +1,155 @@
+
+  
+  .support-container {
+    display: flex;
+    flex-direction: column;
+    width: 335px;
+    height: 460px;
+    padding: 24px 40px 20px;
+    background: linear-gradient(
+      180deg,
+      rgba(79, 46, 232, 1) 0%,
+      rgba(255, 255, 255, 1) 130%
+    );
+   
+    border-radius: 16px;
+  }
+  
+  .support-title-conteiner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    
+   
+  }
+  
+  .title-support {
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.09; 
+    letter-spacing: -0.88px;
+  }
+  
+ 
+  
+  .support-box-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 186px;
+    margin-bottom: 24px;
+    gap: 20px;
+  }
+  
+ 
+  
+  .support_item {
+    display: flex;
+    align-items: center;
+    max-width: 132px;
+    height: 32px;
+  }
+
+
+  .img_support{
+    filter: brightness(0) invert(1);
+  }
+  
+  .img_support:hover,
+  .img_support:focus{
+
+    filter: hue-rotate(360deg);
+    transition-duration: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1.2);
+    transition: transform 500ms ease-out;
+  }
+  
+
+  .support_number {
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+  }
+
+  .button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .support_button {
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+  }
+  .support_button:hover {
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--accent-color-first);
+    svg {
+      fill: #fff;
+    }
+  }
+
+  
+  .button-arrow {
+    transform: rotate(180deg);
+  
+    
+    
+  }
+
+ 
+
+
+  @media screen and (min-width: 768px) {
+    .button-container {
+      margin-top: 24px;
+    }
+  
+    .support-container {
+      width: 335px;
+      height: 474px;
+    }
+    .title-support{
+      font-size: 24px;
+      line-height: 1.16; 
+      letter-spacing: -0.96px;
+    }
+ 
+  .support_button {
+    width: 38px;
+    height: 38px;
+  }
+
+
+    .button-arrow {
+      width: 22px;
+      height: 22px;
+      
+    }
+
+
+  
+    .support-box-list {
+      height: 474px;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    .support-container {
+      height: 474px;
+    }
+    
+  }
+
+
+
+  

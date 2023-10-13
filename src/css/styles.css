@@ -1,8 +1,11 @@
 @import url('./reset.css');
 @import url('./fonts.css');
 @import url('./variables.css');
+@import url('./category.css');
+@import url('./support.css');
 @import url('./header.css');
 @import url('./category.css');
 @import url('./modal-shop-list.css');
 @import url('./scrollup.css');
 @import url('./loader.css');
+
