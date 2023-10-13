@@ -21,7 +21,7 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 40px;
-    
+    /* margin-top: 10px; */
    
   }
   
@@ -39,8 +39,8 @@
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    height: 186px;
-    margin-bottom: 24px;
+    /* height: 186px; */
+    margin-bottom: 20px;
     gap: 20px;
   }
   
@@ -76,12 +76,14 @@
   }
 
   .button-container{
+   margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
+
   .support_button {
-   
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,9 +104,9 @@
   
   .button-arrow {
     transform: rotate(180deg);
+ width: 20px;
+ height: 20px;
   
-    
-    
   }
 
  
@@ -130,15 +132,12 @@
     height: 38px;
   }
 
-
     .button-arrow {
       width: 22px;
       height: 22px;
       
     }
 
-
-  
     .support-box-list {
       height: 474px;
     }
