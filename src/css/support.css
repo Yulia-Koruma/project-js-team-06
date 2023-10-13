@@ -76,12 +76,15 @@
   }
 
   .button-container{
+   
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
+  
+
   .support_button {
-   
     display: flex;
     align-items: center;
     justify-content: center;
