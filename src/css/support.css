@@ -21,7 +21,7 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 40px;
-    
+    /* margin-top: 10px; */
    
   }
   
@@ -82,7 +82,6 @@
     align-items: center;
   }
 
-  
 
   .support_button {
     display: flex;
@@ -133,15 +132,12 @@
     height: 38px;
   }
 
-
     .button-arrow {
       width: 22px;
       height: 22px;
       
     }
 
-
-  
     .support-box-list {
       height: 474px;
     }
