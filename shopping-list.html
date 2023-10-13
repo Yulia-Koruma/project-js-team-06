@@ -13,61 +13,64 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/project-js-team-06/assets/shopping-list-217c4250.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-js-team-06/assets/styles-24a12e5b.js">
-    <link rel="stylesheet" href="/project-js-team-06/assets/styles-89324cd8.css">
+    <script type="module" crossorigin src="/project-js-team-06/assets/shopping-list-6e4c8701.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-js-team-06/assets/styles-1f78e799.js">
+    <link rel="stylesheet" href="/project-js-team-06/assets/styles-4d032bfc.css">
   </head>
   <body>
     <!-- HEADER -->
     <header class="header">
-  <div class="container header-inner">
-    <div class="header-logo">
-      <a href="./index.html" class="header-logo-svg link">
-        <svg class="header-logo-svg" width="24" height="24">
-          <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-logo"></use>
-        </svg>
-        <!-- <span class="header-logo-text">Bookshelf</span> -->
-        <svg class="header-logo-text-svg" width="77" height="13.27">
-          <use href="/project-js-team-06/assets/icons-5b61cac3.svg#"></use>
-        </svg>
-      </a>
-    </div>
-    <nav class="header-nav">
-      <ul class="header-nav-list list">
-        <li class="header-nav-item">
-          <a class="header-nav-link link current" href="./index.html">HOME</a>
-        </li>
-        <li class="header-nav-item">
-          <a class="header-nav-link link" href="./shopping-list.html">
-            <span class="header-nav-text">SHOPPING LIST</span>
-            <svg class="header-nav-svg" width="20" height="20">
-              <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-shoping-bag"></use>
+    <div class="container header-inner">
+        <div class="header-logo">
+            <a href="./index.html" class="header-logo-svg link">
+                <svg class="header-logo-svg" width="24" height="24">
+                  <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-logo"></use>
+                </svg>               
+                <svg class="header-logo-text-svg" width="77" height="13.27">
+                    <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-logo-text"></use>
+                  </svg>
+              </a>
+        </div>
+        <nav class="header-nav">
+            <ul class="header-nav-list list">
+                <li class="header-nav-item">
+                  <a class="header-nav-link link current" href="./index.html">HOME</a>
+                </li>
+                <li class="header-nav-item">
+                  <a class="header-nav-link link" href="./shopping-list.html">
+                    <span class="header-nav-text">SHOPPING LIST</span>
+                    <svg class="header-nav-svg" width="20" height="20">
+                    <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-shoping-bag"></use>                    
+                  </svg>
+                </a>
+                </li>                
+              </ul>
+        </nav>
+        <div class="switch-btn-blocks">       
+          <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider">
+            <span class="slider round"></span>
+            <svg class="switch-svg" width="40" height="24">
+                <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-rectangle"></use>
             </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div class="switch-btn-blocks">
-      <label id="switch" class="switch">
-        <input type="checkbox" onchange="toggleTheme()" id="slider" />
-        <span class="slider round"></span>
-        <svg class="switch-svg" width="40" height="20">
-          <use href=""></use>
-        </svg>
-      </label>
-      <button type="button" class="burger-btn btn js-open-menu">
-        <svg class="burger-svg" width="28" height="28">
-          <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-burger"></use>
-        </svg>
-      </button>
-    </div>
-    <div class="header-actions">
-      <a href="./modal-sing-up.html"
-        ><span class="header-actions-text">Sing up</span>
-        <svg class="header-actions-svg" width="20" height="20">
-          <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-arrow-right"></use>
-        </svg>
-      </a>
+            <svg class="switch-svg-knob" width="20" height="20">
+              <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-knob"></use>
+          </svg>
+          </label>
+          <button type="button" class="burger-btn btn js-open-menu">
+            <svg class="burger-svg" width="28" height="28">
+              <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-burger"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="header-actions">
+            <a href="./modal-sing-up.html"><span class="header-actions-text">Sing up</span>
+                <svg class="header-actions-svg" width="20" height="20">
+                    <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-arrow-right"></use>
+                </svg>
+            </a>
+        </div>             
+
     </div>
   </div>
 </header>
@@ -77,6 +80,25 @@
         <div>
           <!--     блок з переліком благодійних фондів у вигляді вертикального слайдеру (desktop version) -->
           
+
+<div class="support-container container">
+    <div class="support-title-conteiner">
+      <h2 class="title-support">Support Ukraine</h2>
+      <svg class="emblem_ukraine" width="20" height="32px">
+        <use class="icon-uk" href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-trident"></use>
+      </svg>
+    </div>
+    <ul class="support-box-list"></ul>
+
+    <div class="button-container">
+
+      <button aria-label="Scroll down" type="button" class="support_button">
+        <svg class="button-arrow">
+          <use href="/project-js-team-06/assets/icons-5b61cac3.svg#icon-arrow-up" width="20" height="20px"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
         </div>
         <!-- блок з переліком книг, що були додані користувачем до Shopping list -->
         <div class="shopping-list">
