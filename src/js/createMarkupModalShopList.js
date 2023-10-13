@@ -37,3 +37,5 @@ export function createMarkupModalShopList({_id, book_image, title, author, descr
 </div>
 `
 }
+
+
