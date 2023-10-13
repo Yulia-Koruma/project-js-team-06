@@ -1,14 +1,49 @@
-.empty-message {
-    display: none;
-    text-align: center;
-    font-size: 18px;
+.shopping-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     margin-top: 20px;
-    color: #777;
 }
 
+.book-card {
+    width: 300px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+    box-shadow: 2px 2px 5px #aaa;
+}
 
-.empty-image {
-    display: none;
+.book-card img {
     max-width: 100%;
-    margin: 20px auto;
+    height: auto;
+}
+
+.buy-links a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.delete-button {
+    background-color: #ff4646;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.empty-message {
+    display: none;
+    font-size: 18px;
+    margin-top: 20px;
 }
