@@ -1,4 +1,3 @@
-import { scrollUpBtn } from "./js/scrollup";
-import { onBtnScrollUp } from "./js/scrollup";
+import './js/scrollup';
 
-scrollUpBtn.addEventListener('click', onBtnScrollUp);
+
