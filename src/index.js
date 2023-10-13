@@ -1,5 +1,6 @@
-import { scrollUpBtn } from "./js/scrollup";
-import { onBtnScrollUp } from "./js/scrollup";
+import './js/scrollup';
 
+
+modal-2_OlenaKovalenko
 
 scrollUpBtn.addEventListener('click', onBtnScrollUp);
