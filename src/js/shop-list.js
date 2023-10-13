@@ -1,3 +1,5 @@
+import './api';
+
 document.addEventListener('DOMContentLoaded', function () {
   function createBookCard(bookData) {
     const bookCard = document.createElement('div');
