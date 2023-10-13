@@ -1,16 +1,21 @@
 import {fetchSelectedBook} from "./api"
 import { createMarkupModalShopList } from "./createMarkupModalShopList";
 
-const refs = {
+
+export const refs = {
     containerModalShopList: document.querySelector('#container-modal-shop-list'),
     bookCard: document.querySelector('.js-book-card'),
+    btnAddShopList: document.querySelector('.js-btn-add'),
+    btnRemoveShopList: document.querySelector('.js-btn-remove'),
+
+
 };
 
 refs.bookCard.addEventListener('click', handleBookCardClick);
 
 async function handleBookCardClick(event) {
-    const li = event.target.closest('.bookCard');
-    const id = li.dataset.id;
+    const liBook = event.target.closest('.js-book-card');
+    const id = liBook.dataset.id;
     
     const book = await fetchSelectedBook(id);
     const markup = createMarkupModalShopList(book);
@@ -19,24 +24,24 @@ async function handleBookCardClick(event) {
 }
 
 
-async function renderMarkup() {
-    const id = "642fd89ac8cf5ee957f122a0";
-    console.log(typeof(id));
-    console.log(id);
-    try {
-    const book = await fetchSelectedBook(id);
-    console.log(book);
-    const markup = createMarkupModalShopList(book);
+// async function renderMarkup() {
+//     const id = "642fd89ac8cf5ee957f122a0";
+//     console.log(typeof(id));
+//     console.log(id);
+//     try {
+//     const book = await fetchSelectedBook(id);
+//     console.log(book);
+//     const markup = createMarkupModalShopList(book);
 
-    refs.containerModalShopList.innerHTML = markup;
-    } catch (error) {
-        console.error('Error loading book', error);
-    }
+//     refs.containerModalShopList.innerHTML = markup;
+//     } catch (error) {
+//         console.error('Error loading book', error);
+//     }
     
     
-}
+// }
 
-renderMarkup();
+// renderMarkup();
 
 
 // const bookId = "642fd89ac8cf5ee957f12362";
