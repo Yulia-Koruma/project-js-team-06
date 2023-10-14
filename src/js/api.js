@@ -44,7 +44,7 @@ export async function fetchSelectedBook(bookId) {
     // const param = new URLSearchParams({
     //   id: bookId,
     // });
-    const { data } = await axios.get(`${BASE_URL}{${bookId}}`);
+    const { data } = await axios.get(`${BASE_URL}${bookId}`);
     // const {data} = await axios.get(`${BASE_URL}${param}`);
     return data;
     } catch (error) {
