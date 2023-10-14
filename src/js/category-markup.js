@@ -23,9 +23,13 @@ export function createBookList(books) {
     ? books
         .map(
           book => `
-            <img src="${book.book_image}" alt="${book.title}">
-            <div class="book-item">${book.title}</div>
-            <div class="book-item">${book.author}</div>
+            <div class="book-list-card">
+              <img class="book-list-card-img" src="${book.book_image}" alt="${book.title}">
+              <div class="book-list-card-content" >
+                <div class="card-content-title">${book.title}</div>
+                <div class="card-content-author">${book.author}</div>
+              </div>
+            </div>
           `
         )
         .join('')
