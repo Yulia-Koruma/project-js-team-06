@@ -1,6 +1,15 @@
 export function createCategoryList(categories) {
   const categoryList = document.querySelector('.category-list');
-  categoryList.innerHTML = categories
+  const firstCategory = categoryList.firstChild;
+
+  const allCategoriesLink = document.createElement('a');
+  allCategoriesLink.classList.add('category-item');
+  allCategoriesLink.setAttribute('href', '#');
+  allCategoriesLink.innerText = 'All categories';
+
+  categoryList.insertBefore(allCategoriesLink, firstCategory);
+
+  categoryList.innerHTML += categories
     .map(
       category =>
         `<button class="category-item" data-category="${category.list_name}">${category.list_name}</button>`
