@@ -7,14 +7,14 @@ export function saveInLocal(key, value) {
     }
 };
 
-export function getFromLocal(key) {
-    try {
-        const changingKey = localStorage.getItem(key);
-        return changingKey === null ? undefined : JSON.parse(changingKey); -
-    } catch (error) {
-        Notiflix.Notify.failure('Something went wrong. Please try again');
-    }
-};
+// export function getFromLocal(key) {
+//     try {
+//         const changingKey = localStorage.getItem(key);
+//         return changingKey === null ? undefined : JSON.parse(changingKey); -
+//     } catch (error) {
+//         Notiflix.Notify.failure('Something went wrong. Please try again');
+//     }
+// };
 
 export function removeFromLocal(key) {
     try {
