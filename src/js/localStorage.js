@@ -1,14 +1,28 @@
-import { refs } from './modal-shop-list';
-export const API_KEY = 'shoppingList';
+export function saveInLocal(key, value) {
+    try {
+        const changingValue = JSON.stringify(value);
+        localStorage.setItem(key, changingValue);
+    } catch (error) {
+        Notiflix.Notify.failure('Something went wrong. Please try again');
+    }
+};
 
-const localStorageBooks = [];
+export function getFromLocal(key) {
+    try {
+        const changingKey = localStorage.getItem(key);
+        return changingKey === null ? undefined : JSON.parse(changingKey); -
+    } catch (error) {
+        Notiflix.Notify.failure('Something went wrong. Please try again');
+    }
+};
 
-refs.btnAddShopList.addEventListener('click', (event) => {
-    const targetBook = event.target.closest('.modal-shop-list');
-
-    localStorage.setItem(API_KEY, )
-}
-    
-)
-
-export function addBookLocalStorage ()
+export function removeFromLocal(key) {
+    try {
+        if (key === null) {
+            return undefined;
+        }
+        localStorage.removeItem(key);
+    } catch (error) {
+        Notiflix.Notify.failure('Something went wrong. Please try again');
+    }
+};

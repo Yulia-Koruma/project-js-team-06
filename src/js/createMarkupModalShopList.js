@@ -13,7 +13,7 @@ export function createMarkupModalShopList({ _id, book_image, title, author, desc
       </svg>
     </button>
     <div class="modal-shop-list-wrap">
-      <img src="${book_image}" alt="${author} ${title}" width="287" height="408" />
+      <img src="${book_image}" alt="${author}${title}" width="287" height="408" />
       <div class="modal-shop-list-info">
         <h1 class="modal-shop-list-title">${title}</h1>
         <h2 class="modal-shop-list-author">${author}</h2>
@@ -25,7 +25,7 @@ export function createMarkupModalShopList({ _id, book_image, title, author, desc
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="" alt="Amazon" width="62" height="19" />
+            <img src="./img/amazon-1x.png" alt="Amazon" width="62" height="19" />
           </a>
           <a
             class="link modal-shop-list-link"
@@ -33,7 +33,7 @@ export function createMarkupModalShopList({ _id, book_image, title, author, desc
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="" alt="Apple Books" width="33" height="32" />
+            <img src="./img/apple-books-1x.png" alt="Apple Books" width="33" height="32" />
             <button type="button" class="button">add to shopping list</button>
           </a>
         </div>
