@@ -13,32 +13,33 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/project-js-team-06/assets/index-8decaafa.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-js-team-06/assets/theme-9e7f2bc5.js">
-    <link rel="stylesheet" href="/project-js-team-06/assets/theme-08389ce3.css">
+    <script type="module" crossorigin src="/project-js-team-06/assets/index-16562071.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-js-team-06/assets/theme-6d27e6fa.js">
+    <link rel="stylesheet" href="/project-js-team-06/assets/theme-252d8701.css">
   </head>
   <body>
     <!-- HEADER -->
     <header class="header">
     <div class="container header-inner">
         <div class="header-logo">
-            <a href="./index.html" class="header-logo-svg link">
+            <a href="./index.html" class="header-logo-link link">
                 <svg class="header-logo-svg" width="24" height="24">
-                  <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-logo"></use>
-                </svg>               
+                    <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-logo"></use>
+                 </svg>               
                 <svg class="header-logo-text-svg" width="77" height="13.27">
                     <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-logo-text"></use>
-                  </svg>
-              </a>
+                 </svg>
+             </a>
         </div>
         <nav class="header-nav">
             <ul class="header-nav-list list">
                 <li class="header-nav-item">
-                  <a class="header-nav-link link current" href="./index.html">HOME</a>
+                  <a class="header-nav-link link current" href="./index.html">
+                    <span class="header-nav-text">home</span></a>
                 </li>
                 <li class="header-nav-item">
                   <a class="header-nav-link link" href="./shopping-list.html">
-                    <span class="header-nav-text">SHOPPING LIST</span>
+                    <span class="header-nav-text">shopping list</span>
                     <svg class="header-nav-svg" width="20" height="20">
                     <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-shoping-bag"></use>                    
                   </svg>
@@ -50,12 +51,6 @@
           <label id="switch" class="switch">
             <input type="checkbox" onchange="toggleTheme()" id="slider">
             <span class="slider round"></span>
-            <svg class="switch-svg" width="40" height="24">
-                <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-rectangle"></use>
-            </svg>
-            <svg class="switch-svg-knob" width="20" height="20">
-              <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-knob"></use>
-          </svg>
           </label>
           <button type="button" class="burger-btn btn js-open-menu">
             <svg class="burger-svg" width="28" height="28">
@@ -64,15 +59,72 @@
           </button>
         </div>
         <div class="header-actions">
-            <a href="./modal-sing-up.html"><span class="header-actions-text">Sing up</span>
+            <a href=""><span class="header-actions-text">Sing up</span>
                 <svg class="header-actions-svg" width="20" height="20">
                     <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-arrow-right"></use>
                 </svg>
             </a>
-        </div>             
-
+        </div>  
     </div>
-  </div>
+    <div class="mob-menu is-hidden js-menu-container">
+     <div class="mob-header">
+       <div class="mob-logo-btn">
+         <div class="mob-header-logo">
+           <a href="./index.html" class="mob-header-logo-link link">
+               <svg class="mob-header-logo-svg" width="24" height="24">
+                  <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-logo"></use>
+                </svg>               
+               <svg class="mob-header-logo-text" width="77" height="13.27">
+                  <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-logo-text"></use>
+                </svg>
+             </a>
+         </div>
+         <div class="switch-btn-blocks">       
+          <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider">
+            <span class="slider round"></span>
+          </label>
+          <button
+          type="button"
+          class="mob-close-btn btn js-close-menu">
+          <svg class="menu-close-btn-svg" width="28" height="28">
+            <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-x-close"></use>
+          </svg>
+        </button>
+        </div>        
+       </div>
+     </div> 
+      <div class="mob-menu-nav-btn">
+        <button type="button" class="signup-mob-btn  js-link  btn">
+          <span class="mob-header-actions-text">Sing up</span>
+          <svg class="signup-mob-svg" width="20" height="20">
+          <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-arrow-right"></use>
+        </svg>        
+        </button>
+        <nav class="mob-nav">
+          <ul class="mob-menu-list list">
+            <li class="mob-nav-item">
+              <a class="mob-menu-link js-link link current" href="./index.html">
+                <span class="mob-nav-text">home</span>
+              </a>
+            </li>
+            <li class="mob-nav-item">
+              <a class="mob-menu-link js-link link" href="./shopping-list.html">
+                <span class="mob-nav-text">shopping list</span>
+                <svg class="mob-nav-svg" width="20" height="20">
+                <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-shoping-bag"></use>
+              </a>
+            </li>         
+          </ul>
+          <button type="button" class="logout-mob-btn  js-link  btn">
+            <span class="mob-header-actions-text">Log out</span>
+            <svg class="logout-mob-svg" width="20" height="20">
+            <use href="/project-js-team-06/assets/icons-050b36b2.svg#icon-arrow-right"></use>
+          </svg>        
+          </button>
+        </nav>
+      </div> 
+    </div>  
 </header>
 
     <!-- MAIN -->
