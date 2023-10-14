@@ -11,6 +11,14 @@ export function createCategoryList(categories) {
 export function createBookList(books) {
   const bookList = document.querySelector('.book-list');
   bookList.innerHTML = books.length
-    ? books.map(book => `<div class="book-item">${book.title}</div>`).join('')
+    ? books
+        .map(
+          book => `
+            <img src="${book.book_image}" alt="${book.title}">
+            <div class="book-item">${book.title}</div>
+            <div class="book-item">${book.author}</div>
+          `
+        )
+        .join('')
     : '<div>No books found for this category.</div>';
 }
