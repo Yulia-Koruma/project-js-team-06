@@ -2,26 +2,14 @@ import "./category"
 import { fetchTopBooks } from "./api"
 
 const bookGallery = document.querySelector('.bookgallery');
+const homeBooksByType = document.querySelector('.home-typeBook')
 
 const createTopBooksMarkup = async () => {
    let markup = await fetchTopBooks();
   markup = markup.map(el => {
     return { ...el, books: el.books };
   });
-
  bookGallery.innerHTML = await booksCardTemplate(markup);
-
-  const homeBtnEl = document.querySelectorAll('.books__btn');
-  homeBtnEl.forEach(btn => {
-    btn.addEventListener('click', event => {
-      showTypeBook(event.target.dataset.id).then(spinerStopForCategories);
-      const ActiveCategory = document.querySelector('.category-item.active');
-      if (ActiveCategory) {
-        ActiveCategory.classList.remove('active');
-      }
-      event.target.classList.add('active');
-    });
-  });
 };
 
 createTopBooksMarkup();
@@ -53,12 +41,49 @@ function booksCardTemplate(data) {
                   </a>
              </li>`}).join('')}
           </ul>
-          <button class="books__btn" type="button" data-id="${elements.list_name}">see more</button>
+          <button class="books-btn" type="button" data-id="${elements.list_name}">see more</button>
         </li>
    `}).join('')}
 </ul>`}
 
 
+// const homeBtnEl = document.querySelectorAll('.books-btn');
 
+// const showTypeBook = async type => {
+//   const typeBooksMore = await  fetchBooksByCategory(type);
+//   homeBooksByType.innerHTML = booksCardTemplateByType(typeBooksMore, type);};
+
+// homeBtnEl.forEach(btn => {
+//   btn.addEventListener('click', event => {
+//     showTypeBook(event.target.dataset.id);
+//     });
+//   });
+
+// function booksCardTemplateByType(data, typeBooks) {
+//     if (data.length > 0) {
+//       return `
+//     <h3 class="books-main-title">${typeBooks.substring(0, typeBooks.lastIndexOf(' '))}
+//       <span class="books-main-title-attribute"> ${typeBooks.split(' ').pop()}</span>
+//     </h3>
+//         <ul class="books-card-container">${data.map(book => 
+//           `<li class="books-item category-item">
+//             <a href="#" class="books-card-link" rel="noopener noreferrer" data-id='${book._id}'>
+//               <div class="books-card">
+//                 <img class="books-card-img" src="${book.book_image}" alt="${book.title}" width="180" height="256"/>
+//                 <div class="books-overlay">
+//                   <p class="books-overlay-text">quick view</p>
+//                 </div> 
+//               </div>
+//               <div class="books-descr">
+//                 <h3 class="books-card-title">${book.title}</h3>
+//                 <p class="books-card-author">${book.author}</p>
+//               </div>
+//             </a>
+//           </li>`).join('')}
+//         </ul>`;
+//   } else {
+//     Notiflix.Notify.failure(`Not found`);
+//   }
+// }
 
 
