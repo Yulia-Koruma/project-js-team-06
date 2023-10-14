@@ -4,7 +4,7 @@ export function createCategoryList(categories) {
 
   const allCategoriesLink = document.createElement('a');
   allCategoriesLink.classList.add('category-item');
-  allCategoriesLink.setAttribute('href', '#');
+  allCategoriesLink.setAttribute('href', '/');
   allCategoriesLink.innerText = 'All categories';
 
   categoryList.insertBefore(allCategoriesLink, firstCategory);
