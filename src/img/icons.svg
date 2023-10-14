@@ -58,5 +58,11 @@
     <symbol id="icon-knob" viewBox="0 0 32 32">
    <path d="M14.769 24.615c6.118 0 11.077-4.959 11.077-11.077s-4.959-11.077-11.077-11.077v0c-6.118 0-11.077 4.959-11.077 11.077s4.959 11.077 11.077 11.077v0z"></path>
    </symbol>
+   <symbol id="icon-amazon" viewBox="0 0 99 32">
+   <path d="M0 0.8h99.2v30.4h-99.2z"></path>
+   </symbol>
+   <symbol id="icon-book-store" viewBox="0 0 33 32">
+   <path d="M0 0h33v32h-33z"></path>
+   </symbol>
   </defs>
 </svg>

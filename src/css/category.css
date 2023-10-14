@@ -1,4 +1,4 @@
-.category-box .category-title {
+.category-title {
     color: var(--accent-color-first);
     font-size: 18px;
     font-style: normal;
@@ -8,7 +8,7 @@
     text-transform: uppercase;
 }
 
-.category-box .category-list {
+.category-list {
     display: flex;
     flex-direction: column;
     width: 356px;
@@ -17,22 +17,22 @@
 }
 
 @media screen and (max-width: 767px) {
-    .category-box .category-list {
+    .category-list {
         width: 100%;
     }
 }
 
-.category-box .category-list::-webkit-scrollbar-thumb {
+.category-list::-webkit-scrollbar-thumb {
     width: 8px;
     border-radius: 12px;
     background: #e0e0e0;
 }
 
-.category-box .category-list::-webkit-scrollbar {
+.category-list::-webkit-scrollbar {
     width: 8px;
 }
 
-.category-box .category-list button {
+.category-list button {
     color: var(--text-color-second);
     font-family: DM Sans;
     font-size: 18px;
