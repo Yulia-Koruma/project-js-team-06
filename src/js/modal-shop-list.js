@@ -11,43 +11,43 @@ export const refs = {
 
 };
 
-// refs.bookCard.addEventListener('click', handleBookCardClick);
+refs.bookCard.addEventListener('click', handleBookCardClick);
 
-// async function handleBookCardClick(event) {
-//     refs.containerModalShopList.classList.remove('is-hidden');
-//     refs.containerModalShopList.style.display = 'block';
-//     document.body.style.overflow = 'hidden';
+async function handleBookCardClick(event) {
+    refs.containerModalShopList.classList.remove('is-hidden');
+    refs.containerModalShopList.style.display = 'block';
+    document.body.style.overflow = 'hidden';
 
-//     const liBook = event.target.closest('.js-book-card');
-//     const id = liBook.dataset.id;
+    const liBook = event.target.closest('.js-book-card');
+    const id = liBook.dataset.id;
     
-//     const book = await fetchSelectedBook(id);
-//     const markup = createMarkupModalShopList(book);
-
-//     refs.containerModalShopList.innerHTML = markup;
-// }
-
-
-async function renderMarkup() {
-    const id = "642fd89ac8cf5ee957f122a0";
-    console.log(typeof(id));
-    console.log(id);
-    try {
     const book = await fetchSelectedBook(id);
-    console.log(book);
-        const markup = createMarkupModalShopList(book);
-        
-        refs.containerModalShopList.innerHTML = markup;
+    const markup = createMarkupModalShopList(book);
 
-    // refs.containerModalShopList.insertAdjacentHTML('beforeend', markup);
-    } catch (error) {
-        console.error('Error loading book', error);
-    }
-    
-    
+    refs.containerModalShopList.innerHTML = markup;
 }
 
-renderMarkup();
+
+// async function renderMarkup() {
+//     const id = "642fd89ac8cf5ee957f122a0";
+//     console.log(typeof(id));
+//     console.log(id);
+//     try {
+//     const book = await fetchSelectedBook(id);
+//     console.log(book);
+//         const markup = createMarkupModalShopList(book);
+
+//         refs.containerModalShopList.innerHTML = markup;
+
+//     // refs.containerModalShopList.insertAdjacentHTML('beforeend', markup);
+//     } catch (error) {
+//         console.error('Error loading book', error);
+//     }
+    
+    
+// }
+
+// renderMarkup();
 
 
 // const bookId = "642fd89ac8cf5ee957f12362";
