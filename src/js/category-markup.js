@@ -7,6 +7,13 @@ export function createCategoryList(categories) {
   allCategoriesLink.setAttribute('href', '/');
   allCategoriesLink.innerText = 'All categories';
 
+  const isNoCategorySelected = !categories.some(
+    category => category.list_name === 'selectedCategoryName'
+  );
+  if (isNoCategorySelected) {
+    allCategoriesLink.classList.add('category-active');
+  }
+
   categoryList.insertBefore(allCategoriesLink, firstCategory);
 
   categories.forEach(category => {
