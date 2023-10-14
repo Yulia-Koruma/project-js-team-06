@@ -1,0 +1,11 @@
+.home-container {
+    display: flex;
+    gap: 40px;
+    padding-top: 40px;
+}
+
+@media screen and (max-width: 767px) {
+    .home-container {
+        flex-direction: column;
+    }
+}
