@@ -1,6 +1,8 @@
 import './category';
-import { fetchCategoryList, fetchBooksByCategory } from './api.js';
-import { createCategoryList, createBookList } from './category-markup.js';
+import  './api.js';
+import './category-markup.js';
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const items = document.querySelectorAll('.items li');
