@@ -1,10 +1,9 @@
-import './api';
+import api from './api';
 
 document.addEventListener('DOMContentLoaded', function () {
-  const booksPerPage = 10; 
-  let currentPage = 1; 
-
-  function createBookCard(bookData) {
+    const booksPerPage = 10;
+    let currentPage = 1;
+    function createBookCard(bookData) {
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
 
@@ -74,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const savedBooks = JSON.parse(localStorage.getItem('shoppingList'));
 
-    
     const startIndex = (currentPage - 1) * booksPerPage;
     const endIndex = startIndex + booksPerPage;
     const booksToDisplay = savedBooks.slice(startIndex, endIndex);
