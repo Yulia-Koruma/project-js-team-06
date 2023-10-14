@@ -4,8 +4,8 @@ export function createCategoryList(categories) {
 
   const allCategoriesLink = document.createElement('a');
   allCategoriesLink.classList.add('category-item');
-  allCategoriesLink.setAttribute('href', '#');
-  allCategoriesLink.innerText = 'Best Sellers Books';
+  allCategoriesLink.setAttribute('href', './index.html');
+  allCategoriesLink.innerText = 'All categories';
 
   const isNoCategorySelected = !categories.some(
     category => category.list_name === 'selectedCategoryName'
@@ -38,7 +38,7 @@ export function createBookList(books) {
   const booksContainer = document.querySelector('.books-container-title');
 
   const categoryTitle =
-    books.length > 0 ? books[0].list_name : 'All categories';
+    books.length > 0 ? books[0].list_name : 'Best Sellers Books';
 
   const lastWord = categoryTitle.split(' ').pop();
   const titleWithLastWordHighlighted = categoryTitle.replace(
