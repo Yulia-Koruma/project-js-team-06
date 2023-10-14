@@ -63,3 +63,23 @@ button:hover {
   height: 150px;
   margin-bottom: 20px;
 }
+
+
+.pagination {
+  text-align: center;
+}
+
+button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #333; /* обведення кнопки */
+  border-radius: 50%; /* зробити кнопку круглою */
+  background-color: #eee; /* колір кнопки */
+  font-size: 20px; /* розмір тексту в кнопці */
+  margin: 0 5px; /* відступи між кнопками */
+  cursor: pointer; /* курсор для підказки, що це кнопка */
+}
+
+button:hover {
+  background-color: #ddd; /* зміна кольору при наведенні */
+}
