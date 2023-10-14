@@ -39,7 +39,7 @@
     margin-bottom: 32px;
 }
 
-.active {
+.category-active {
     color: var(--accent-color-first);
     font-size: 18px;
     font-style: normal;
@@ -49,6 +49,9 @@
     text-transform: uppercase;
 }
 
+.highlighted-word {
+    color: var(--accent-color-first);
+}
 
 /* book-list-card */
 .book-list {
@@ -94,4 +97,12 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.books-container-title {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px;
+    margin-bottom: 40px;
 }
