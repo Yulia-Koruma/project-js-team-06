@@ -4,8 +4,8 @@ export function createCategoryList(categories) {
 
   const allCategoriesLink = document.createElement('a');
   allCategoriesLink.classList.add('category-item');
-  allCategoriesLink.setAttribute('href', '/');
-  allCategoriesLink.innerText = 'All categories';
+  allCategoriesLink.setAttribute('href', '#');
+  allCategoriesLink.innerText = 'Best Sellers Books';
 
   const isNoCategorySelected = !categories.some(
     category => category.list_name === 'selectedCategoryName'
