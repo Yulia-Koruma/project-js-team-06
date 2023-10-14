@@ -1,4 +1,4 @@
-import{f as u,a as h}from"./theme-93602eb9.js";const g=document.querySelector(".bookgallery");document.querySelector(".home-typeBook");const m=async()=>{let i=await u();i=i.map(o=>({...o,books:o.books})),g.innerHTML=await k(i)};m();function k(i){return`
+import{f as u,a as h}from"./theme-37882cfe.js";const g=document.querySelector(".bookgallery");document.querySelector(".home-typeBook");const m=async()=>{let i=await u();i=i.map(o=>({...o,books:o.books})),g.innerHTML=await k(i)};m();function k(i){return`
      <h1 class="books-main-title">
      Best Sellers <span class="books-main-title-attribute">Books</span>
      </h1>
