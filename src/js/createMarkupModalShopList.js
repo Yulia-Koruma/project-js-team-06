@@ -1,4 +1,10 @@
-export function createMarkupModalShopList({_id, book_image, title, author, description, buy_links}) {
+export function createMarkupModalShopList({ _id, book_image, title, author, description, buy_links }) {
+  const links = buy_links.filter(item => {
+    if (item.name === "Amazon" || item.name === "Apple Books") {
+      return item.url;
+    }
+  });
+
     return `<div class="backdrop is-hidden">
   <div class="modal-shop-list" data-id=${_id}>
     <button type="button" class="button modal-shop-list-close">
@@ -15,7 +21,7 @@ export function createMarkupModalShopList({_id, book_image, title, author, descr
         <div class="modal-shop-list-buy">
           <a
             class="link modal-shop-list-link"
-            href="${buy_links[0].url}"
+            href="${links[0]}"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -23,7 +29,7 @@ export function createMarkupModalShopList({_id, book_image, title, author, descr
           </a>
           <a
             class="link modal-shop-list-link"
-            href="${buy_links[1].url}"
+            href="${links[1]}"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -34,6 +40,7 @@ export function createMarkupModalShopList({_id, book_image, title, author, descr
       </div>
     </div>
   </div>
-</div>
-`
+</div>`
 }
+
+

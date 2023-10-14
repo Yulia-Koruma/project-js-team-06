@@ -1,4 +1,6 @@
-import { scrollUpBtn } from './js/scrollup';
-import { onBtnScrollUp } from './js/scrollup';
-
-scrollUpBtn.addEventListener('click', onBtnScrollUp);
+import './js/support_object.js';
+import './js/scrollup';
+import './js/header';
+import './js/bookcard.js';
+import './js/shop-list';
+import './js/modal-shop-list.js';

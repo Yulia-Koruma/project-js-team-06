@@ -1,38 +1,127 @@
 <div id="container-modal-shop-list"></div>
 
-<!-- <div class="backdrop is-hidden">
-  <div class="modal-shop-list">
+<!-- <div class="backdrop is-hidden" id="modal-add">
+  <div class="modal-shop-list" data-id="${_id}">
     <button type="button" class="button modal-shop-list-close">
       <svg class="modal-shop-list-icon" width="24" height="24">
         <use href="./img/icons.svg#icon-x-close"></use>
-      </svg>
-    </button>
+      </svg></button
+    >n
     <div class="modal-shop-list-wrap">
-      <img src="" alt="" width="287" height="408" />
+      <img class="modal-shop-list-img" src="" alt="" width="287" height="408" />
       <div class="modal-shop-list-info">
         <h1 class="modal-shop-list-title">title</h1>
         <h2 class="modal-shop-list-author">author</h2>
-        <p class="modal-shop-list-desc">descrition</p>
-        <div class="modal-shop-list-buy">
-          <a
-            class="link modal-shop-list-link"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="" alt="Amazon" width="62" height="19" />
-          </a>
-          <a
-            class="link modal-shop-list-link"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="" alt="Apple Books" width="33" height="32" />
-            <button type="button" class="button">add to shopping list</button>
-          </a>
-        </div>
+        <p class="modal-shop-list-desc">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur,
+          facilis qui mollitia, aut esse assumenda veritatis temporibus optio
+          voluptates adipisci nulla unde odit explicabo asperiores.
+        </p>
+        <ul class="modal-shop-list-buy">
+          <li>
+            <a
+              class="link modal-shop-list-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="buy-icon icon-amazon"
+                srcset="./img/amazon-2x.png 2x"
+                src="./img/amazon-1x.png"
+                alt="Amazon"
+                width="62"
+                height="19"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              class="link modal-shop-list-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="buy-icon icon-apple-books"
+                srcset="../img/apple-books-2x.png 2x"
+                src="./img/apple-books-1x.png"
+                alt="AppleBooks"
+                width="33"
+                height="32"
+              />
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
+    <button type="button" class="button btn-shop-list js-btn-add">
+      add to shopping list
+    </button>
   </div>
 </div> -->
+
+<div class="backdrop is-hidden" id="modal-remove">
+  <div class="modal-shop-list" data-id="${_id}">
+    <button type="button" class="button modal-shop-list-close">
+      <svg class="modal-shop-list-icon" width="24" height="24">
+        <use href="./img/icons.svg#icon-x-close"></use>
+      </svg></button
+    >n
+    <div class="modal-shop-list-wrap">
+      <img class="modal-shop-list-img" src="" alt="" width="287" height="408" />
+      <div class="modal-shop-list-info">
+        <h1 class="modal-shop-list-title">title</h1>
+        <h2 class="modal-shop-list-author">author</h2>
+        <p class="modal-shop-list-desc">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur,
+          facilis qui mollitia, aut esse assumenda veritatis temporibus optio
+          voluptates adipisci nulla unde odit explicabo asperiores.
+        </p>
+        <ul class="modal-shop-list-buy">
+          <li>
+            <a
+              class="link modal-shop-list-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="buy-icon icon-amazon"
+                srcset="./img/amazon-2x.png 2x"
+                src="./img/amazon-1x.png"
+                alt="Amazon"
+                width="62"
+                height="19"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              class="link modal-shop-list-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="buy-icon icon-apple-books"
+                srcset="../img/apple-books-2x.png 2x"
+                src="./img/apple-books-1x.png"
+                alt="AppleBooks"
+                width="33"
+                height="32"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <button type="button" class="button btn-shop-list js-btn-remove">
+      remove from the shopping list
+    </button>
+    <p class="modal-shop-list-text">
+      Сongratulations! You have added the book to the shopping list. To delete,
+      press the button “Remove from the shopping list”.
+    </p>
+  </div>
+</div>
