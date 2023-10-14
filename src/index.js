@@ -3,4 +3,6 @@ import './js/scrollup';
 import './js/header';
 import './js/bookcard.js';
 import './js/shop-list';
+import './js/theme.js';
 import './js/modal-shop-list.js';
+
