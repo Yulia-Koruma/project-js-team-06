@@ -9,23 +9,49 @@ export function createCategoryList(categories) {
 
   categoryList.insertBefore(allCategoriesLink, firstCategory);
 
-  categoryList.innerHTML += categories
-    .map(
-      category =>
-        `<button class="category-item" data-category="${category.list_name}">${category.list_name}</button>`
-    )
-    .join('');
+  categories.forEach(category => {
+    const categoryButton = document.createElement('button');
+    categoryButton.classList.add('category-item');
+    categoryButton.setAttribute('data-category', category.list_name);
+    categoryButton.innerText = category.list_name;
+
+    categoryButton.addEventListener('click', () => {
+      const categoryItems = document.querySelectorAll('.category-item');
+      categoryItems.forEach(item => item.classList.remove('category-active'));
+
+      categoryButton.classList.add('category-active');
+    });
+
+    categoryList.appendChild(categoryButton);
+  });
 }
 
 export function createBookList(books) {
   const bookList = document.querySelector('.book-list');
-  bookList.innerHTML = books.length
+  const booksContainer = document.querySelector('.books-container-title');
+
+  const categoryTitle =
+    books.length > 0 ? books[0].list_name : 'All categories';
+
+  const lastWord = categoryTitle.split(' ').pop();
+  const titleWithLastWordHighlighted = categoryTitle.replace(
+    new RegExp(`${lastWord}$`),
+    `<span class="highlighted-word">${lastWord}</span>`
+  );
+
+  booksContainer.innerHTML = `<h2 class="books-list-title">${titleWithLastWordHighlighted}</h2>`;
+
+  bookList.innerHTML += books.length
     ? books
         .map(
           book => `
-            <img src="${book.book_image}" alt="${book.title}">
-            <div class="book-item">${book.title}</div>
-            <div class="book-item">${book.author}</div>
+            <div class="book-list-card">
+              <img class="book-list-card-img" src="${book.book_image}" alt="${book.title}">
+              <div class="book-list-card-content">
+                <div class="card-content-title">${book.title}</div>
+                <div class="card-content-author">${book.author}</div>
+              </div>
+            </div>
           `
         )
         .join('')
