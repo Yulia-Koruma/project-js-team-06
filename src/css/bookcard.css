@@ -1,0 +1,136 @@
+.bookgallery {
+    display: flex;
+    flex-direction: column;
+}
+
+.books-list {
+    margin-bottom: 40px;
+}
+
+.books-card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.books-card-img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.books-main-title {
+    color: #111;
+    font-family: DM Sans;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
+    margin-bottom: 40px;
+}
+
+.books-main-title-attribute {
+    color: #4F2EE8;
+    font-family: DM Sans;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
+}
+
+.books-list-title {
+    color: #B4AFAF;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.42px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.books-card-title {
+    color: #111;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.64px;
+    text-transform: uppercase;
+    margin-top: 14px;
+    margin-bottom: 4px;
+}
+
+.books-card-author {
+    color: #B4AFAF;
+    font-family: DM Sans;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.16;
+    letter-spacing: -0.48px;
+}
+
+.books-btn {
+    display: block;
+    margin-left: auto;
+    padding: 14px 28px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+
+    color: #111111;
+    background-color: transparent;
+    border: 2px solid #4f2ee8;
+    border-radius: 40px;
+
+    transition-property: background-color, color;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.books-btn:is(:hover, :focus) {
+    background-color: #4f2ee8;
+    color: #ffffff;
+}
+
+.books-card-link:is(:hover, :focus) .books-overlay-text {
+    transform: translateY(0);
+}
+
+.books-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.books-overlay-text {
+    position: absolute;
+    bottom: 0;
+    color: #111111;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+
+    display: flex;
+    height: 70px;
+    padding: 0px 52px;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #EAC645;
+    width: 100%;
+    transform: translateY(100%);
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    border-radius: 0 0 8px 8px;
+}
