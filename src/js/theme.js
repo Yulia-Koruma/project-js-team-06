@@ -10,7 +10,7 @@ function savedTheme() {
     }
 }
 
-const themeSwich = document.querySelector('#slider');
+const themeSwich = document.querySelector('.checkbox-input');
 themeSwich.addEventListener('change', onThemeSwichChange);
 
 function onThemeSwichChange(event) {
