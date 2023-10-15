@@ -16,23 +16,26 @@
   </head>
   <body>
     <!-- HEADER -->
-    <load src="./partials/header.html" />
-     <main>
-      <section>
-        <div>
-          <!--     блок з переліком благодійних фондів у вигляді вертикального слайдеру (desktop version) -->
-          <load src="./partials/support.html"/>
-        </div>
-        <!-- блок з переліком книг, що були додані користувачем до Shopping list -->
-        <load src="./partials/shop-list.html"/>
+    <load src="/partials/header.html" />
+    <main>
+      <section class="container-list">
+        <load src="/partials/support.html" />
+        <!--   блок з переліком благодійних фондів у вигляді вертикальног слайдеру -->
+        <load src="./partials/shop-list.html" />
       </section>
     </main>
     <!-- Modal shopping-list -->
-    <load src="./partials/modal-shop-list.html"/>
+    <load src="/partials/modal-shop-list.html" />
     <!-- Modal Sing-up -->
-    <load src="./partials/modal-sing-up.html"/>
+    <load src="/partials/modal-sing-up.html" />
     <!-- Skroll-up -->
-    <load src="./partials/scroll-up.html"/>
+    <load src="/partials/scroll-up.html" />
     <script type="module" src="/shopping-list.js"></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+      integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

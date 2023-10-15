@@ -20,26 +20,31 @@
     <!-- MAIN -->
     <main>
       <!--Home -->
-      <section>
-        <div>
+      <section class="container home-container">
+        <aside>
           <!--   блок з переліком усіх категорій книг -->
-          <load src="./partials/category.html" />
+          <load src="/partials/category.html" />
           <!--   блок з переліком благодійних фондів у вигляді вертикального слайдеру -->
-          <load src="./partials/support.html" />
-        </div>
+          <load src="/partials/support.html" />
+        </aside>
         <!-- блок з переліком книг, що належать до всіх категорій або до окремої категорії -->
-        <load src="./partials/loader.html" />
-        <load src="./partials/books.html" />
+        <load src="/partials/loader.html" />
+        <load src="/partials/books.html" />
       </section>
     </main>
     <!-- Modal shopping-list -->
-    <load src="./partials/modal-shop-list.html" />
+    <load src="/partials/modal-shop-list.html" />
     <!-- Modal Sing-up -->
-    <load src="./partials/modal-sing-up.html" />
+    <load src="/partials/modal-sing-up.html" />
     <!-- Skroll-up -->
-    <load src="./partials/scroll-up.html" />
-    <script type="module" src="/index.js"></script>
-    <script type="module" src="./js/category.js"></script>
-    <script type="module" src="./js/modal-shop-list.js"></script>
+    <load src="/partials/scroll-up.html" />
+    <script type="module" src="/js/theme.js"></script>
+    <script type="module" src="index.js"></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+      integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

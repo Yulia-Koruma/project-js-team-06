@@ -1,0 +1,11 @@
+body {
+  color: var(--main-text-color);
+  background-color: var(--background-color);
+}
+
+:root[theme='dark'] {
+  --background-color: #202024;
+  --heder-background: #111;
+  --main-text-color: #fff;
+  --text-color-second: rgba(255, 255, 255, 0.6);
+}

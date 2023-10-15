@@ -1,49 +1,89 @@
 import {fetchSelectedBook} from "./api"
-import { createMarkupModalShopList } from "./createMarkupModalShopList";
+import { createMarkupModalAddShopList, createMarkupModalRemoveShopList } from "./createMarkupModal";
+import { saveInLocal, removeFromLocal } from "./localStorage";
+import "./category";
+import "./bookcard";
 
-const refs = {
+
+export const refs = {
     containerModalShopList: document.querySelector('#container-modal-shop-list'),
-    bookCard: document.querySelector('.js-book-card'),
+    bookGallery: document.querySelector('.bookgallery'),
+    
+    // btnRemoveShopList: document.querySelector('.js-btn-remove'),
+    
 };
 
-refs.bookCard.addEventListener('click', handleBookCardClick);
 
-async function handleBookCardClick(event) {
-    const li = event.target.closest('.bookCard');
-    const id = li.dataset.id;
+export const API_KEY = 'shoppingList';
+const localStorageBooks = [];
+
+
+refs.bookGallery.addEventListener('click', onBookCardClick);
+
+async function onBookCardClick(event) {
+    event.preventDefault();
+
+    const targetCard = event.target.closest('.js-book-card');
+
+    if (!targetCard) {
+    return;
+    }
+
+    toggleModal();
+
+    refs.containerModalShopList.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+
+    const id = targetCard.dataset.id;
+    const book = await fetchSelectedBook(id);
+    const markup = createMarkupModalAddShopList(book);
+
+    refs.containerModalShopList.innerHTML = markup;
+
+    window.addEventListener('click', onBackdropClick);
     
-    const book = await fetchSelectedBook(id);
-    const markup = createMarkupModalShopList(book);
+    function onBackdropClick(event) {
+        if (event.target === refs.containerModalShopList) {
+            toggleModal();
+        }
+    }
 
-    refs.containerModalShopList.innerHTML = markup;
-}
+    const btnCloseModalShopList = document.querySelector('.modal-shop-list-close')
+    btnCloseModalShopList.addEventListener('click', toggleModal);
+    
+    function toggleModal() {
+        refs.containerModalShopList.classList.toggle('is-hidden');
 
+        window.removeEventListener('keydown', onEscKeyPress);
+        window.removeEventListener('click', onBackdropClick);
 
-async function renderMarkup() {
-    const id = "642fd89ac8cf5ee957f122a0";
-    console.log(typeof(id));
-    console.log(id);
-    try {
-    const book = await fetchSelectedBook(id);
-    console.log(book);
-    const markup = createMarkupModalShopList(book);
-
-    refs.containerModalShopList.innerHTML = markup;
-    } catch (error) {
-        console.error('Error loading book', error);
+        refs.containerModalShopList.style.display = 'none';
+        document.body.style.overflow = 'auto';
     }
     
-    
+    window.addEventListener('keydown', onEscKeyPress);
+
+    function onEscKeyPress(event) {
+        if (event.code === 'Escape') {
+        toggleModal();
+        }
+    }
+
+    const btnAddShopList = document.querySelector('.js-btn-add');
+
+    btnAddShopList.addEventListener('click', () => {
+        refs.containerModalShopList.innerHTML = createMarkupModalRemoveShopList(book);
+
+        localStorageBooks.push(book);
+        saveInLocal(API_KEY, localStorageBooks);
+
+        const btnCloseModalShopList = document.querySelector('.modal-shop-list-close')
+        btnCloseModalShopList.addEventListener('click', toggleModal);
+    });
+
+    // refs.btnRemoveShopList.addEventListener('click', () => {
+       
+    // });
+
 }
 
-renderMarkup();
-
-
-// const bookId = "642fd89ac8cf5ee957f12362";
-
-// const book = fetchSelectedBook(bookId).then(response => {
-//     if (!response.ok) {
-//         throw new Error(response.statusText);
-//     }
-//     return response.json();
-// });

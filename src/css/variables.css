@@ -1,7 +1,10 @@
 :root {
   --black: #111;
   --white: #fff;
-  --background-dark: #202024;
+  --main-text-color: #111;
+  --background-color: #fff;
+  --header-background: #fff;
+  /* --background-dark: #202024; */
   --accent-color-first: #4f2ee8;
   --accent-color-second: #eac645;
   --text-color-first: #b4afaf;
@@ -15,10 +18,9 @@ body {
 }
 
 .container {
-
-    max-width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 @media screen and (min-width: 375px) {
@@ -46,3 +48,6 @@ body {
 
 
 
+.container-list { 
+  display: flex;
+}

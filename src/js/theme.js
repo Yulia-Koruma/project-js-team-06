@@ -1,25 +1,25 @@
- // function to set a given theme/color-scheme
- function setTheme(themeName) {
-    localStorage.setItem('theme', themeName);
-    document.documentElement.className = themeName;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    savedTheme()
+})
 
-// function to toggle between light and dark theme
-function toggleTheme() {
-    if (localStorage.getItem('theme') === 'theme-dark') {
-        setTheme('theme-light');
+function savedTheme() {
+    if (localStorage.getItem('theme')) {
+        document.documentElement.setAttribute('theme', 'dark')
+        document.getElementById('slider').checked = true;
     } else {
-        setTheme('theme-dark');
+        document.documentElement.removeAttribute('theme')
     }
 }
 
-// Immediately invoked function to set the theme on initial load
-(function () {
-    if (localStorage.getItem('theme') === 'theme-dark') {
-        setTheme('theme-dark');
-        document.getElementById('slider').checked = false;
+const themeSwich = document.querySelector('.checkbox-input');
+themeSwich.addEventListener('change', onThemeSwichChange);
+
+function onThemeSwichChange(event) {
+    if (document.documentElement.hasAttribute('theme')) {
+        document.documentElement.removeAttribute('theme');
+        localStorage.removeItem('theme')
     } else {
-        setTheme('theme-light');
-      document.getElementById('slider').checked = true;
+        document.documentElement.setAttribute('theme', "dark");
+        localStorage.setItem('theme', "dark");
     }
-})();
+}

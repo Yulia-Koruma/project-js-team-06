@@ -1,8 +1,66 @@
-<div class="shopping-list">
-        <!-- карточки книг -->
-    </div>
-    <div class="empty-message">
-        <img src="empty-cart.png" alt="Empty Cart">
-        <p>This page is empty, add some books and proceed to order.</p>
-        <img src="../img/IMG_9606 1.png" alt="">
-    </div>
+<div class="container">
+  <h1>Shopping List</h1>
+  <div id="book-list">
+    <!-- Здесь будут отображаться книги из localStorage -->
+  </div>
+  
+  <div class="empty-message">
+    <p id="no-books-message" class="hidden">This page is empty, add some books and proceed to order.</p>
+    <img class="imgShopList" src="./img/IMG_96061.png" alt="books" />
+  </div>
+  <div class="pagination">
+    <button id="firstPage" class="buttonPag">
+      <svg class="buttonPagSvg" width="38" height="38">
+        <use href="./img/icons.svg#icon-slider1"></use>
+      </svg>
+    </button>
+    <button id="prevPage" class="buttonPag">
+      <svg class="buttonPagSvg" width="38" height="38">
+        <use href="./img/icons.svg#icon-slider2"></use>
+      </svg>
+    </button>
+    <button id="currentPage" class="buttonPag">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="38"
+        height="38"
+        viewBox="0 0 38 38"
+        fill="none"
+      >
+        <circle cx="19" cy="19" r="18.5" fill="#111111" stroke="#111111" />
+      </svg>
+    </button>
+    <button id="nextcurrentPage" class="buttonPag">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="38"
+        height="38"
+        viewBox="0 0 38 38"
+        fill="none"
+      >
+        <circle cx="19" cy="19" r="18.5" stroke="#111111" />
+      </svg>
+    </button>
+    <button id="ellipsis" class="buttonPag">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="38"
+        height="38"
+        viewBox="0 0 38 38"
+        fill="none"
+      >
+        <circle cx="19" cy="19" r="18.5" stroke="#111111" />
+      </svg>
+    </button>
+    <button id="nextPage" class="buttonPag">
+      <svg class="buttonPagSvg" width="38" height="38">
+        <use href="./img/icons.svg#icon-slider6"></use>
+      </svg>
+    </button>
+    <button id="goToLast" class="buttonPag">
+      <svg class="buttonPagSvg" width="38" height="38">
+        <use href="./img/icons.svg#icon-slider7"></use>
+      </svg>
+    </button>
+  </div>
+</div>
