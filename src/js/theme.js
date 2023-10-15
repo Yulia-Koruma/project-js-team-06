@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function savedTheme() {
     if (localStorage.getItem('theme')) {
         document.documentElement.setAttribute('theme', 'dark')
+        document.getElementById('slider').checked = true;
     } else {
         document.documentElement.removeAttribute('theme')
     }

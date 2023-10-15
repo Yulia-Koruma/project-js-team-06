@@ -1,11 +1,12 @@
-export function createCategoryList(categories) {
+export function createCategoryList(categories, books) {
   const categoryList = document.querySelector('.category-list');
   const firstCategory = categoryList.firstChild;
 
   const allCategoriesLink = document.createElement('a');
   allCategoriesLink.classList.add('category-item');
-  allCategoriesLink.setAttribute('href', '/');
+  allCategoriesLink.setAttribute('href', './index.html');
   allCategoriesLink.innerText = 'All categories';
+  allCategoriesLink.classList.add('category-active');
 
   categoryList.insertBefore(allCategoriesLink, firstCategory);
 
@@ -20,6 +21,19 @@ export function createCategoryList(categories) {
       categoryItems.forEach(item => item.classList.remove('category-active'));
 
       categoryButton.classList.add('category-active');
+
+      const booksContainer = document.querySelector('.books-container-title');
+      const lastWord = categoryButton.innerText.split(' ').pop();
+      const titleWithLastWordHighlighted = categoryButton.innerText.replace(
+        new RegExp(`${lastWord}$`),
+        `<span class="highlighted-word">${lastWord}</span>`
+      );
+      booksContainer.innerHTML = `<h2 class="books-list-title">${titleWithLastWordHighlighted}</h2>`;
+
+      const filteredBooks = books.filter(
+        book => book.category === category.list_name
+      );
+      createBookList(filteredBooks);
     });
 
     categoryList.appendChild(categoryButton);
@@ -28,20 +42,8 @@ export function createCategoryList(categories) {
 
 export function createBookList(books) {
   const bookList = document.querySelector('.book-list');
-  const booksContainer = document.querySelector('.books-container-title');
 
-  const categoryTitle =
-    books.length > 0 ? books[0].list_name : 'All categories';
-
-  const lastWord = categoryTitle.split(' ').pop();
-  const titleWithLastWordHighlighted = categoryTitle.replace(
-    new RegExp(`${lastWord}$`),
-    `<span class="highlighted-word">${lastWord}</span>`
-  );
-
-  booksContainer.innerHTML = `<h2 class="books-list-title">${titleWithLastWordHighlighted}</h2>`;
-
-  bookList.innerHTML += books.length
+  bookList.innerHTML = books.length
     ? books
         .map(
           book => `

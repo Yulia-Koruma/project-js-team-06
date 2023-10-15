@@ -1,8 +1,19 @@
 export const scrollUpBtn = document.querySelector('.btn-scroll-up');
 
-scrollUpBtn.classList.add("visually-hidden");
-
 scrollUpBtn.addEventListener('click', onBtnScrollUp);
+
+function showScrollUpBtn() {
+  scrollUpBtn.classList.remove("visually-hidden");
+};
+
+function hideScrollUpBtn() {
+  scrollUpBtn.classList.add("visually-hidden");
+};
+
+window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      scrollY > 400 ? showScrollUpBtn() : hideScrollUpBtn();
+    });
 
 export function onBtnScrollUp() {
     window.scrollTo({
@@ -13,4 +24,3 @@ export function onBtnScrollUp() {
 };
 
 export const loaderEl = document.querySelector('.loader');
-loaderEl.classList.add("visually-hidden");

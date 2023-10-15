@@ -4,84 +4,136 @@ import './category-markup.js';
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
-  const items = document.querySelectorAll('.items li');
-  const firstButton = document.getElementById('firstPage');
-  const prevButton = document.getElementById('prevPage');
-  const pageNumbers = document.getElementById('pageNumbers');
-  const nextButton = document.getElementById('nextPage');
-  const lastButton = document.getElementById('lastPage');
-  let currentPage = 1;
-  const itemsPerPage = 5; // Кількість елементів на сторінці
+// document.addEventListener('DOMContentLoaded', function () {
+//   const items = document.querySelectorAll('.items li');
+//   const firstButton = document.getElementById('firstPage');
+//   const prevButton = document.getElementById('prevPage');
+//   const pageNumbers = document.getElementById('pageNumbers');
+//   const nextButton = document.getElementById('nextPage');
+//   const lastButton = document.getElementById('lastPage');
+//   let currentPage = 1;
+//   const itemsPerPage = 3; // Кількість елементів на сторінці
 
-  function showPage(page) {
-    items.forEach((item, index) => {
-      const startIndex = (page - 1) * itemsPerPage;
-      const endIndex = startIndex + itemsPerPage;
+//   function showPage(page) {
+//     items.forEach((item, index) => {
+//       const startIndex = (page - 1) * itemsPerPage;
+//       const endIndex = startIndex + itemsPerPage;
 
-      if (index >= startIndex && index < endIndex) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  }
+//       if (index >= startIndex && index < endIndex) {
+//         item.style.display = 'block';
+//       } else {
+//         item.style.display = 'none';
+//       }
+//     });
+//   }
 
-  function updatePageNumbers(totalPages) {
-    let pageNumbersHTML = '';
-    for (let i = 1; i <= totalPages; i++) {
-      pageNumbersHTML += `<button class="page">${i}</button>`;
-    }
-    pageNumbers.innerHTML = pageNumbersHTML;
+//   function updatePageNumbers(totalPages) {
+//     let pageNumbersHTML = '';
+//     for (let i = 1; i <= totalPages; i++) {
+//       pageNumbersHTML += `<button class="page">${i}</button>`;
+//     }
+//     pageNumbers.innerHTML = pageNumbersHTML;
 
-    const pageButtons = document.querySelectorAll('.page');
-    pageButtons.forEach((button, index) => {
-      button.addEventListener('click', () => {
-        currentPage = index + 1;
-        showPage(currentPage);
-        updatePageNumbers(totalPages);
-      });
-    });
-  }
+//     const pageButtons = document.querySelectorAll('.page');
+//     pageButtons.forEach((button, index) => {
+//       button.addEventListener('click', () => {
+//         currentPage = index + 1;
+//         showPage(currentPage);
+//         updatePageNumbers(totalPages);
+//       });
+//     });
+//   }
 
-  function updatePaginationUI() {
-    const totalPages = Math.ceil(items.length / itemsPerPage);
-    updatePageNumbers(totalPages);
-  }
+//   function updatePaginationUI() {
+//     const totalPages = Math.ceil(items.length / itemsPerPage);
+//     updatePageNumbers(totalPages);
+//   }
 
-  firstButton.addEventListener('click', () => {
+//   firstButton.addEventListener('click', () => {
+//     currentPage = 1;
+//     showPage(currentPage);
+//     updatePaginationUI();
+//   });
+
+//   prevButton.addEventListener('click', () => {
+//     if (currentPage > 1) {
+//       currentPage--;
+//       showPage(currentPage);
+//       updatePaginationUI();
+//     }
+//   });
+
+//   nextButton.addEventListener('click', () => {
+//     const totalPages = Math.ceil(items.length / itemsPerPage);
+//     if (currentPage < totalPages) {
+//       currentPage++;
+//       showPage(currentPage);
+//       updatePaginationUI();
+//     }
+//   });
+
+//   lastButton.addEventListener('click', () => {
+//     const totalPages = Math.ceil(items.length / itemsPerPage);
+//     currentPage = totalPages;
+//     showPage(currentPage);
+//     updatePaginationUI();
+//   });
+
+  
+//   showPage(currentPage);
+//   updatePaginationUI();
+// });
+
+
+const firstPageBtn = document.getElementById('firstPage');
+const prevPageBtn = document.getElementById('prevPage');
+const currentPageBtn = document.getElementById('currentPage');
+const nextPageBtn = document.getElementById('nextcurrentPage');
+const ellipsisBtn = document.getElementById('ellipsis');
+const goToLastBtn = document.getElementById('goToLast');
+
+// Максимальное количество страниц
+const maxPages = 10;
+
+let currentPage = 1;
+
+function updateButtons() {
+  // Обновляем текст на кнопках
+  currentPageBtn.innerText = currentPage;
+  nextPageBtn.innerText = currentPage + 1;
+
+  // Логика для скрытия/отображения троеточия
+  ellipsisBtn.style.display = currentPage < maxPages - 1 ? 'block' : 'none';
+}
+
+updateButtons();
+
+firstPageBtn.addEventListener('click', () => {
+  if (currentPage !== 1) {
     currentPage = 1;
-    showPage(currentPage);
-    updatePaginationUI();
-  });
+    updateButtons();
+  }
+});
 
-  prevButton.addEventListener('click', () => {
-    if (currentPage > 1) {
-      currentPage--;
-      showPage(currentPage);
-      updatePaginationUI();
-    }
-  });
+prevPageBtn.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    updateButtons();
+  }
+});
 
-  nextButton.addEventListener('click', () => {
-    const totalPages = Math.ceil(items.length / itemsPerPage);
-    if (currentPage < totalPages) {
-      currentPage++;
-      showPage(currentPage);
-      updatePaginationUI();
-    }
-  });
+nextPageBtn.addEventListener('click', () => {
+  if (currentPage < maxPages) {
+    currentPage++;
+    updateButtons();
+  }
+});
 
-  lastButton.addEventListener('click', () => {
-    const totalPages = Math.ceil(items.length / itemsPerPage);
-    currentPage = totalPages;
-    showPage(currentPage);
-    updatePaginationUI();
-  });
-
-  // Показати першу сторінку при завантаженні
-  showPage(currentPage);
-  updatePaginationUI();
+goToLastBtn.addEventListener('click', () => {
+  if (currentPage < maxPages) {
+    currentPage = maxPages;
+    updateButtons();
+  }
 });
 
 function createBookCard(bookData) {

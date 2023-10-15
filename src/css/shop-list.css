@@ -21,6 +21,12 @@ img {
   height: auto;
 }
 
+.imgShopList {
+  max-width: 100%;
+  height: auto;
+  
+}
+
 .buy-links {
   margin-top: auto;
 }
@@ -34,21 +40,8 @@ img {
   text-align: center;
 }
 
-button {
-  background-color: #ff5454;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: auto;
-  margin-bottom: 10px;
-  transition: background-color 0.2s;
-}
 
-button:hover {
-  background-color: #d63b3b;
-}
+
 
 .empty-message {
   text-align: center;
@@ -56,6 +49,8 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 120px;
+  padding-left: 65,5px;
 }
 
 .empty-message img {
@@ -64,22 +59,62 @@ button:hover {
   margin-bottom: 20px;
 }
 
-
 .pagination {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-button {
-  width: 38px;
-  height: 38px;
-  border: 1px solid #333; /* обведення кнопки */
-  border-radius: 50%; /* зробити кнопку круглою */
-  background-color: #eee; /* колір кнопки */
-  font-size: 20px; /* розмір тексту в кнопці */
-  margin: 0 5px; /* відступи між кнопками */
-  cursor: pointer; /* курсор для підказки, що це кнопка */
+.buttonPag {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #EAC645;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  font-weight: bold;
 }
+
+.buttonPag img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.button.next {
+  border: 2px solid #EAC645; 
+  fill: #EAC645;
+}
+
+#ellipsis {
+  pointer-events: none;
+  cursor: default;
+}
+
+
 
 button:hover {
-  background-color: #ddd; /* зміна кольору при наведенні */
+  background-color: #ddd;
+}
+
+
+.shop-list {
+color: #111;
+padding-top: 40px;
+padding-left: 20px;
+font-family: DM Sans;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: 1,18; 
+letter-spacing: -1.28px;
+}
+
+.shop-list-span {
+color: #4F2EE8;
+
 }
