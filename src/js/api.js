@@ -41,7 +41,7 @@ export async function fetchBooksByCategory(category) {
 // вибір книги
 export async function fetchSelectedBook(bookId) {
   try {
-      const { data } = await axios.get(`${BASE_URL}${bookId}`);
+    const { data } = await axios.get(`${BASE_URL}${bookId}`);
     return data;
     } catch (error) {
     Notiflix.Notify.failure('Something went wrong. Please try again!');

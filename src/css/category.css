@@ -1,19 +1,10 @@
-.category-title {
-    color: var(--accent-color-first);
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: -0.36px;
-    text-transform: uppercase;
-}
-
 .category-list {
     display: flex;
     flex-direction: column;
-    width: 356px;
+    width: 328px;
     height: 300px;
     overflow-y: auto;
+    margin-bottom: 86px;
 }
 
 @media screen and (max-width: 767px) {
@@ -32,7 +23,7 @@
     width: 8px;
 }
 
-.category-list button {
+.category-item {
     color: var(--text-color-second);
     font-family: DM Sans;
     font-size: 18px;
@@ -43,7 +34,82 @@
     text-align: start;
     border: none;
     background-color: none;
-    background-color: var(--white);
+    background-color: transparent;
     padding: 0;
-    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.category-active {
+    color: var(--accent-color-first);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    text-transform: uppercase;
+}
+
+.highlighted-word {
+    color: var(--accent-color-first);
+}
+
+/* book-list-card */
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.book-list-card {
+    width: 180px;
+    height: 306px;
+}
+
+.book-list-card-img {
+    width: 100%;
+    height: 256px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.book-list-card-content {
+    margin-top: 14px;
+}
+
+.card-content-title {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    margin-bottom: 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+.card-content-author {
+    color: #B4AFAF;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.books-container-title {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px;
+    margin-bottom: 40px;
+}
+
+.books-list-title {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px;
 }
