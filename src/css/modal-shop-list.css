@@ -29,12 +29,24 @@
   pointer-events: none;
 }
 
-.modal-shop-list-icon {
+.modal-shop-list-close {
   position: absolute;
   top: 12px;
   right: 12px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background-color: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-shop-list-icon {
   stroke: var(--black);
   transition: stroke var(--transition-dur-and-func);
+  width: 28px;
+  height: 28px;
 }
 
 .modal-shop-list-icon:hover,
