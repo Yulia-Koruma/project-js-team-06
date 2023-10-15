@@ -1,89 +1,8 @@
 import './category';
-import  './api.js';
+import './api.js';
 import './category-markup.js';
-
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   const items = document.querySelectorAll('.items li');
-//   const firstButton = document.getElementById('firstPage');
-//   const prevButton = document.getElementById('prevPage');
-//   const pageNumbers = document.getElementById('pageNumbers');
-//   const nextButton = document.getElementById('nextPage');
-//   const lastButton = document.getElementById('lastPage');
-//   let currentPage = 1;
-//   const itemsPerPage = 3; // Кількість елементів на сторінці
-
-//   function showPage(page) {
-//     items.forEach((item, index) => {
-//       const startIndex = (page - 1) * itemsPerPage;
-//       const endIndex = startIndex + itemsPerPage;
-
-//       if (index >= startIndex && index < endIndex) {
-//         item.style.display = 'block';
-//       } else {
-//         item.style.display = 'none';
-//       }
-//     });
-//   }
-
-//   function updatePageNumbers(totalPages) {
-//     let pageNumbersHTML = '';
-//     for (let i = 1; i <= totalPages; i++) {
-//       pageNumbersHTML += `<button class="page">${i}</button>`;
-//     }
-//     pageNumbers.innerHTML = pageNumbersHTML;
-
-//     const pageButtons = document.querySelectorAll('.page');
-//     pageButtons.forEach((button, index) => {
-//       button.addEventListener('click', () => {
-//         currentPage = index + 1;
-//         showPage(currentPage);
-//         updatePageNumbers(totalPages);
-//       });
-//     });
-//   }
-
-//   function updatePaginationUI() {
-//     const totalPages = Math.ceil(items.length / itemsPerPage);
-//     updatePageNumbers(totalPages);
-//   }
-
-//   firstButton.addEventListener('click', () => {
-//     currentPage = 1;
-//     showPage(currentPage);
-//     updatePaginationUI();
-//   });
-
-//   prevButton.addEventListener('click', () => {
-//     if (currentPage > 1) {
-//       currentPage--;
-//       showPage(currentPage);
-//       updatePaginationUI();
-//     }
-//   });
-
-//   nextButton.addEventListener('click', () => {
-//     const totalPages = Math.ceil(items.length / itemsPerPage);
-//     if (currentPage < totalPages) {
-//       currentPage++;
-//       showPage(currentPage);
-//       updatePaginationUI();
-//     }
-//   });
-
-//   lastButton.addEventListener('click', () => {
-//     const totalPages = Math.ceil(items.length / itemsPerPage);
-//     currentPage = totalPages;
-//     showPage(currentPage);
-//     updatePaginationUI();
-//   });
-
-  
-//   showPage(currentPage);
-//   updatePaginationUI();
-// });
-
+import './localStorage';
+import './createMarkupModalShopList';
 
 const firstPageBtn = document.getElementById('firstPage');
 const prevPageBtn = document.getElementById('prevPage');
@@ -92,17 +11,12 @@ const nextPageBtn = document.getElementById('nextcurrentPage');
 const ellipsisBtn = document.getElementById('ellipsis');
 const goToLastBtn = document.getElementById('goToLast');
 
-// Максимальное количество страниц
 const maxPages = 10;
-
 let currentPage = 1;
 
 function updateButtons() {
-  // Обновляем текст на кнопках
   currentPageBtn.innerText = currentPage;
   nextPageBtn.innerText = currentPage + 1;
-
-  // Логика для скрытия/отображения троеточия
   ellipsisBtn.style.display = currentPage < maxPages - 1 ? 'block' : 'none';
 }
 
@@ -183,8 +97,26 @@ function createBookCard(bookData) {
   return bookCard;
 }
 
-function hasBooksInLocalStorage() {
-  return localStorage.getItem('shoppingList') !== null;
+function displayBooks() {
+  const shoppingList = document.querySelector('.shopping-list');
+  const emptyMessage = document.querySelector('.empty-message');
+
+  const savedBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
+
+  if (savedBooks.length === 0) {
+    emptyMessage.style.display = 'block';
+    shoppingList.style.display = 'none';
+  } else {
+    emptyMessage.style.display = 'none';
+    shoppingList.style.display = 'flex';
+
+    shoppingList.innerHTML = '';
+
+    savedBooks.forEach(bookData => {
+      const bookCard = createBookCard(bookData);
+      shoppingList.appendChild(bookCard);
+    });
+  }
 }
 
 function displayEmptyMessage() {
@@ -192,35 +124,14 @@ function displayEmptyMessage() {
   emptyMessage.style.display = 'block';
 }
 
-function displayBooks() {
-  const shoppingList = document.querySelector('.shopping-list');
-  shoppingList.innerHTML = '';
-
-  if (!hasBooksInLocalStorage()) {
-    displayEmptyMessage();
-    return;
-  }
-
-  const emptyMessage = document.querySelector('.empty-message');
-  emptyMessage.style.display = 'none';
-
-  const savedBooks = JSON.parse(localStorage.getItem('shoppingList'));
-  savedBooks.forEach(book => {
-    const bookCard = createBookCard(book);
-    shoppingList.appendChild(bookCard);
-  });
-}
-
-function removeBookFromList(book) {
-  const savedBooks = JSON.parse(localStorage.getItem('shoppingList'));
-  const bookIndex = savedBooks.findIndex(
-    savedBook => savedBook.title === book.title
-  );
-  if (bookIndex !== -1) {
-    savedBooks.splice(bookIndex, 1);
-    localStorage.setItem('shoppingList', JSON.stringify(savedBooks));
-    displayBooks();
-  }
-}
-
 displayBooks();
+
+function removeBookFromList(bookData) {
+  const savedBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
+  const updatedBooks = savedBooks.filter(
+    savedBook => savedBook.title !== bookData.title
+  );
+
+  localStorage.setItem('shoppingList', JSON.stringify(updatedBooks));
+  displayBooks();
+}
