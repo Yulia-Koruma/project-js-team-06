@@ -1,3 +1,5 @@
+export const API_KEY = 'shoppingList';
+
 export function saveInLocal(key, value) {
     try {
         const changingValue = JSON.stringify(value);
