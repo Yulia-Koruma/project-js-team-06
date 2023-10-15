@@ -51,14 +51,14 @@ function booksCardTemplate(data) {
 <ul class="books-container">${data.map(elements => {
     return `
         <li class="books-list">
-          <h3 class="books-list-title">${elements.list_name}
+          <h3 class="books-list-title-smal">${elements.list_name}
           </h3>
           <ul class="books-card-container">${elements.books.map(book => {
               return `
                <li class="js-book-card" data-id="${book._id}">
                   <a href="#" class="books-card-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>
                      <div class="books-card">
-                         <img src="${book.book_image}" alt="${book.title}" class="books-card-img" width="180" height="256"/>
+                         <img src="${book.book_image}" alt="${book.title}" class="books-card-img"/>
                          <p class="books-overlay-text">quick view</p>
                      </div> 
                      <div class="books-descr">
