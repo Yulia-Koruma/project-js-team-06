@@ -147,14 +147,13 @@
         </div>
         <!-- блок з переліком книг, що були додані користувачем до Shopping list -->
         <div class="container">
-  <p class="shop-list">
-    Shopping <span class="shop-list shop-list-span">List</span>
-  </p>
-  <div class="shopping-list">
-    <!-- карточки книг -->
+  <h1>Shopping List</h1>
+  <div id="book-list">
+    <!-- Здесь будут отображаться книги из localStorage -->
   </div>
+  
   <div class="empty-message">
-    <p>This page is empty, add some books and proceed to order.</p>
+    <p id="no-books-message" class="hidden">This page is empty, add some books and proceed to order.</p>
     <img class="imgShopList" src="/project-js-team-06/assets/IMG_96061-967c20ad.png" alt="books" />
   </div>
   <div class="pagination">
@@ -168,16 +167,39 @@
         <use href="/project-js-team-06/assets/icons-b057487e.svg#icon-slider2"></use>
       </svg>
     </button>
-    <button id="currentPage" class="buttonPag"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
-  <circle cx="19" cy="19" r="18.5" fill="#111111" stroke="#111111"/>
-</svg></button>
-    <button id="nextcurrentPage" class="buttonPag"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
-<circle cx="19" cy="19" r="18.5" stroke="#111111"/>
-</svg></button>
+    <button id="currentPage" class="buttonPag">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="38"
+        height="38"
+        viewBox="0 0 38 38"
+        fill="none"
+      >
+        <circle cx="19" cy="19" r="18.5" fill="#111111" stroke="#111111" />
+      </svg>
+    </button>
+    <button id="nextcurrentPage" class="buttonPag">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="38"
+        height="38"
+        viewBox="0 0 38 38"
+        fill="none"
+      >
+        <circle cx="19" cy="19" r="18.5" stroke="#111111" />
+      </svg>
+    </button>
     <button id="ellipsis" class="buttonPag">
-<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
-<circle cx="19" cy="19" r="18.5" stroke="#111111"/>
-</svg></button>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="38"
+        height="38"
+        viewBox="0 0 38 38"
+        fill="none"
+      >
+        <circle cx="19" cy="19" r="18.5" stroke="#111111" />
+      </svg>
+    </button>
     <button id="nextPage" class="buttonPag">
       <svg class="buttonPagSvg" width="38" height="38">
         <use href="/project-js-team-06/assets/icons-b057487e.svg#icon-slider6"></use>
