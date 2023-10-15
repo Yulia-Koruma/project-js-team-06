@@ -20,15 +20,15 @@ function savedTheme() {
 themeSwich.addEventListener('change', onThemeSwichChange);
 
 function onThemeSwichChange() {
-    if (document.documentElement.hasAttribute('theme')) {
-        document.documentElement.removeAttribute('theme');
-        localStorage.removeItem('theme')
-         themeSwich.checked = false;
-        // themeSwichMob.checked = false;
-    } else {
-        document.documentElement.setAttribute('theme', "dark");
-        localStorage.setItem('theme', "dark");
-        themeSwich.checked = true;
-        // themeSwichMob.checked = true;
-    }
+        if (document.documentElement.hasAttribute('theme')) {
+            document.documentElement.removeAttribute('theme');
+            localStorage.removeItem('theme')
+            themeSwich.checked = false;
+            // themeSwichMob.checked = false;
+        } else {
+            document.documentElement.setAttribute('theme', "dark");
+            localStorage.setItem('theme', "dark");
+            themeSwich.checked = true;
+            // themeSwichMob.checked = true;
+        }
 }
