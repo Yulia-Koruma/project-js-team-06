@@ -4,7 +4,6 @@ import './category-markup.js';
 import './localStorage';
 import { createMarkupModalAddShopList } from './createMarkupModal';
 
-
 const firstPageBtn = document.getElementById('firstPage');
 const prevPageBtn = document.getElementById('prevPage');
 const currentPageBtn = document.getElementById('currentPage');
