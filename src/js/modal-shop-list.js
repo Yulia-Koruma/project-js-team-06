@@ -1,41 +1,68 @@
 import {fetchSelectedBook} from "./api"
-import { createMarkupModalShopList } from "./createMarkupModalShopList";
-import { saveInLocal, getFromLocal, removeFromLocal } from "./localStorage";
+import { createMarkupModalAddShopList } from "./createMarkupModalShopList";
+import { saveInLocal, removeFromLocal } from "./localStorage";
 import "./category";
 import "./bookcard";
 
 
 export const refs = {
     containerModalShopList: document.querySelector('#container-modal-shop-list'),
-    bookCard: document.querySelector('.js-book-card'),
-    btnAddShopList: document.querySelector('.js-btn-add'),
+    bookGallery: document.querySelector('.bookgallery'),
+    // btnAddShopList: document.querySelector('.js-btn-add'),
     btnRemoveShopList: document.querySelector('.js-btn-remove'),
+    
 };
 
-console.log(refs.bookCard);
+console.log(refs.bookGallery);
 
 export const API_KEY = 'shoppingList';
 const localStorageBooks = [];
 
 
-refs.bookCard.addEventListener('click', handleBookCardClick);
+refs.bookGallery.addEventListener('click', onBookCardClick);
 
-async function handleBookCardClick(event) {
-    refs.containerModalShopList.classList.remove('is-hidden');
+async function onBookCardClick(event) {
+    event.preventDefault();
+
+    if (event.target.classList.contains('js-book-card')) {
+    return;
+    } 
+
+    toggleModal();
+
     refs.containerModalShopList.style.display = 'block';
     document.body.style.overflow = 'hidden';
 
     const liBook = event.target.closest('.js-book-card');
-    console.log(liBook);
     const id = liBook.dataset.id;
-    console.log(id);
     
     const book = await fetchSelectedBook(id);
-    const markup = createMarkupModalShopList(book);
+
+    const markup = createMarkupModalAddShopList(book);
 
     refs.containerModalShopList.innerHTML = markup;
 
-    refs.btnAddShopList.addEventListener('click', () => {
+    const btnCloseModalShopList = document.querySelector('.modal-shop-list-close')
+
+    btnCloseModalShopList.addEventListener('click', toggleModal);
+    
+    function toggleModal() {
+        refs.containerModalShopList.classList.toggle('is-hidden');
+        window.removeEventListener('keydown', onEscKeyPress);
+    }
+    
+    window.addEventListener('keydown', onEscKeyPress);
+
+    function onEscKeyPress(event) {
+        if (event.code === 'Escape') {
+        toggleModal();
+        }
+    }
+
+    const btnAddShopList = document.querySelector('.js-btn-add');
+
+
+    btnAddShopList.addEventListener('click', () => {
         localStorageBooks.push(book);
         saveInLocal(API_KEY, localStorageBooks);
     });
@@ -46,35 +73,3 @@ async function handleBookCardClick(event) {
 
 }
 
-
-
-// async function renderMarkup() {
-//     const id = "642fd89ac8cf5ee957f12363";
-//     console.log(typeof(id));
-//     console.log(id);
-//     try {
-//     const book = await fetchSelectedBook(id);
-//     console.log(book);
-//         const markup = createMarkupModalShopList(book);
-        
-//         refs.containerModalShopList.innerHTML = markup;
-
-  
-//     } catch (error) {
-//         console.error('Error loading book', error);
-//     }
-    
-    
-// }
-
-// renderMarkup();
-
-
-// const bookId = "642fd89ac8cf5ee957f12362";
-
-// const book = fetchSelectedBook(bookId).then(response => {
-//     if (!response.ok) {
-//         throw new Error(response.statusText);
-//     }
-//     return response.json();
-// });
