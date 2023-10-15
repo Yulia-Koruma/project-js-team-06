@@ -1,5 +1,6 @@
 import { fetchCategoryList, fetchBooksByCategory } from './api.js';
 import { createCategoryList, createBookList } from './category-markup.js';
+import Notiflix from 'notiflix';
 
 const categoryListElement = document.querySelector('.category-list');
 
@@ -8,7 +9,8 @@ async function loadBooksByCategory(category) {
     const books = await fetchBooksByCategory(category);
     createBookList(books);
   } catch (error) {
-    console.error('Error loading books:', error);
+    Notiflix.Notify.failure('Something went wrong. Please try again!');
+  } finally {
   }
 }
 
@@ -24,7 +26,8 @@ async function initializeApp() {
       }
     });
   } catch (error) {
-    console.error('Error initializing app:', error);
+    Notiflix.Notify.failure('Something went wrong. Please try again!');
+  } finally {
   }
 }
 
