@@ -45,3 +45,9 @@ body {
     padding-right: 24px;
   }
 }
+
+
+.container-list {
+  
+  display: flex;
+}
