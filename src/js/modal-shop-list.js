@@ -3,6 +3,7 @@ import { createMarkupModalAddShopList, createMarkupModalRemoveShopList } from ".
 import { saveInLocal, removeFromLocal } from "./localStorage";
 import "./category";
 import "./bookcard";
+import { API_KEY } from "./localStorage";
 
 
 export const refs = {
@@ -13,8 +14,6 @@ export const refs = {
     
 };
 
-
-export const API_KEY = 'shoppingList';
 const localStorageBooks = [];
 
 
