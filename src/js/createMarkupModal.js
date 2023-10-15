@@ -1,4 +1,10 @@
-// import "./img/x-close.svg"
+// import closeModal from '../img/x-close.svg';
+import amazon from '../img/amazon-1x.png';
+import amazon2x from '../img/amazon-2x.png';
+import apple from '../img/apple-books-1x.png';
+import apple2x from '../img/apple-books-2x.png';
+
+
 
 export function createMarkupModalAddShopList({ _id, book_image, title, author, description, buy_links }) {
   
@@ -20,7 +26,7 @@ export function createMarkupModalAddShopList({ _id, book_image, title, author, d
                 href="${buy_links[0].url}"
                 target="_blank"
                 rel="noopener noreferrer">
-                <img class="buy-icon icon-amazon" srcset="./img/amazon-2x.png 2x" src="./img/amazon-1x.png" alt="Amazon" width="62" height="19" />
+                <img class="buy-icon icon-amazon" srcset="${amazon2x} 2x" src="${amazon}" alt="${buy_links[0].name}" width="62" height="19" />
             </a>
             </li>
           <li>
@@ -28,7 +34,7 @@ export function createMarkupModalAddShopList({ _id, book_image, title, author, d
             href="${buy_links[1].url}"
             target="_blank"
             rel="noopener noreferrer">
-            <img class="buy-icon icon-apple-books" srcset="./img/apple-books-2x.png 2x" src="./img/apple-books-1x.png" alt="Apple Books" width="33" height="32" />
+            <img class="buy-icon icon-apple-books" srcset="${apple2x} 2x" src="${apple}" alt="${buy_links[1].name}" width="33" height="32" />
           </a>
           </li>
         </ul>
@@ -55,21 +61,21 @@ export function createMarkupModalRemoveShopList({ _id, book_image, title, author
         <h1 class="modal-shop-list-title">${title}</h1>
         <h2 class="modal-shop-list-author">${author}</h2>
         <p class="modal-shop-list-desc">${description}</p>
-        <ul class="modal-shop-list-buy">
+          <ul class="modal-shop-list-buy">
           <li>
             <a class="link modal-shop-list-link"
                 href="${buy_links[0].url}"
                 target="_blank"
                 rel="noopener noreferrer">
-                <img class="buy-icon icon-amazon" srcset="./img/amazon-2x.png 2x" src="./img/amazon-1x.png" alt="Amazon" width="62" height="19" />
+                <img class="buy-icon icon-amazon" srcset="${amazon2x} 2x" src="${amazon}" alt="${buy_links[0].name}" width="62" height="19" />
             </a>
             </li>
           <li>
             <a class="link modal-shop-list-link"
-            href="${buy_links[0].url}"
+            href="${buy_links[1].url}"
             target="_blank"
             rel="noopener noreferrer">
-            <img class="buy-icon icon-apple-books" srcset="./img/apple-books-2x.png 2x" src="./img/apple-books-1x.png" alt="Apple Books" width="33" height="32" />
+            <img class="buy-icon icon-apple-books" srcset="${apple2x} 2x" src="${apple}" alt="${buy_links[1].name}" width="33" height="32" />
           </a>
           </li>
         </ul>
