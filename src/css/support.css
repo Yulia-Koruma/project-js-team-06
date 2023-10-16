@@ -16,6 +16,10 @@
     margin-bottom: 40px;
   }
   
+  .support-container-shop{
+    display: none;
+  }
+
   .support-title-conteiner {
     display: flex;
     flex-direction: row;
@@ -119,10 +123,8 @@ fill: var(--accent-color-first);
     }
   
     .support-container {
-      width: 335px;
       height: 474px;
     
-
     }
     .title-support{
       font-size: 24px;
@@ -157,8 +159,20 @@ fill: var(--accent-color-first);
       width: 356px;
     
     }
-    
-  }
+    .support-container-shop{
+      display: flex;
+        flex-direction: column;
+        width: 356px;
+        height: 474px;
+        padding: 24px 40px 20px;
+        background: linear-gradient(180deg,
+            rgba(79, 46, 232, 1) 0%,
+            rgba(255, 255, 255, 1) 130%);
+      
+        border-radius: 16px;
+      }
+    }
+  
 
  
 
