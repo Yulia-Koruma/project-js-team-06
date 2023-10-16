@@ -21,7 +21,7 @@ export function createCategoryList(categories, books) {
       categoryItems.forEach(item => item.classList.remove('category-active'));
 
       categoryButton.classList.add('category-active');
-
+      
       const booksContainer = document.querySelector('.books-container-title');
       const lastWord = categoryButton.innerText.split(' ').pop();
       const titleWithLastWordHighlighted = categoryButton.innerText.replace(
@@ -40,7 +40,7 @@ export function createCategoryList(categories, books) {
 
 export function createBookList(books) {
   const bookList = document.querySelector('.book-list');
-
+ 
   bookList.innerHTML = books.length
     ? books
         .map(
@@ -56,4 +56,7 @@ export function createBookList(books) {
         )
         .join('')
     : '<div>No books found for this category.</div>';
+   
 }
+
+

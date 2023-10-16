@@ -89,12 +89,15 @@
     height: 32px;
   
   }
-  
+
+  .support_button:hover{
+    transform: scale(1.2);
+    transition: var(--transition-dur-and-func);
+  }
+
   .button-arrow {
  width: 20px;
  height: 20px;
- stroke: var(--accent-color-first);
-
 
   }
   

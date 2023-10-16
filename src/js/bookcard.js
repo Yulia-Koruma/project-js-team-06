@@ -9,6 +9,7 @@ let isActive;
 let currentRenderWidth = 375;
 let reloadState = true;
 
+
 window.addEventListener('resize', onResizewindow);
 
 function onResizewindow() {
@@ -35,32 +36,6 @@ function showCards(number, listBook) {
     itemBook[i].style.display = 'block';
   }
 }
-
-// window.addEventListener('resize', throttle(onResizewindow, 200));
-
-// function onResizewindow() {
-//   isActive = bookGallery.classList.contains('container_active');
-//   if (!isActive) return;
-//   if (
-//     (window.innerWidth > 767 && currentRenderWidth < 768) ||
-//     (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
-//     (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
-//     (window.innerWidth < 768 && currentRenderWidth > 767)
-//   ) {
-//     location.reload();
-//   }
-// }
-
-// currentRenderWidth = window.innerWidth;
-// let amountRenderedBooks = 1;
-// if (currentRenderWidth < 768) {
-//   amountRenderedBooks = 1;
-// } else if (currentRenderWidth > 767 && currentRenderWidth < 1440) {
-//   amountRenderedBooks = 3;
-// } else {
-//   amountRenderedBooks = 5;
-// }
-
 
 const createTopBooksMarkup = async () => {
   loaderEl.classList.remove("visually-hidden");
