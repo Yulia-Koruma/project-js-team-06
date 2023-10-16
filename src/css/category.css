@@ -13,7 +13,7 @@
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
     .category-list {
         width: 356px;
     }
@@ -73,7 +73,7 @@
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
     .book-list-card {
         width: 180px;
     }
@@ -92,7 +92,7 @@
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
     .book-list-card-img {
         height: 256px;
     }

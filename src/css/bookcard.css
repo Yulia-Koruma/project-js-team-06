@@ -142,3 +142,15 @@ desktop: 1200px; */
 
     border-radius: 0 0 8px 8px;
 }
+
+
+/* MEDIA */
+
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 1440px) {
+
+    
+}

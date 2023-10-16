@@ -13,7 +13,7 @@
     );
    
     border-radius: 16px;
-    margin-bottom: 40px;
+
   }
   
   .support-container-shop{
@@ -26,8 +26,6 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 40px;
-   
-   
   }
   
   .title-support {
@@ -48,6 +46,15 @@
     
   }
   
+    .support_box_list::-webkit-scrollbar-thumb {
+      border-radius: 12px;
+      background: transparent;
+    }
+  
+    .support_box_list::-webkit-scrollbar {
+      color: transparent;
+    }
+    
   .support_list{
     display: flex;
   }
@@ -124,6 +131,7 @@ fill: var(--accent-color-first);
   
     .support-container {
       height: 474px;
+      margin-bottom: 0px;
     
     }
     .title-support{
