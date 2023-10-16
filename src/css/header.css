@@ -268,38 +268,6 @@ input:checked + .slider:before {
     letter-spacing: -0.04em;
     margin-right: 90px;
   }
-
-  /* .mob-nav {
-    z-index: 3;
-    position: relative;
-    padding-left: 145px;
-  }
-
-  .mob-menu-list {
-    display: flex;
-  }
-
-  .mob-nav-item {
-    padding: 8px 16px;
-    gap: 10px;
-    display: flex;
-    background-color: var(--accent-color-second);
-    border-radius: 36px;
-  }
-
-  .mob-menu-link {
-    display: flex;
-    align-items: flex-end;
-  }
-
-  .mob-nav-text {
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 1.28;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-  } */
 }
 
 /*TODO Tablet media*/
@@ -316,7 +284,6 @@ input:checked + .slider:before {
 
   .header-nav-list {
     display: flex;
-    gap: 32px;
   }
 
   .header-nav-item {
@@ -400,6 +367,6 @@ input:checked + .slider:before {
   }
 
   .header-nav-list {
-    gap: 40px;
+    gap: 8px;
   }
 }
