@@ -1,4 +1,5 @@
-import "./js/shop-list";
-// import "./js/mobil-menu";
-// import './js/theme.js';
+import "./js/shop-list.js";
+import "./js/mobil-menu.js";
+import './js/theme.js';
+import './js/support_object.js'
 
