@@ -168,8 +168,6 @@ const supportPage = [
 
 
   containerSupport.insertAdjacentHTML('beforeend', supportList(supportPage));
-  
- console.log(containerSupport);
 
   buttonSupport.addEventListener('click', scrollSupport);
   
