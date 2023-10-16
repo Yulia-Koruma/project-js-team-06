@@ -1,6 +1,6 @@
 // import closeModal from '../img/x-close.svg';
-import amazon from '../img/amazon-1x.png';
-import amazon2x from '../img/amazon-2x.png';
+import amazon from '../img/amazonnn.png';
+import amazon2x from '../img/amazonnn-2x.png';
 import apple from '../img/apple-books-1x.png';
 import apple2x from '../img/apple-books-2x.png';
 
@@ -10,8 +10,8 @@ export function createMarkupModalAddShopList({ _id, book_image, title, author, d
   
   return `<div class="modal-shop-list" id="modal-add" data-id=${_id}>
     <button type="button" class="button modal-shop-list-close">
-      <svg class="modal-shop-list-icon" width="24" height="24">
-        <use href="./img/icons.svg#icon-x-close"></use>
+      <svg class="modal-shop-list-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <path d="M21 7L7 21M7 7L21 21" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
     <div class="modal-shop-list-wrap">
@@ -51,8 +51,8 @@ export function createMarkupModalRemoveShopList({ _id, book_image, title, author
 
   return `<div class="modal-shop-list" id="modal-remove" data-id=${_id}>
     <button type="button" class="button modal-shop-list-close">
-      <svg class="modal-shop-list-icon" width="24" height="24">
-        <use href="./img/icons.svg#icon-x-close"></use>
+      <svg class="modal-shop-list-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <path d="M21 7L7 21M7 7L21 21" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
     <div class="modal-shop-list-wrap">
@@ -63,7 +63,7 @@ export function createMarkupModalRemoveShopList({ _id, book_image, title, author
         <p class="modal-shop-list-desc">${description}</p>
           <ul class="modal-shop-list-buy">
           <li>
-            <a class="link modal-shop-list-link"
+            <a class="link modal-shop-list-link modal-shop-list-link-amazon"
                 href="${buy_links[0].url}"
                 target="_blank"
                 rel="noopener noreferrer">
@@ -71,7 +71,7 @@ export function createMarkupModalRemoveShopList({ _id, book_image, title, author
             </a>
             </li>
           <li>
-            <a class="link modal-shop-list-link"
+            <a class="link modal-shop-list-link modal-shop-list-link-apple"
             href="${buy_links[1].url}"
             target="_blank"
             rel="noopener noreferrer">

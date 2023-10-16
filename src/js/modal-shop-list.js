@@ -1,6 +1,6 @@
 import {fetchSelectedBook} from "./api"
 import { createMarkupModalAddShopList, createMarkupModalRemoveShopList } from "./createMarkupModal";
-import { saveInLocal, removeFromLocal } from "./localStorage";
+import { saveInLocal, getFromLocal, removeFromLocal } from "./localStorage";
 import "./category";
 import "./bookcard";
 import { API_KEY } from "./localStorage";
@@ -10,9 +10,6 @@ export const refs = {
     containerModalShopList: document.querySelector('#container-modal-shop-list'),
     bookGallery: document.querySelector('.bookgallery'),
 };
-
-const localStorageBooks = [];
-
 
 refs.bookGallery.addEventListener('click', onBookCardClick);
 
@@ -32,8 +29,53 @@ async function onBookCardClick(event) {
 
     const id = targetCard.dataset.id;
     const book = await fetchSelectedBook(id);
-   
-    refs.containerModalShopList.innerHTML = createMarkupModalAddShopList(book);
+
+    const savedBooks = getFromLocal(API_KEY) || [];
+
+    function removeBookFromLocalStorage(book) {
+        const updatedBooks = savedBooks.filter(savedBook => savedBook.title !== book.title);
+
+        localStorage.setItem(API_KEY, JSON.stringify(updatedBooks));
+    }
+
+    const isBookInLocalStorage = savedBooks.some(({ _id }) => _id === id) || false;
+
+    if (!isBookInLocalStorage) {
+        renderMarkupAdd();
+        const btnAddShopList = document.querySelector('.js-btn-add');
+
+        btnAddShopList.addEventListener('click', () => {
+        renderMarkupRemove();
+
+        const savedBooks = getFromLocal(API_KEY) || [];
+        savedBooks.push(book);
+
+        saveInLocal(API_KEY, savedBooks);
+
+        const btnCloseModalShopList = document.querySelector('.modal-shop-list-close');
+        btnCloseModalShopList.addEventListener('click', toggleModal);
+
+        const btnRemoveShopList = document.querySelector('.js-btn-remove');
+        btnRemoveShopList.addEventListener('click', () => removeBookFromLocalStorage(book));
+        });
+        
+    } else {
+        renderMarkupRemove();
+        const btnRemoveShopList = document.querySelector('.js-btn-remove');
+        btnRemoveShopList.addEventListener('click', () => {
+            removeBookFromLocalStorage(book);
+            // renderMarkupAdd();
+        });
+    }
+
+    function renderMarkupAdd() {
+        refs.containerModalShopList.innerHTML = createMarkupModalAddShopList(book);
+    };
+
+    function renderMarkupRemove() {
+        refs.containerModalShopList.innerHTML = createMarkupModalRemoveShopList(book);
+    }
+
 
     window.addEventListener('click', onBackdropClick);
     
@@ -44,16 +86,20 @@ async function onBookCardClick(event) {
     }
 
     const btnCloseModalShopList = document.querySelector('.modal-shop-list-close');
-    btnCloseModalShopList.addEventListener('click', toggleModal);
+    btnCloseModalShopList.addEventListener('click', onClose);
     
     function toggleModal() {
         refs.containerModalShopList.classList.toggle('is-hidden');
 
-        window.removeEventListener('keydown', onEscKeyPress);
-        window.removeEventListener('click', onBackdropClick);
-
         refs.containerModalShopList.style.display = 'none';
         document.body.style.overflow = 'auto';
+    }
+
+    function onClose() {
+        toggleModal();
+
+        window.removeEventListener('keydown', onEscKeyPress);
+        window.removeEventListener('click', onBackdropClick);
     }
     
     window.addEventListener('keydown', onEscKeyPress);
@@ -63,37 +109,6 @@ async function onBookCardClick(event) {
         toggleModal();
         }
     }
-
-    const btnAddShopList = document.querySelector('.js-btn-add');
-
-    btnAddShopList.addEventListener('click', () => {
-        refs.containerModalShopList.innerHTML = createMarkupModalRemoveShopList(book);
-
-        localStorageBooks.push(book);
-        saveInLocal(API_KEY, localStorageBooks);
-
-        const btnCloseModalShopList = document.querySelector('.modal-shop-list-close')
-        btnCloseModalShopList.addEventListener('click', toggleModal);
-
-        const btnRemoveShopList = document.querySelector('.js-btn-remove');
-
-        btnRemoveShopList.addEventListener('click', onBtnRemoveClick);
-
-        function onBtnRemoveClick(localStorageBook) {
-        refs.containerModalShopList.innerHTML = createMarkupModalAddShopList(book);
-        removeBookFromList(localStorageBook);
-        }
-
-        function removeBookFromList(bookData) {
-        const savedBooks = JSON.parse(localStorage.getItem(API_KEY)) || [];
-        const updatedBooks = savedBooks.filter(savedBook => savedBook.title !== bookData.title);
-
-        localStorage.setItem(API_KEY, JSON.stringify(updatedBooks));
-        }
-    });
-
-
-
 
 }
 

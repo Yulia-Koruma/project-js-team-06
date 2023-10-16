@@ -33,6 +33,7 @@
   position: absolute;
   top: 12px;
   right: 12px;
+  z-index: 2000;
   border: none;
   background-color: transparent;
   display: inline-flex;
@@ -41,7 +42,7 @@
 }
 
 .modal-shop-list-icon {
-  stroke: var(--black);
+  stroke: var(--main-text-color);
   transition: stroke var(--transition-dur-and-func);
   width: 28px;
   height: 28px;
@@ -65,7 +66,7 @@
     width: 335px;
     border-radius: 18px;
     border: 2px solid #111;
-    background: var(--white);
+    background: var(--background-color);
   }
 
   .modal-shop-list-img {
@@ -75,7 +76,7 @@
   .modal-shop-list-title {
     margin-bottom: 4px;
     text-transform: uppercase;
-    color: var(--black);
+    color: var(--main-text-color);
     font-size: 16px;
     font-weight: 700;
     line-height: 1.13; /* 112.5% */
@@ -95,11 +96,43 @@
 
   .modal-shop-list-desc {
     margin-bottom: 14px;
-    color: var(--black);
+    color: var(--main-text-color);
     font-size: 14px;
     font-weight: 400;
     line-height: 1.29; /* 128.571% */
     letter-spacing: -0.56px;
+  }
+
+  .modal-shop-list-buy {
+    display: flex;
+    align-items: center;
+    margin-bottom: 44px;
+    gap: 20px;
+  }
+
+  .modal-shop-list-link {
+  }
+
+  .modal-shop-list-link-amazon:hover,
+  .modal-shop-list-link-amazon:focus {
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+  }
+
+  .buy-icon {
+    filter: grayscale(100%);
+  }
+
+  .icon-amazon {
+    filter: var(--filter-icon);
+  }
+
+  .icon-amazon:hover,
+  .icon-amazon:focus {
+  }
+
+  .buy-icon:hover,
+  .buy-icon:focus {
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
   }
 
   .btn-shop-list {
@@ -108,8 +141,8 @@
     padding: 14px 28px;
     border-radius: 40px;
     border: 2px solid var(--accent-color-first);
-    color: var(--black);
-    background-color: var(--white);
+    color: var(--main-text-color);
+    background-color: var(--background-color);
     font-size: 14px;
     font-weight: 700;
     line-height: 1.29; /* 128.571% */
@@ -131,22 +164,6 @@
     box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.15);
   }
 
-  .modal-shop-list-buy {
-    display: flex;
-    align-items: center;
-    margin-bottom: 44px;
-    gap: 20px;
-  }
-
-  .buy-icon {
-    filter: grayscale(100%);
-  }
-
-  .buy-icon:hover,
-  .buy-icon:focus {
-    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
-  }
-
   .btn-shop-list.js-btn-remove {
     padding: 14px 23px;
     margin-bottom: 8px;
@@ -156,7 +173,7 @@
     margin-right: auto;
     margin-left: auto;
     width: 242px;
-    color: rgba(17, 17, 17, 0.5);
+    color: var(--text-color-third);
     text-align: center;
     font-size: 10px;
     font-weight: 400;
