@@ -1,20 +1,36 @@
 .home-container {
     display: flex;
+    flex-direction: column;
     padding-top: 40px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 1200px) {
     .home-container {
-        flex-direction: column;
+        flex-direction: row;
     }
 }
 
+
 .home-container aside {
-    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 0 0 40px 0;
+
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 768px) {
     .home-container aside {
-        margin-right: 0;
+        flex-direction: row;
+        gap: 32px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .home-container aside {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin: 0 40px 0 0;
     }
 }

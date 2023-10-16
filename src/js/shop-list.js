@@ -2,7 +2,7 @@ import './category';
 import './api.js';
 import './category-markup.js';
 import './localStorage';
-import './createMarkupModalShopList';
+import { createMarkupModalAddShopList } from './createMarkupModal';
 
 const firstPageBtn = document.getElementById('firstPage');
 const prevPageBtn = document.getElementById('prevPage');
@@ -11,7 +11,7 @@ const nextPageBtn = document.getElementById('nextcurrentPage');
 const ellipsisBtn = document.getElementById('ellipsis');
 const goToLastBtn = document.getElementById('goToLast');
 
-const maxPages = 10;
+const maxPages = 4;
 let currentPage = 1;
 
 function updateButtons() {
@@ -50,6 +50,10 @@ goToLastBtn.addEventListener('click', () => {
   }
 });
 
+// Отримуємо посилання на контейнер для книжок в кошику покупок
+const bookGallery = document.querySelector('.shopping-list');
+
+// Функція для створення DOM-елементів книжки в кошику покупок
 function createBookCard(bookData) {
   const bookCard = document.createElement('div');
   bookCard.classList.add('book-card');
@@ -98,8 +102,8 @@ function createBookCard(bookData) {
 }
 
 function displayBooks() {
-  const shoppingList = document.querySelector('.shopping-list');
   const emptyMessage = document.querySelector('.empty-message');
+  const shoppingList = document.querySelector('.shopping-list');
 
   const savedBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
 
@@ -108,7 +112,7 @@ function displayBooks() {
     shoppingList.style.display = 'none';
   } else {
     emptyMessage.style.display = 'none';
-    shoppingList.style.display = 'flex';
+    shoppingList.style.display = 'block';
 
     shoppingList.innerHTML = '';
 
@@ -119,13 +123,6 @@ function displayBooks() {
   }
 }
 
-function displayEmptyMessage() {
-  const emptyMessage = document.querySelector('.empty-message');
-  emptyMessage.style.display = 'block';
-}
-
-displayBooks();
-
 function removeBookFromList(bookData) {
   const savedBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
   const updatedBooks = savedBooks.filter(
@@ -135,3 +132,5 @@ function removeBookFromList(bookData) {
   localStorage.setItem('shoppingList', JSON.stringify(updatedBooks));
   displayBooks();
 }
+
+displayBooks();

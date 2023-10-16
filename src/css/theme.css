@@ -5,7 +5,9 @@ body {
 
 :root[theme='dark'] {
   --background-color: #202024;
-  --heder-background: #111;
+  --header-background: #111;
   --main-text-color: #fff;
   --text-color-second: rgba(255, 255, 255, 0.6);
+  --text-color-third: rgba(255, 255, 255, 0.5);
+  --filter-icon: invert(1);
 }
