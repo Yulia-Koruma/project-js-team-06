@@ -60,7 +60,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 40px 24px;
-    margin-bottom: 40px;
 }
 
 .book-list-card {
