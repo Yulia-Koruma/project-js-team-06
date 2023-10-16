@@ -1,10 +1,7 @@
-// import closeModal from '../img/x-close.svg';
 import amazon from '../img/amazonnn.png';
 import amazon2x from '../img/amazonnn-2x.png';
 import apple from '../img/apple-books-1x.png';
 import apple2x from '../img/apple-books-2x.png';
-
-
 
 export function createMarkupModalAddShopList({ _id, book_image, title, author, description, buy_links }) {
   
@@ -42,7 +39,7 @@ export function createMarkupModalAddShopList({ _id, book_image, title, author, d
     </div>
     <button type="button" class="button btn-shop-list js-btn-add">add to shopping list</button>
   </div>
-</div>`
+</div>`;
 }
 
 
@@ -87,7 +84,7 @@ export function createMarkupModalRemoveShopList({ _id, book_image, title, author
       press the button “Remove from the shopping list”.
     </p>
   </div>
-</div>`
+</div>`;
 }
 
 

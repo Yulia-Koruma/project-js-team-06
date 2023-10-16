@@ -45,7 +45,9 @@ export function createBookList(books) {
     ? books
         .map(
           book => `
-            <div class="book-list-card" data-id="${book._id}">
+
+            <div class="book-list-card js-book-card" data-id="${book._id}">
+
               <img class="book-list-card-img" src="${book.book_image}" alt="${book.title}">
               <ul class="book-list-card-content">
                 <li class="card-content-title">${book.title}</li>
