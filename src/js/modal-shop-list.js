@@ -9,6 +9,7 @@ import { API_KEY } from "./localStorage";
 export const refs = {
     containerModalShopList: document.querySelector('#container-modal-shop-list'),
     bookGallery: document.querySelector('.bookgallery'),
+    
 };
 
 refs.bookGallery.addEventListener('click', onBookCardClick);
