@@ -7,30 +7,55 @@ let isActive;
 let currentRenderWidth = 375;
 let reloadState = true;
 
-window.addEventListener('resize', throttle(onResizewindow, 200));
+// window.addEventListener('resize', throttle(onResizewindow, 200));
+// function onResizewindow() {
+//   isActive = bookGallery.classList.contains('container_active');
+//   if (!isActive) return;
+//   if (
+//     (window.innerWidth > 767 && currentRenderWidth < 768) ||
+//     (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
+//     (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
+//     (window.innerWidth < 768 && currentRenderWidth > 767)
+//   ) {
+//     location.reload();
+//   }
+// }
 
+// currentRenderWidth = window.innerWidth;
+// let amountRenderedBooks = 1;
+// if (currentRenderWidth < 768) {
+//   amountRenderedBooks = 1;
+// } else if (currentRenderWidth > 767 && currentRenderWidth < 1440) {
+//   amountRenderedBooks = 3;
+// } else {
+//   amountRenderedBooks = 5;
+// }
+
+window.addEventListener('resize', onResizewindow);
 function onResizewindow() {
-  isActive = bookGallery.classList.contains('container_active');
-  if (!isActive) return;
-  if (
-    (window.innerWidth > 767 && currentRenderWidth < 768) ||
-    (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
-    (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
-    (window.innerWidth < 768 && currentRenderWidth > 767)
-  ) {
-    location.reload();
+  const listBook = document.querySelectorAll('.books-card-container');
+  const viewport = document.documentElement.clientWidth;
+  listBook.forEach(ul => {
+    const listElements = Array.from(ul.querySelectorAll('.js-book-card'));
+    listElements.forEach(itemBook => {
+      itemBook.style.display = 'none';
+    });
+    if (viewport >= 320 && viewport < 767) {
+      showCards(1, ul);
+    } else if (viewport >= 768 && viewport < 1439) {
+      showCards(3, ul);
+    } else if (viewport >= 1440) {
+      showCards(listElements.length, ul);
+    }
+  });
+}
+function showCards(number, listBook) {
+  const itemBook = Array.from(listBook.querySelectorAll('li'));
+  for (let i = 0; i < number; i++) {
+    itemBook[i].style.display = 'block';
   }
 }
 
-currentRenderWidth = window.innerWidth;
-let amountRenderedBooks = 1;
-if (currentRenderWidth < 768) {
-  amountRenderedBooks = 1;
-} else if (currentRenderWidth > 767 && currentRenderWidth < 1440) {
-  amountRenderedBooks = 3;
-} else {
-  amountRenderedBooks = 5;
-}
 
 
 const createTopBooksMarkup = async () => {
@@ -39,6 +64,7 @@ const createTopBooksMarkup = async () => {
     return { ...el, books: el.books };
   });
  bookGallery.innerHTML = await booksCardTemplate(markup);
+ 
 };
 
 createTopBooksMarkup();
@@ -145,3 +171,24 @@ function cutBookAuthor(author) {
 //     Notiflix.Notify.failure(`Not found`);
 //   }
 // }
+
+
+
+
+
+function createSelectCategoryMarkup(array) {
+  return array
+    .map(
+      ({ book_image, title, author, _id }) =>
+        `<li class="home__books-item">
+      <img class="home__books-img" src="${book_image || defoultImg}" alt="${
+          title || deafultInfo
+        }" />
+      <h3 class="home__book-title">${title || deafultInfo}</h3>
+      <p class="home__books-author">${author || deafultInfo}</p>
+      <p style="display:none" class="book-id">${_id}</p>
+    </li>`
+    )
+    .join('');
+}
+
