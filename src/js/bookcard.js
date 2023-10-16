@@ -37,14 +37,14 @@ function showCards(number, listBook) {
   }
 }
 
-const createTopBooksMarkup = async () => {
-  loaderEl.classList.remove("visually-hidden");
+async function createTopBooksMarkup () {
+  // loaderEl.classList.remove("visually-hidden");
    let markup = await fetchTopBooks();
-  markup = markup.map(el => {
-    return { ...el, books: el.books };
-  });
-  bookGallery.innerHTML = await booksCardTemplate(markup);
-  loaderEl.classList.add("visually-hidden");
+  // markup = markup.map(el => {
+  //   return { ...el, books: el.books };
+  // });
+  bookGallery.innerHTML = booksCardTemplate(markup);
+  // loaderEl.classList.add("visually-hidden");
 
   const seeMoreBtnBox = document.querySelector('.books-container-small');
   console.log(seeMoreBtnBox);

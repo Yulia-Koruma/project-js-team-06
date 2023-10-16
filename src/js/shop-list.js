@@ -4,6 +4,7 @@ import './category-markup.js';
 import './localStorage';
 import { createMarkupModalAddShopList } from './createMarkupModal';
 import { createMarkupShopList } from './createMarkupShopList';
+import { API_KEY } from './localStorage';
 
 const firstPageBtn = document.getElementById('firstPage');
 const prevPageBtn = document.getElementById('prevPage');
@@ -52,7 +53,7 @@ goToLastBtn.addEventListener('click', () => {
 });
 
 // Отримуємо посилання на контейнер для книжок в кошику покупок
-const bookGallery = document.querySelector('.shopping-list');
+const shoppingList = document.querySelector('.shopping-list');
 
 // Функція для створення DOM-елементів книжки в кошику покупок
 // function createBookCard(bookData) {
@@ -104,9 +105,10 @@ const bookGallery = document.querySelector('.shopping-list');
 
 function displayBooks() {
   const emptyMessage = document.querySelector('.empty-message');
-  const shoppingList = document.querySelector('.shopping-list');
+ 
 
-  const savedBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
+  const savedBooks = JSON.parse(localStorage.getItem(API_KEY)) || [];
+  console.log(savedBooks);
 
   if (savedBooks.length === 0) {
     emptyMessage.style.display = 'block';

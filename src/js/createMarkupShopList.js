@@ -27,7 +27,7 @@ export function createMarkupShopList(arr) {
             rel="noopener noreferrer">
             <img
               class="buy-icon icon-amazon"
-              srcset="${amazon2x} 2x"
+              srcset="${amazon2x}"
               src="${amazon}"
               alt="${buy_links[0].name}"
               width="32"
@@ -42,7 +42,7 @@ export function createMarkupShopList(arr) {
             rel="noopener noreferrer">
             <img
               class="buy-icon icon-apple-books"
-              srcset="${apple2x} 2x"
+              srcset="${apple2x}"
               src="${apple}"
               alt="${buy_links[1].name}"
               width="16"

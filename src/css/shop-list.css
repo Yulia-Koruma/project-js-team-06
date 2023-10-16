@@ -1,4 +1,4 @@
-.visually-hidden {
+/* .visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -15,7 +15,7 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-}
+} */
 
 /** ------------MOBILE------------------ */
 @media screen and (min-width: 375px) {
@@ -71,9 +71,9 @@
     flex-shrink: 0;
   }
 
-  .shop-list-btn:hover,
+  /* .shop-list-btn:hover,
   .shop-list-btn:focus {
-  }
+  } */
 
   .shop-list-icon {
     fill: var(--accent-color-first);
@@ -108,7 +108,7 @@
     overflow: hidden;
     color: var(--main-text-color);
     text-overflow: ellipsis;
-    whitespace: nowrap;
+    /* whitespace: nowrap; */
     font-size: 14px;
     font-weight: 400;
     line-height: 18px; /* 128.571% */
