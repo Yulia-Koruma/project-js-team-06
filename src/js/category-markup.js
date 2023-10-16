@@ -30,8 +30,10 @@ export function createCategoryList(categories, books) {
       );
       booksContainer.innerHTML = `<h2 class="books-list-title">${titleWithLastWordHighlighted}</h2>`;
 
-      const filteredBooks = books.filter( book => book.category === category.list_name);
-      createBookList(filteredBooks);
+      // const filteredBooks = books.filter(
+      //   book => book.category === category.list_name
+      // );
+      // createBookList(filteredBooks);
     });
 
     categoryList.appendChild(categoryButton);
