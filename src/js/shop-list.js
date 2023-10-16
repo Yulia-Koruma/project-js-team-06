@@ -7,60 +7,53 @@ import { createMarkupModalAddShopList } from './createMarkupModal';
 const firstPageBtn = document.getElementById('firstPage');
 const prevPageBtn = document.getElementById('prevPage');
 const currentPageBtn = document.getElementById('currentPage');
-const nextcurrentPageBtn = document.getElementById('nextcurrentPage');
+const nextPageBtn = document.getElementById('nextcurrentPage');
 const ellipsisBtn = document.getElementById('ellipsis');
-const nextPageBtn = document.getElementById('nextPage');
 const goToLastBtn = document.getElementById('goToLast');
-const maxItemsPerPage = 4;
 
+const maxPages = 4;
 let currentPage = 1;
-let booksPerPage = [];
-let savedBooks = getBooksFromLocalStorage();
 
 function updateButtons() {
   currentPageBtn.innerText = currentPage;
-  nextcurrentPageBtn.innerText = currentPage + 1;
-  const maxPages = Math.ceil(savedBooks.length / maxItemsPerPage);
+  nextPageBtn.innerText = currentPage + 1;
   ellipsisBtn.style.display = currentPage < maxPages - 1 ? 'block' : 'none';
 }
 
-function getBooksFromLocalStorage() {
-  return JSON.parse(localStorage.getItem('shoppingList')) || [];
-}
+updateButtons();
 
-function displayBooks() {
-  const emptyMessage = document.querySelector('.empty-message');
-  const shoppingList = document.querySelector('.shopping-list');
-  savedBooks = getBooksFromLocalStorage();
-
-  const maxPages = Math.ceil(savedBooks.length / maxItemsPerPage);
-
-  if (savedBooks.length === 0) {
-    emptyMessage.style.display = 'block';
-    shoppingList.style.display = 'none';
-  } else {
-    emptyMessage.style.display = 'none';
-    shoppingList.style.display = 'block';
-
-    shoppingList.innerHTML = '';
-    booksPerPage = savedBooks.slice(
-      (currentPage - 1) * maxItemsPerPage,
-      currentPage * maxItemsPerPage
-    );
-
-    booksPerPage.forEach(bookData => {
-      const bookCard = createBookCard(bookData);
-      shoppingList.appendChild(bookCard);
-    });
+firstPageBtn.addEventListener('click', () => {
+  if (currentPage !== 1) {
+    currentPage = 1;
+    updateButtons();
   }
-}
+});
 
-function removeBookFromList(bookData) {
-  const updatedBooks = savedBooks.filter(savedBook => savedBook.title !== bookData.title);
-  localStorage.setItem('shoppingList', JSON.stringify(updatedBooks));
-  displayBooks();
-}
+prevPageBtn.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    updateButtons();
+  }
+});
 
+nextPageBtn.addEventListener('click', () => {
+  if (currentPage < maxPages) {
+    currentPage++;
+    updateButtons();
+  }
+});
+
+goToLastBtn.addEventListener('click', () => {
+  if (currentPage < maxPages) {
+    currentPage = maxPages;
+    updateButtons();
+  }
+});
+
+// Отримуємо посилання на контейнер для книжок в кошику покупок
+const bookGallery = document.querySelector('.shopping-list');
+
+// Функція для створення DOM-елементів книжки в кошику покупок
 function createBookCard(bookData) {
   const bookCard = document.createElement('div');
   bookCard.classList.add('book-card');
@@ -108,49 +101,36 @@ function createBookCard(bookData) {
   return bookCard;
 }
 
-updateButtons();
+function displayBooks() {
+  const emptyMessage = document.querySelector('.empty-message');
+  const shoppingList = document.querySelector('.shopping-list');
 
-firstPageBtn.addEventListener('click', () => {
-  if (currentPage !== 1) {
-    currentPage = 1;
-    displayBooks();
-    updateButtons();
-  }
-});
+  const savedBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
 
-prevPageBtn.addEventListener('click', () => {
-  if (currentPage > 1) {
-    currentPage--;
-    displayBooks();
-    updateButtons();
-  }
-});
+  if (savedBooks.length === 0) {
+    emptyMessage.style.display = 'block';
+    shoppingList.style.display = 'none';
+  } else {
+    emptyMessage.style.display = 'none';
+    shoppingList.style.display = 'block';
 
-nextPageBtn.addEventListener('click', () => {
-  const maxPages = Math.ceil(savedBooks.length / maxItemsPerPage);
-  if (currentPage < maxPages) {
-    currentPage++;
-    displayBooks();
-    updateButtons();
-  }
-});
+    shoppingList.innerHTML = '';
 
-goToLastBtn.addEventListener('click', () => {
-  const maxPages = Math.ceil(savedBooks.length / maxItemsPerPage);
-  if (currentPage < maxPages) {
-    currentPage = maxPages;
-    displayBooks();
-    updateButtons();
+    savedBooks.forEach(bookData => {
+      const bookCard = createBookCard(bookData);
+      shoppingList.appendChild(bookCard);
+    });
   }
-});
+}
 
-nextcurrentPageBtn.addEventListener('click', () => {
-  const maxPages = Math.ceil(savedBooks.length / maxItemsPerPage);
-  if (currentPage < maxPages) {
-    currentPage++;
-    displayBooks();
-    updateButtons();
-  }
-});
+function removeBookFromList(bookData) {
+  const savedBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
+  const updatedBooks = savedBooks.filter(
+    savedBook => savedBook.title !== bookData.title
+  );
+
+  localStorage.setItem('shoppingList', JSON.stringify(updatedBooks));
+  displayBooks();
+}
 
 displayBooks();
