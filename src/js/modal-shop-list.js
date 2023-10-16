@@ -9,14 +9,17 @@ import { API_KEY } from "./localStorage";
 export const refs = {
     containerModalShopList: document.querySelector('#container-modal-shop-list'),
     bookGallery: document.querySelector('.bookgallery'),
+    categoryList: document.querySelector('.category-list'),
 };
 
 refs.bookGallery.addEventListener('click', onBookCardClick);
+// refs.categoryList.addEventListener('click', onBookCardClick);
 
 async function onBookCardClick(event) {
     event.preventDefault();
 
     const targetCard = event.target.closest('.js-book-card');
+    console.log(targetCard);
 
     if (!targetCard) {
     return;

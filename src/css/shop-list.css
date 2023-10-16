@@ -1,49 +1,142 @@
-.shopping-list {
-  display: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
-.book-card {
-  background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 20px;
-  width: 300px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+.shop-list-item.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+/** ------------MOBILE------------------ */
+@media screen and (min-width: 375px) {
+  .shop-list-container {
+    background-color: #f6f6f6;
+  }
+
+  .shop-list-main-title {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: var(--accent-color-first);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.19;
+    letter-spacing: -1.28px;
+  }
+
+  .shop-list-main-title span {
+    color: var(--main-text-color);
+  }
+
+  .shopping-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .shop-list-item {
+    position: relative;
+    display: flex;
+    margin-bottom: 20px;
+    gap: 14px;
+    width: 335px;
+    /* height: 170px; */
+    padding: 30px 24px;
+    border-radius: 16px;
+    border: 2px solid rgba(79, 46, 232, 0.4);
+    background: var(--header-background);
+  }
+
+  .shop-list-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent-color-first);
+    border-radius: 50%;
+    border: none;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  .shop-list-btn:hover,
+  .shop-list-btn:focus {
+  }
+
+  .shop-list-icon {
+    fill: var(--accent-color-first);
+  }
+
+  .shop-list-img {
+    width: 100px;
+    height: 142px;
+  }
+
+  .shop-list-title {
+    margin-bottom: 4px;
+    color: var(--main-text-color);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.13; /* 112.5% */
+    letter-spacing: -0.64px;
+    text-transform: uppercase;
+  }
+
+  .shop-list-category {
+    margin-bottom: 8px;
+    color: var(--text-color-first);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.17; /* 116.667% */
+    letter-spacing: 0.36px;
+  }
+
+  .shop-list-desc {
+    margin-bottom: 16px;
+    overflow: hidden;
+    color: var(--main-text-color);
+    text-overflow: ellipsis;
+    whitespace: nowrap;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px; /* 128.571% */
+    letter-spacing: -0.56px;
+  }
+
+  .shop-list-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .shop-list-author {
+    color: var(--text-color-first);
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.17; /* 116.667% */
+    letter-spacing: -0.48px;
+  }
+
+  .shop-list-buy {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 }
 
-.imgShopList {
-  max-width: 100%;
-  height: auto;
-  
-}
-
-.buy-links {
-  margin-top: auto;
-}
-
-.buy-links a {
-  display: block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: #0073e6;
-  font-weight: 500;
-  text-align: center;
-}
-
-
-
-
+/*!============ Pagination=============*/
 .empty-message {
   text-align: center;
   display: none;
@@ -51,7 +144,7 @@ img {
   align-items: center;
   justify-content: center;
   padding-top: 120px;
-  padding-left: 65,5px;
+  padding-left: 65, 5px;
 }
 
 .empty-message img {
@@ -70,7 +163,7 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: #EAC645;
+  background-color: #eac645;
   border: none;
   cursor: pointer;
   margin: 0 5px;
@@ -87,8 +180,8 @@ img {
 }
 
 .button.next {
-  border: 2px solid #EAC645; 
-  fill: #EAC645;
+  border: 2px solid #eac645;
+  fill: #eac645;
 }
 
 #ellipsis {
@@ -96,26 +189,22 @@ img {
   cursor: default;
 }
 
-
-
 button:hover {
   background-color: #ddd;
 }
 
-
 .shop-list {
-color: #111;
-padding-top: 40px;
-padding-left: 20px;
-font-family: DM Sans;
-font-size: 32px;
-font-style: normal;
-font-weight: 700;
-line-height: 1,18; 
-letter-spacing: -1.28px;
+  color: #111;
+  padding-top: 40px;
+  padding-left: 20px;
+  font-family: DM Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1, 18;
+  letter-spacing: -1.28px;
 }
 
 .shop-list-span {
-color: #4F2EE8;
-
+  color: #4f2ee8;
 }
