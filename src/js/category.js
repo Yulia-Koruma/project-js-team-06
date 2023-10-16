@@ -5,7 +5,7 @@ import { refs } from './modal-shop-list.js';
 
 const categoryListElement = document.querySelector('.category-list');
 
-async function loadBooksByCategory(category) {
+export async function loadBooksByCategory(category) {
   try {
     const books = await fetchBooksByCategory(category);
     createBookList(books);
