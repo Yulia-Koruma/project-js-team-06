@@ -37,6 +37,7 @@ function showCards(number, listBook) {
   }
 }
 
+
 const createTopBooksMarkup = async () => {
   loaderEl.classList.remove("visually-hidden-js");
    let markup = await fetchTopBooks();

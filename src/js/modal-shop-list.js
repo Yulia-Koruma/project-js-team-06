@@ -1,28 +1,27 @@
 import {fetchSelectedBook} from "./api"
 import { createMarkupModalAddShopList, createMarkupModalRemoveShopList } from "./createMarkupModal";
-import { saveInLocal, getFromLocal, removeFromLocal } from "./localStorage";
+import { saveInLocal, getFromLocal, removeFromLocal, API_KEY } from "./localStorage";
 import "./category";
 import "./bookcard";
-import { API_KEY } from "./localStorage";
 
 
 export const refs = {
     containerModalShopList: document.querySelector('#container-modal-shop-list'),
-    bookGallery: document.querySelector('.bookgallery'),
+    bookGallery: document.querySelector('.js-book'),
 
-    categoryList: document.querySelector('.category-list'),
+    // categoryList: document.querySelector('.category-list'),
 
 };
 
 refs.bookGallery.addEventListener('click', onBookCardClick);
 // refs.categoryList.addEventListener('click', onBookCardClick);
 
+
 async function onBookCardClick(event) {
     event.preventDefault();
 
     const targetCard = event.target.closest('.js-book-card');
-    console.log(targetCard);
-
+   
     if (!targetCard) {
     return;
     }
@@ -35,15 +34,15 @@ async function onBookCardClick(event) {
     const id = targetCard.dataset.id;
     const book = await fetchSelectedBook(id);
 
-    const savedBooks = getFromLocal(API_KEY) || [];
+    const savedBooksLocalStorage = getFromLocal(API_KEY) || [];
 
     function removeBookFromLocalStorage(book) {
-        const updatedBooks = savedBooks.filter(savedBook => savedBook.title !== book.title);
+        const updatedBooks = savedBooksLocalStorage.filter(savedBook => savedBook.title !== book.title);
 
         localStorage.setItem(API_KEY, JSON.stringify(updatedBooks));
     }
 
-    const isBookInLocalStorage = savedBooks.some(({ _id }) => _id === id) || false;
+    const isBookInLocalStorage = savedBooksLocalStorage.some(({ _id }) => _id === id) || false;
 
     if (!isBookInLocalStorage) {
         renderMarkupAdd();
@@ -69,7 +68,7 @@ async function onBookCardClick(event) {
         const btnRemoveShopList = document.querySelector('.js-btn-remove');
         btnRemoveShopList.addEventListener('click', () => {
             removeBookFromLocalStorage(book);
-            // renderMarkupAdd();
+            renderMarkupAdd();
         });
     }
 
