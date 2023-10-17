@@ -1,5 +1,10 @@
 import { createMarkupShopList } from './createMarkupShopList';
-import { API_KEY, getFromLocal, removeFromLocal } from './localStorage';
+import {
+  API_KEY,
+  getFromLocal,
+  removeFromLocal,
+  saveInLocal,
+} from './localStorage';
 
 const emptyMessage = document.querySelector('.empty-message');
 const shoppingList = document.querySelector('.shopping-list');
@@ -96,6 +101,7 @@ goToLastBtn.addEventListener('click', () => {
 
 function displayBooks() {
   const emptyMessage = document.querySelector('.empty-message');
+  const shoppingList = document.querySelector('.shopping-list');
 
   const savedBooks = getFromLocal(API_KEY) || [];
 
@@ -108,8 +114,28 @@ function displayBooks() {
 
     const markup = createMarkupShopList(savedBooks);
     shoppingList.innerHTML = markup;
+
+    // Добавьте обработчик для кнопки "Удалить" для каждого элемента
+    const deleteButtons = shoppingList.querySelectorAll('.shop-list-btn');
+    deleteButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        // Здесь используйте индекс, чтобы определить, какой элемент удалить
+        const bookToDelete = savedBooks[index];
+
+        // Удалите элемент из массива savedBooks
+        savedBooks.splice(index, 1);
+
+        // Сохраните обновленный массив в localStorage
+        saveInLocal(API_KEY, savedBooks);
+
+        // Перерисуйте список без удаленного элемента
+        displayBooks();
+      });
+    });
   }
 }
+
+
 
 
 
@@ -127,7 +153,6 @@ function displayBooks() {
 document.addEventListener('DOMContentLoaded', () => {
   const deleteButtons = document.querySelectorAll('.button.shop-list-btn');
 
-  
   deleteButtons.forEach(button => {
     button.addEventListener('click', event => {
       const listItem = button.closest('.shop-list-item');
@@ -135,18 +160,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (listItem) {
         const dataId = listItem.getAttribute('data-id');
 
-      
         if (dataId) {
-          //удаления элемента из localStorage 
-          removeFromLocal(book._id); 
+          // Удалить элемент из localStorage, используя _id как ключ
+          removeFromLocal(dataId);
 
-          // удалить соответствующий элемент из DOM
+          // Удалить соответствующий элемент из DOM
           listItem.remove();
         }
       }
     });
   });
 });
+
 
 
 
