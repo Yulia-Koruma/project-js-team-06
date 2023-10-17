@@ -30,19 +30,19 @@
 }
 
 .category-item {
-  color: var(--text-color-second);
-  font-family: DM Sans;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: -0.36px;
-  text-align: start;
-  border: none;
-  background-color: none;
-  background-color: transparent;
-  padding: 0;
-  margin-bottom: 32px;
+
+    color: var(--text-color-second);
+    font-family: DM Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    text-align: start;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 32px;
 }
 
 .category-active {
