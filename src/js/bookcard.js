@@ -38,24 +38,21 @@ function showCards(number, listBook) {
 }
 
 const createTopBooksMarkup = async () => {
-  loaderEl.classList.remove("visually-hidden");
+  loaderEl.classList.remove("visually-hidden-js");
    let markup = await fetchTopBooks();
   markup = markup.map(el => {
     return { ...el, books: el.books };
   });
   bookGallery.innerHTML = await booksCardTemplate(markup);
-  loaderEl.classList.add("visually-hidden");
+  loaderEl.classList.add("visually-hidden-js");
 
   const seeMoreBtnBox = document.querySelector('.books-container-small');
-  console.log(seeMoreBtnBox);
   seeMoreBtnBox.addEventListener('click', onClickSeeMore);
   async function onClickSeeMore(event) {
-    console.log(event);
      if (event.target.nodeName !== "BUTTON") {
     return;
   }
     const categoryToSee = event.target.dataset.id;
-    console.log(categoryToSee);
     await loadBooksByCategory(categoryToSee);
     const booksContainer = document.querySelector('.books-container-title');
     const lastWord = categoryToSee.split(' ').pop();
