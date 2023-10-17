@@ -1,138 +1,137 @@
 .category-list {
-    display: flex;
-    flex-direction: column;
-    width: 335px;
-    height: 228px;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  width: 335px;
+  height: 228px;
+  overflow-y: auto;
 }
 
 @media screen and (min-width: 768px) {
-    .category-list {
-        width: 337px;
-        height: 472px;
-    }
+  .category-list {
+    width: 337px;
+    height: 472px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .category-list {
-        width: 356px;
-    }
+  .category-list {
+    width: 356px;
+  }
 }
 
 .category-list::-webkit-scrollbar-thumb {
-    width: 8px;
-    border-radius: 12px;
-    background: #e0e0e0;
+  width: 8px;
+  border-radius: 12px;
+  background: #e0e0e0;
 }
 
 .category-list::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 .category-item {
-    color: var(--text-color-second);
-    font-family: DM Sans;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: -0.36px;
-    text-align: start;
-    border: none;
-    background-color: none;
-    background-color: transparent;
-    padding: 0;
-    margin-bottom: 32px;
+  color: var(--text-color-second);
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.36px;
+  text-align: start;
+  border: none;
+  background-color: none;
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 32px;
 }
 
 .category-active {
-    color: var(--accent-color-first);
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: -0.36px;
-    text-transform: uppercase;
+  color: var(--accent-color);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.36px;
+  text-transform: uppercase;
 }
 
 /* book-list-card */
 .book-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 24px;
 }
 
 .book-list-card {
-    width: 335px;
+  width: 335px;
 }
 
 @media screen and (min-width: 768px) {
-    .book-list-card {
-        width: 218px;
-    }
+  .book-list-card {
+    width: 218px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .book-list-card {
-        width: 180px;
-    }
+  .book-list-card {
+    width: 180px;
+  }
 }
 
 .book-list-card-img {
-    width: 100%;
-    height: 485px;
-    object-fit: cover;
-    border-radius: 8px;
+  width: 100%;
+  height: 485px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 @media screen and (min-width: 768px) {
-    .book-list-card-img {
-        height: 316px;
-    }
+  .book-list-card-img {
+    height: 316px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .book-list-card-img {
-        height: 256px;
-    }
+  .book-list-card-img {
+    height: 256px;
+  }
 }
 
 .book-list-card-content {
-    margin-top: 14px;
+  margin-top: 14px;
 }
 
 .card-content-title {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 18px;
-    margin-bottom: 4px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  margin-bottom: 4px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card-content-author {
-    color: var(--text-color-firs);
-    font-size: 12px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 14px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  color: var(--text-color-firs);
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .books-list-title {
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 52px;
-    text-transform: capitalize !important;
-    margin-bottom: 40px;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 52px;
+  text-transform: capitalize !important;
+  margin-bottom: 40px;
 }
 
 .highlighted-word {
-    color: var(--accent-color-first);
+  color: var(--accent-color-first);
 }
