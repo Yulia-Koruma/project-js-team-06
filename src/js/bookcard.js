@@ -1,6 +1,6 @@
 import "./category"
 import { fetchTopBooks } from "./api"
-import throttle from 'lodash.throttle';
+
 import { loaderEl } from './scrollup';
 import {loadBooksByCategory} from './category'
 
@@ -80,8 +80,8 @@ function booksCardTemplate(data) {
 <ul class="books-container-small">${data.map(elements => {
     return `
         <li class="books-list">
-          <h3 class="books-list-title-smal">${elements.list_name}
-          </h3>
+          <h2 class="books-list-title-smal">${elements.list_name}
+          </h2>
           <ul class="books-card-container">${elements.books.map(book => {
               return `
                <li class="js-book-card" data-id="${book._id}">

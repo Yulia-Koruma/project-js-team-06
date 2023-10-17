@@ -7,7 +7,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  position: fixed;
+  position: absolute;
   top: 100px;
   animation: rotate 1s linear infinite;
 }
@@ -51,5 +51,12 @@
   }
   100% {
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .loader {
+    top: 400px;
+    left: 40%;
   }
 }
