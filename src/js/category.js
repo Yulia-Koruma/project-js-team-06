@@ -28,7 +28,7 @@ async function initializeApp() {
       }
     });
   } catch (error) {
-    Notiflix.Notify.failure('Something went wrong. Please try again!');
+    // Notiflix.Notify.failure('Something went wrong. Please try again!');
   } finally {
   }
 }
