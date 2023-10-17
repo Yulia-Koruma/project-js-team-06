@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf</title>
     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
       integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
@@ -13,7 +17,7 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/project-js-team-06/assets/support_object-34a62b29.js"></script>
+    <script type="module" crossorigin src="/project-js-team-06/assets/support_object-065ebad3.js"></script>
     <link rel="stylesheet" href="/project-js-team-06/assets/support_object-21501747.css">
   </head>
   <body>
@@ -21,8 +25,8 @@
     <header class="header">
   <div class="container header-inner">
     <div class="header-logo">
-      <a href="./index.html" class="header-logo-link link">
-        <svg class="header-logo-svg" width="24" height="24">
+      <a href="./index.html" class="header-logo-link link ">  
+        <svg class="header-logo-svg animate__animated animate__pulse animate__infinite" width="24" height="24">
           <use href="/project-js-team-06/assets/icons-b057487e.svg#icon-logo"></use>
         </svg>
         <svg class="header-logo-text-svg" width="77" height="13.27">
@@ -40,7 +44,7 @@
         <li class="header-nav-item">
           <a class="header-nav-link link" href="./shopping-list.html">
             <span class="header-nav-text">shopping list</span>
-            <svg class="header-nav-svg" width="20" height="20">
+            <svg class="header-nav-svg animate__animated animate__heartBeat animate__slower animate__infinite" width="20" height="20">
               <use href="/project-js-team-06/assets/icons-b057487e.svg#icon-shoping-bag"></use>
             </svg>
           </a>
@@ -59,7 +63,7 @@
       </button>
     </div>
     <div class="header-actions">
-      <button type="button" class="signup-btn btn">
+      <button type="button" class="signup-btn btn ">
         <span class="header-actions-text">Sing up</span>
         <svg class="signup-svg" width="20" height="20">
           <use href="/project-js-team-06/assets/icons-b057487e.svg#icon-arrow-right"></use>
@@ -124,15 +128,15 @@
           <div class="support-container">
   <div class="support-box-content">
     <div class="support-title-conteiner">
-      <h2 class="title-support">Support Ukraine</h2>
-      <svg class="emblem_ukraine" width="20" height="32">
+      <h2 class="title-support ">Support Ukraine</h2>
+      <svg class="emblem_ukraine animate__animated animate__heartBeat animate__slower animate__infinite" width="20" height="32">
         <use class="icon-uk" href="/project-js-team-06/assets/icons-b057487e.svg#icon-trident"></use>
       </svg>
     </div>
     <ul class="support_list"></ul>
   </div>
   <div class="button-container">
-    <button type="button" class="support_button">
+    <button type="button" class="support_button animate__animated animate__pulse animate__infinite">
       <svg class="button-arrow">
         <use class="use-arrow" href="/project-js-team-06/assets/icons-b057487e.svg#icon-down-support"></use>
       </svg>
@@ -158,8 +162,6 @@
     <!-- Modal shopping-list -->
     <div class="backdrop is-hidden" id="container-modal-shop-list"></div>
 
-    <!-- Modal Sing-up -->
-    
     <!-- Skroll-up -->
     <button type="button" class="btn-scroll-up visually-hidden">
   <svg class="up-btn-icon" width="24" height="24">
