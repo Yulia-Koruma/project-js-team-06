@@ -2,11 +2,12 @@
   --black: #111;
   --white: #fff;
   --main-text-color: #111;
-  --background-color: #fff;
+  --background-color: #f6f6f6;
   --header-background: #fff;
-  /* --background-dark: #202024; */
+  --modal-background: #fff;
   --accent-color-first: #4f2ee8;
   --accent-color-second: #eac645;
+  --accent-color: #4f2ee8;
   --text-color-first: #b4afaf;
   --text-color-second: rgba(17, 17, 17, 0.6);
   --text-color-third: rgba(17, 17, 17, 0.5);
