@@ -16,6 +16,7 @@ export function createCategoryList(categories, books) {
     categoryButton.setAttribute('data-category', category.list_name);
     categoryButton.innerText = category.list_name;
 
+
     categoryButton.addEventListener('click', () => {
       const categoryItems = document.querySelectorAll('.category-item');
       categoryItems.forEach(item => item.classList.remove('category-active'));
@@ -23,15 +24,12 @@ export function createCategoryList(categories, books) {
       categoryButton.classList.add('category-active');
       
       const booksContainer = document.querySelector('.books-container-title');
-      const lastWord = categoryButton.innerText.split(' ').pop();
-      const titleWithLastWordHighlighted = categoryButton.innerText.replace(
+      const lastWord = categoryButton.dataset.category.split(' ').pop();
+      const titleWithLastWordHighlighted = categoryButton.dataset.category.replace(
         new RegExp(`${lastWord}$`),
         `<span class="highlighted-word">${lastWord}</span>`
       );
       booksContainer.innerHTML = `<h2 class="books-list-title">${titleWithLastWordHighlighted}</h2>`;
-
-      const filteredBooks = books.filter( book => book.category === category.list_name);
-      createBookList(filteredBooks);
     });
 
     categoryList.appendChild(categoryButton);

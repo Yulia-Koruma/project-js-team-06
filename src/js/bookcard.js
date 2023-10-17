@@ -1,6 +1,6 @@
 import "./category"
 import { fetchTopBooks } from "./api"
-import throttle from 'lodash.throttle';
+
 import { loaderEl } from './scrollup';
 import {loadBooksByCategory} from './category'
 
@@ -37,25 +37,23 @@ function showCards(number, listBook) {
   }
 }
 
-async function createTopBooksMarkup () {
-  // loaderEl.classList.remove("visually-hidden");
-  const  markup = await fetchTopBooks();
-  // markup = markup.map(el => {
-  //   return { ...el, books: el.books };
-  // });
-  bookGallery.innerHTML = booksCardTemplate(markup);
-  // loaderEl.classList.add("visually-hidden");
+
+const createTopBooksMarkup = async () => {
+  loaderEl.classList.remove("visually-hidden-js");
+   let markup = await fetchTopBooks();
+  markup = markup.map(el => {
+    return { ...el, books: el.books };
+  });
+  bookGallery.innerHTML = await booksCardTemplate(markup);
+  loaderEl.classList.add("visually-hidden-js");
 
   const seeMoreBtnBox = document.querySelector('.books-container-small');
-  console.log(seeMoreBtnBox);
   seeMoreBtnBox.addEventListener('click', onClickSeeMore);
   async function onClickSeeMore(event) {
-    console.log(event);
-      if (event.target.nodeName !== "BUTTON") {
+     if (event.target.nodeName !== "BUTTON") {
     return;
   }
     const categoryToSee = event.target.dataset.id;
-    console.log(categoryToSee);
     await loadBooksByCategory(categoryToSee);
     const booksContainer = document.querySelector('.books-container-title');
     const lastWord = categoryToSee.split(' ').pop();
@@ -80,8 +78,8 @@ function booksCardTemplate(data) {
 <ul class="books-container-small">${data.map(elements => {
     return `
         <li class="books-list">
-          <h3 class="books-list-title-smal">${elements.list_name}
-          </h3>
+          <h2 class="books-list-title-smal">${elements.list_name}
+          </h2>
           <ul class="books-card-container">${elements.books.map(book => {
               return `
                <li class="js-book-card" data-id="${book._id}">
