@@ -5,7 +5,7 @@ import apple2x from '../img/apple-books-2x.png';
 
 export function createMarkupModalAddShopList({ _id, book_image, title, author, description, buy_links }) {
   
-  return `<div class="modal-shop-list" id="modal-add" data-id=${_id}>
+  return `<div class="modal-shop-list animate__animated animate__zoomIn" id="modal-add" data-id=${_id}>
     <button type="button" class="button modal-shop-list-close">
       <svg class="modal-shop-list-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
         <path d="M21 7L7 21M7 7L21 21" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -37,7 +37,7 @@ export function createMarkupModalAddShopList({ _id, book_image, title, author, d
         </ul>
       </div>
     </div>
-    <button type="button" class="button btn-shop-list js-btn-add">add to shopping list</button>
+    <button type="button" class="button btn-shop-list js-btn-add animate__animated animate__pulse animate__infinite">add to shopping list</button>
   </div>
 </div>`;
 }
