@@ -72,8 +72,8 @@ createTopBooksMarkup();
 
 function booksCardTemplate(data) {
     return `
-     <h1 class="books-main-title">
-     Best Sellers <span class="books-main-title-attribute">Books</span>
+     <h1 class="books-main-title animate__animated animate__zoomIn  animate__slower">
+     Best Sellers <span class="books-main-title-attribute animate__animated animate__zoomIn animate__slower">Books</span>
      </h1>
 <ul class="books-container-small">${data.map(elements => {
     return `
@@ -95,7 +95,7 @@ function booksCardTemplate(data) {
                   </a>
              </li>`}).join('')}
           </ul>
-          <button class="books-btn" type="button" data-id="${elements.list_name}">see more</button>
+          <button class="books-btn nimate__animated animate__heartBeat animate__slower animate__infinite" type="button" data-id="${elements.list_name}">see more</button>
         </li>
    `}).join('')}
 </ul>`}

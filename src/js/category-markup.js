@@ -4,6 +4,8 @@ export function createCategoryList(categories, books) {
 
   const allCategoriesLink = document.createElement('a');
   allCategoriesLink.classList.add('category-item');
+  allCategoriesLink.classList.add('animate__animated');
+  allCategoriesLink.classList.add('animate__slideInLeft');
   allCategoriesLink.setAttribute('href', './index.html');
   allCategoriesLink.innerText = 'All categories';
   allCategoriesLink.classList.add('category-active');
@@ -13,6 +15,8 @@ export function createCategoryList(categories, books) {
   categories.forEach(category => {
     const categoryButton = document.createElement('button');
     categoryButton.classList.add('category-item');
+    categoryButton.classList.add('animate__animated');
+    categoryButton.classList.add('animate__slideInLeft');
     categoryButton.setAttribute('data-category', category.list_name);
     categoryButton.innerText = category.list_name;
 
