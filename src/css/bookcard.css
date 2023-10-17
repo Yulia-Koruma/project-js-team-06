@@ -4,7 +4,7 @@
     }
 
     .books-main-title {
-        color: #111;
+        color: var(--main-text-color);
         font-size: 32px;
         font-style: normal;
         font-weight: 700;
@@ -71,7 +71,7 @@
     }
 
     .books-card-title {
-        color: #111;
+        color: var(--main-text-color);
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
@@ -102,7 +102,7 @@
         letter-spacing: -0.01em;
         text-transform: uppercase;
 
-        color: #111111;
+        color: var(--main-text-color);
         background-color: transparent;
         border: 2px solid #4f2ee8;
         border-radius: 40px;
