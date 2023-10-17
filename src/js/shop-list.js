@@ -1,30 +1,72 @@
 import { createMarkupShopList } from './createMarkupShopList';
-import { API_KEY, getFromLocal } from './localStorage';
+import { API_KEY, getFromLocal, removeFromLocal } from './localStorage';
+
+const emptyMessage = document.querySelector('.empty-message');
+const shoppingList = document.querySelector('.shopping-list');
 
 const firstPageBtn = document.getElementById('firstPage');
 const prevPageBtn = document.getElementById('prevPage');
 const currentPageBtn = document.getElementById('currentPage');
-const nextPageBtn = document.getElementById('nextcurrentPage');
+const nextcurrentPageBtn = document.getElementById('nextcurrentPage');
 const ellipsisBtn = document.getElementById('ellipsis');
+const nextPageBtn = document.getElementById('nextPage');
 const goToLastBtn = document.getElementById('goToLast');
-// Отримуємо посилання на контейнер для книжок в кошику покупок
-const shoppingList = document.querySelector('.shopping-list');
 
-const maxPages = 4;
+// Определите максимальное количество книг на странице
+const booksPerPage = 4;
+
+// Переменные для хранения состояния пагинации
 let currentPage = 1;
+let maxPages;
 
 function updateButtons() {
-  currentPageBtn.innerText = currentPage;
-  nextPageBtn.innerText = currentPage + 1;
+  currentPageBtn.textContent = currentPage;
+  nextcurrentPageBtn.textContent = currentPage + 1;
   ellipsisBtn.style.display = currentPage < maxPages - 1 ? 'block' : 'none';
+
+  // Проверка и обновление видимости кнопок в соответствии с текущей страницей
+  firstPageBtn.disabled = currentPage === 1;
+  prevPageBtn.disabled = currentPage === 1;
+  nextPageBtn.disabled = currentPage === maxPages;
+  goToLastBtn.disabled = currentPage === maxPages;
 }
 
+function displayBooksOnPage() {
+  const savedBooks = getFromLocal(API_KEY) || [];
+
+  if (savedBooks.length === 0) {
+    emptyMessage.style.display = 'block';
+    shoppingList.style.display = 'none';
+  } else {
+    emptyMessage.style.display = 'none';
+    shoppingList.style.display = 'block';
+
+    // Вычислите индексы начала и конца книг на текущей странице
+    const startIndex = (currentPage - 1) * booksPerPage;
+    const endIndex = startIndex + booksPerPage;
+
+    // Отобразите только книги на текущей странице
+    const booksToDisplay = savedBooks.slice(startIndex, endIndex);
+    const markup = createMarkupShopList(booksToDisplay);
+
+    shoppingList.innerHTML = markup;
+  }
+}
+
+function updateMaxPages() {
+  const savedBooks = getFromLocal(API_KEY) || [];
+  maxPages = Math.ceil(savedBooks.length / booksPerPage);
+}
+
+// Инициализация максимального количества страниц и кнопок
+updateMaxPages();
 updateButtons();
 
 firstPageBtn.addEventListener('click', () => {
   if (currentPage !== 1) {
     currentPage = 1;
     updateButtons();
+    displayBooksOnPage();
   }
 });
 
@@ -32,6 +74,7 @@ prevPageBtn.addEventListener('click', () => {
   if (currentPage > 1) {
     currentPage--;
     updateButtons();
+    displayBooksOnPage();
   }
 });
 
@@ -39,6 +82,7 @@ nextPageBtn.addEventListener('click', () => {
   if (currentPage < maxPages) {
     currentPage++;
     updateButtons();
+    displayBooksOnPage();
   }
 });
 
@@ -46,62 +90,12 @@ goToLastBtn.addEventListener('click', () => {
   if (currentPage < maxPages) {
     currentPage = maxPages;
     updateButtons();
+    displayBooksOnPage();
   }
 });
 
-
-
-// Функція для створення DOM-елементів книжки в кошику покупок
-// function createBookCard(bookData) {
-//   const bookCard = document.createElement('div');
-//   bookCard.classList.add('book-card');
-
-//   const bookImage = document.createElement('img');
-//   bookImage.src = bookData.book_image;
-//   bookImage.alt = bookData.title;
-
-//   const title = document.createElement('h2');
-//   title.textContent = bookData.title;
-
-//   const category = document.createElement('p');
-//   category.textContent = `Category: ${bookData.category}`;
-
-//   const description = document.createElement('p');
-//   description.textContent = bookData.description;
-
-//   const author = document.createElement('p');
-//   author.textContent = `Author: ${bookData.author}`;
-
-//   const buyLinks = document.createElement('div');
-//   buyLinks.classList.add('buy-links');
-
-//   bookData.buy_links.forEach(linkData => {
-//     const link = document.createElement('a');
-//     link.href = linkData.url;
-//     link.textContent = `Buy on ${linkData.name}`;
-//     buyLinks.appendChild(link);
-//   });
-
-//   const deleteButton = document.createElement('button');
-//   deleteButton.textContent = 'Remove from Shopping List';
-//   deleteButton.addEventListener('click', () => {
-//     removeBookFromList(bookData);
-//   });
-
-//   bookCard.appendChild(bookImage);
-//   bookCard.appendChild(title);
-//   bookCard.appendChild(category);
-//   bookCard.appendChild(description);
-//   bookCard.appendChild(author);
-//   bookCard.appendChild(buyLinks);
-//   bookCard.appendChild(deleteButton);
-
-//   return bookCard;
-// }
-
 function displayBooks() {
   const emptyMessage = document.querySelector('.empty-message');
- 
 
   const savedBooks = getFromLocal(API_KEY) || [];
 
@@ -112,25 +106,50 @@ function displayBooks() {
     emptyMessage.style.display = 'none';
     shoppingList.style.display = 'block';
 
-    // shoppingList.innerHTML = '';
-
     const markup = createMarkupShopList(savedBooks);
-    shoppingList.insertAdjacentHTML('beforeend', markup);
-   
+    shoppingList.innerHTML = markup;
   }
 }
 
-  // const deleteButton = document.querySelector('.shop-list-btn');
-  //   deleteButton.addEventListener('click', () => {
-  //   removeBookFromList(bookData);
-  // });
 
-// function removeBookFromList(bookData) {
-//   const savedBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
-//   const updatedBooks = savedBooks.filter( savedBook => savedBook.title !== bookData.title);
 
-//   localStorage.setItem('shoppingList', JSON.stringify(updatedBooks));
-//   displayBooks();
+
+// function removeFromLocal(key) {
+//   try {
+//     localStorage.removeItem(key);
+//   } catch (error) {
+//     Notiflix.Notify.failure('Something went wrong. Please try again');
+//   }
 // }
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const deleteButtons = document.querySelectorAll('.button.shop-list-btn');
+
+  
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      const listItem = button.closest('.shop-list-item');
+
+      if (listItem) {
+        const dataId = listItem.getAttribute('data-id');
+
+      
+        if (dataId) {
+          //удаления элемента из localStorage 
+          removeFromLocal(book._id); 
+
+          // удалить соответствующий элемент из DOM
+          listItem.remove();
+        }
+      }
+    });
+  });
+});
+
+
+
+
 
 displayBooks();
