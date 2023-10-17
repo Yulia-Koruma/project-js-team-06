@@ -8,13 +8,13 @@ import "./bookcard";
 export const refs = {
     containerModalShopList: document.querySelector('#container-modal-shop-list'),
     bookGallery: document.querySelector('.js-book'),
-
-    // categoryList: document.querySelector('.category-list'),
+    bookList: document.querySelector('.js-book-list'),
 
 };
 
 refs.bookGallery.addEventListener('click', onBookCardClick);
-// refs.categoryList.addEventListener('click', onBookCardClick);
+refs.bookList.addEventListener('click', onBookCardClick);
+
 
 
 async function onBookCardClick(event) {
