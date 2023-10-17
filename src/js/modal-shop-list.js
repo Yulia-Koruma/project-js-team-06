@@ -1,10 +1,8 @@
 import {fetchSelectedBook} from "./api"
 import { createMarkupModalAddShopList, createMarkupModalRemoveShopList } from "./createMarkupModal";
-import { saveInLocal, getFromLocal, removeFromLocal } from "./localStorage";
+import { saveInLocal, getFromLocal, removeFromLocal, API_KEY } from "./localStorage";
 import "./category";
 import "./bookcard";
-import { API_KEY } from "./localStorage";
-
 
 
 export const refs = {
@@ -14,8 +12,6 @@ export const refs = {
     // categoryList: document.querySelector('.category-list'),
 
 };
-
-console.log(refs.containerModalShopList);
 
 refs.bookGallery.addEventListener('click', onBookCardClick);
 // refs.categoryList.addEventListener('click', onBookCardClick);
@@ -38,15 +34,15 @@ async function onBookCardClick(event) {
     const id = targetCard.dataset.id;
     const book = await fetchSelectedBook(id);
 
-    const savedBooks = getFromLocal(API_KEY) || [];
+    const savedBooksLocalStorage = getFromLocal(API_KEY) || [];
 
     function removeBookFromLocalStorage(book) {
-        const updatedBooks = savedBooks.filter(savedBook => savedBook.title !== book.title);
+        const updatedBooks = savedBooksLocalStorage.filter(savedBook => savedBook.title !== book.title);
 
         localStorage.setItem(API_KEY, JSON.stringify(updatedBooks));
     }
 
-    const isBookInLocalStorage = savedBooks.some(({ _id }) => _id === id) || false;
+    const isBookInLocalStorage = savedBooksLocalStorage.some(({ _id }) => _id === id) || false;
 
     if (!isBookInLocalStorage) {
         renderMarkupAdd();

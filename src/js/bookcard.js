@@ -39,7 +39,7 @@ function showCards(number, listBook) {
 
 async function createTopBooksMarkup () {
   // loaderEl.classList.remove("visually-hidden");
-   let markup = await fetchTopBooks();
+  const  markup = await fetchTopBooks();
   // markup = markup.map(el => {
   //   return { ...el, books: el.books };
   // });
@@ -51,7 +51,7 @@ async function createTopBooksMarkup () {
   seeMoreBtnBox.addEventListener('click', onClickSeeMore);
   async function onClickSeeMore(event) {
     console.log(event);
-     if (event.target.nodeName !== "BUTTON") {
+      if (event.target.nodeName !== "BUTTON") {
     return;
   }
     const categoryToSee = event.target.dataset.id;

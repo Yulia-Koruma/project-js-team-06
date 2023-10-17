@@ -1,10 +1,5 @@
-import './category';
-import './api.js';
-import './category-markup.js';
-import './localStorage';
-import { createMarkupModalAddShopList } from './createMarkupModal';
 import { createMarkupShopList } from './createMarkupShopList';
-import { API_KEY } from './localStorage';
+import { API_KEY, getFromLocal } from './localStorage';
 
 const firstPageBtn = document.getElementById('firstPage');
 const prevPageBtn = document.getElementById('prevPage');
@@ -12,6 +7,8 @@ const currentPageBtn = document.getElementById('currentPage');
 const nextPageBtn = document.getElementById('nextcurrentPage');
 const ellipsisBtn = document.getElementById('ellipsis');
 const goToLastBtn = document.getElementById('goToLast');
+// Отримуємо посилання на контейнер для книжок в кошику покупок
+const shoppingList = document.querySelector('.shopping-list');
 
 const maxPages = 4;
 let currentPage = 1;
@@ -52,8 +49,7 @@ goToLastBtn.addEventListener('click', () => {
   }
 });
 
-// Отримуємо посилання на контейнер для книжок в кошику покупок
-const shoppingList = document.querySelector('.shopping-list');
+
 
 // Функція для створення DOM-елементів книжки в кошику покупок
 // function createBookCard(bookData) {
@@ -107,8 +103,7 @@ function displayBooks() {
   const emptyMessage = document.querySelector('.empty-message');
  
 
-  const savedBooks = JSON.parse(localStorage.getItem(API_KEY)) || [];
-  console.log(savedBooks);
+  const savedBooks = getFromLocal(API_KEY) || [];
 
   if (savedBooks.length === 0) {
     emptyMessage.style.display = 'block';
@@ -117,7 +112,7 @@ function displayBooks() {
     emptyMessage.style.display = 'none';
     shoppingList.style.display = 'block';
 
-    shoppingList.innerHTML = '';
+    // shoppingList.innerHTML = '';
 
     const markup = createMarkupShopList(savedBooks);
     shoppingList.insertAdjacentHTML('beforeend', markup);
@@ -130,12 +125,12 @@ function displayBooks() {
   //   removeBookFromList(bookData);
   // });
 
-function removeBookFromList(bookData) {
-  const savedBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
-  const updatedBooks = savedBooks.filter( savedBook => savedBook.title !== bookData.title);
+// function removeBookFromList(bookData) {
+//   const savedBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
+//   const updatedBooks = savedBooks.filter( savedBook => savedBook.title !== bookData.title);
 
-  localStorage.setItem('shoppingList', JSON.stringify(updatedBooks));
-  displayBooks();
-}
+//   localStorage.setItem('shoppingList', JSON.stringify(updatedBooks));
+//   displayBooks();
+// }
 
 displayBooks();
