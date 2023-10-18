@@ -29,8 +29,8 @@
     margin-bottom: 20px;
     gap: 14px;
     width: 335px;
-    height: 170px;
-    padding: 30px 24px;
+    /* height: 170px; */
+    padding: 14px;
     border-radius: 16px;
     border: 2px solid rgba(79, 46, 232, 0.4);
     background: var(--header-background);
@@ -51,12 +51,13 @@
     flex-shrink: 0;
   }
 
-  /* .shop-list-btn:hover,
-  .shop-list-btn:focus {
-  } */
+  .shop-list-btn-icon {
+    stroke: var(--white);
+  }
 
-  .shop-list-icon {
-    fill: var(--accent-color-first);
+  .shop-list-btn-icon:hover,
+  .shop-list-btn-icon:focus {
+    stroke: var(--accent-color-first);
   }
 
   .shop-list-img {
