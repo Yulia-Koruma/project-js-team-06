@@ -21,6 +21,8 @@ async function onBookCardClick(event) {
     event.preventDefault();
 
     const targetCard = event.target.closest('.js-book-card');
+
+    refs.containerModalShopList.innerHTML = '';
    
     if (!targetCard) {
     return;
@@ -73,6 +75,7 @@ async function onBookCardClick(event) {
             });
         
     } else {
+        refs.containerModalShopList.innerHTML = '';
         renderMarkupRemove();
         const btnRemoveShopList = document.querySelector('.js-btn-remove');
         btnRemoveShopList.addEventListener('click', () => {

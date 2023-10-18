@@ -13,9 +13,9 @@ export function createMarkupShopList(arr) {
     </button>
     <img class="shop-list-img" src="${book_image}" alt="${author} ${title}" width="100" height="142" />
     <div class="shop-list-info">
-    <h2 class="shop-list-title">${title.slice(0, 14) + "..."}</h2>
+    <h2 class="shop-list-title">${title}</h2>
     <h4 class="shop-list-category">${list_name}</h4>
-    <p class="shop-list-desc">${description.slice(0, 75) + "..."}</p>
+    <p class="shop-list-desc">${description}</p>
     <h3 class="shop-list-author">${author}</h3>
     <ul class="shop-list-buy">
         <li>

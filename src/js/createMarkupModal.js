@@ -7,8 +7,8 @@ export function createMarkupModalAddShopList({ _id, book_image, title, author, d
   
   return `<div class="modal-shop-list animate__animated animate__zoomIn" id="modal-add" data-id=${_id}>
     <button type="button" class="button modal-shop-list-close">
-      <svg class="modal-shop-list-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <path d="M21 7L7 21M7 7L21 21" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg class="modal-shop-list-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18M6 6L18 18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
     <div class="modal-shop-list-wrap">
@@ -37,7 +37,7 @@ export function createMarkupModalAddShopList({ _id, book_image, title, author, d
         </ul>
       </div>
     </div>
-    <button type="button" class="button btn-shop-list js-btn-add animate__animated animate__pulse animate__infinite">add to shopping list</button>
+    <button type="button" class="button btn-shop-list js-btn-add">add to shopping list</button>
     <p class="modal-shop-list-text visually-hidden">
       Сongratulations! You have added the book to the shopping list. To delete,
       press the button “Remove from the shopping list”.
@@ -50,7 +50,7 @@ export function createMarkupModalAddShopList({ _id, book_image, title, author, d
 
 export function createMarkupModalRemoveShopList({ _id, book_image, title, author, description, buy_links }) {
 
-  return `<div class="modal-shop-list" id="modal-remove" data-id=${_id}>
+  return `<div class="modal-shop-list animate__animated animate__zoomIn" id="modal-remove" data-id=${_id}>
     <button type="button" class="button modal-shop-list-close">
       <svg class="modal-shop-list-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
         <path d="M21 7L7 21M7 7L21 21" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>

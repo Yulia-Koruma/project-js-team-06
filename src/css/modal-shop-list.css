@@ -29,30 +29,6 @@
   pointer-events: none;
 }
 
-.modal-shop-list-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 2000;
-  border: none;
-  background-color: transparent;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-shop-list-icon {
-  stroke: var(--main-text-color);
-  transition: stroke var(--transition-dur-and-func);
-  width: 28px;
-  height: 28px;
-}
-
-.modal-shop-list-close .modal-shop-list-icon:hover,
-.modal-shop-list-close .modal-shop-list-icon:focus {
-  stroke: var(--accent-color-first);
-}
-
 /* !============== MOBILE ===============*/
 
 @media screen and (min-width: 375px) {
@@ -69,8 +45,33 @@
     background: var(--modal-background);
   }
 
-  .modal-shop-list-img {
-    margin-bottom: 14px;
+  .modal-shop-list-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    /* z-index: 2000; */
+    border: none;
+    background: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: stroke var(--transition-dur-and-func);
+  }
+
+  .modal-shop-list-icon {
+    stroke: var(--main-text-color);
+    width: 24px;
+    height: 24px;
+  }
+
+  .modal-shop-list-close .modal-shop-list-icon:hover,
+  .modal-shop-list-close .modal-shop-list-icon:focus {
+    stroke: var(--accent-color-first);
+    background-color: transparent;
+  }
+
+  .modal-shop-list-info {
+    margin-top: 14px;
   }
 
   .modal-shop-list-title {
@@ -110,28 +111,16 @@
     gap: 20px;
   }
 
-  /* .modal-shop-list-link {
-  } */
-
-  .modal-shop-list-link-amazon:hover,
-  .modal-shop-list-link-amazon:focus {
-    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+  .modal-shop-list-link {
+    display: block;
   }
 
   .buy-icon {
-    filter: grayscale(100%);
-  }
-
-  .icon-amazon {
     filter: var(--filter-icon);
   }
 
-  /* .icon-amazon:hover,
-  .icon-amazon:focus {
-  } */
-
-  .buy-icon:hover,
-  .buy-icon:focus {
+  .modal-shop-list-link .buy-icon:hover,
+  .modal-shop-list-link .buy-icon:focus {
     filter: var(--filter-icon-hover);
   }
 
@@ -192,6 +181,17 @@
     padding: 40px 40px;
   }
 
+  .modal-shop-list-close {
+    top: 24px;
+    right: 24px;
+    border: none;
+  }
+
+  .modal-shop-list-icon {
+    width: 28px;
+    height: 28px;
+  }
+
   .modal-shop-list-wrap {
     display: flex;
     gap: 24px;
@@ -203,6 +203,10 @@
     width: 192px;
     height: 281px;
     flex-shrink: 0;
+  }
+
+  .modal-shop-list-info {
+    margin-top: 0;
   }
 
   .modal-shop-list-title {
