@@ -65,6 +65,10 @@
     height: 142px;
   }
 
+  .shop-list-info {
+    width: 193px;
+  }
+
   .shop-list-title {
     margin-bottom: 4px;
     color: var(--main-text-color);
@@ -89,20 +93,16 @@
     overflow: hidden;
     color: var(--main-text-color);
     text-overflow: ellipsis;
-    /* whitespace: nowrap; */
     font-size: 14px;
     font-weight: 400;
     line-height: 18px; /* 128.571% */
     letter-spacing: -0.56px;
   }
 
-  .shop-list-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .shop-list-author {
+    position: absolute;
+    left: 128px;
+    bottom: 14px;
     color: var(--text-color-first);
     font-size: 12px;
     font-style: italic;
@@ -111,9 +111,25 @@
   }
 
   .shop-list-buy {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
     display: flex;
     align-items: center;
     gap: 8px;
+  }
+
+  /* .shop-list-link{
+
+  } */
+
+  /*!============ MODAL Pagination=============*/
+
+  .img-shop-list {
+    width: 265px;
+    height: 198px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -132,29 +148,26 @@
   }
 
   .shop-list-item {
-    position: relative;
+    padding: 24px;
+    gap: 24px;
     width: 704px;
-    height: 213px;
+    /* height: 213px; */
   }
 
   .shop-list-btn {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--accent-color-first);
-    border-radius: 50%;
-    border: none;
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
+    top: 24px;
+    right: 24px;
+    width: 34px;
+    height: 34px;
   }
 
   .shop-list-img {
     width: 116px;
     height: 165px;
+  }
+
+  .shop-list-info {
+    width: 508px;
   }
 
   .shop-list-category {
@@ -165,26 +178,54 @@
     margin-bottom: 48px;
   }
 
+  .shop-list-author {
+    left: 164px;
+    bottom: 24px;
+  }
+
   .shop-list-buy {
     gap: 16px;
   }
+
+  .icon-amazon {
+    width: 48px;
+    height: 15px;
+  }
+
+  .icon-apple-books {
+    width: 28px;
+    height: 27px;
+  }
+
+  .shop-list-buy {
+    bottom: 24px;
+    right: 24px;
+  }
+
+  /*!============ TABLET-DESCTOP Pagination=============*/
+
+  .img-shop-list {
+    width: 322px;
+    height: 241px;
+  }
 }
 
-/*!============ Pagination=============*/
+/**============ Pagination=============*/
 .empty-message {
   text-align: center;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 120px;
-  padding-left: 65, 5px;
+  /* padding-top: 120px;
+  padding-left: 65.5px; */
 }
 
-.empty-message img {
-  width: 150px;
-  height: 150px;
-  margin-bottom: 20px;
+.img-shop-list {
+  width: 265px;
+  height: 198px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .pagination {
@@ -235,7 +276,7 @@ button:hover {
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
-  line-height: 1, 18;
+  line-height: 1.18;
   letter-spacing: -1.28px;
 }
 
