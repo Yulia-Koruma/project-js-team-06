@@ -133,7 +133,7 @@
   }
 }
 
-/** ------------TABLET-DESCTOP--------------- */
+/** ------------TABLET--------------- */
 
 @media screen and (min-width: 768px) {
   .shop-list-main-title {
@@ -207,6 +207,15 @@
   .img-shop-list {
     width: 322px;
     height: 241px;
+  }
+}
+
+/** ------------DESCTOP--------------- */
+
+@media screen and (min-width: 1440px) {
+  .shop-list-item {
+    width: 996px;
+    /* max-width: 100%; */
   }
 }
 
