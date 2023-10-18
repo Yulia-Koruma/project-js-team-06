@@ -8,6 +8,7 @@ import {
 
 const emptyMessage = document.querySelector('.empty-message');
 const shoppingList = document.querySelector('.shopping-list');
+const paginationContainer = document.querySelector('pagination');
 
 const firstPageBtn = document.getElementById('firstPage');
 const prevPageBtn = document.getElementById('prevPage');
@@ -41,9 +42,12 @@ function displayBooksOnPage() {
 
   if (savedBooks.length === 0) {
     emptyMessage.style.display = 'block';
+    paginationContainer.style.display = 'none';
     shoppingList.style.display = 'none';
   } else {
     emptyMessage.style.display = 'none';
+    paginationContainer.style.display = 'block';
+    paginationContainer.classList.remove('is-hidden');
     shoppingList.style.display = 'block';
 
     // Вычислите индексы начала и конца книг на текущей странице

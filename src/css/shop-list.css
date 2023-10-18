@@ -1,4 +1,23 @@
-/** ------------MOBILE------------------ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*! ------------MOBILE------------------ */
 @media screen and (min-width: 375px) {
   .shop-list-container {
     background-color: var(--background-color);
@@ -49,15 +68,17 @@
     width: 28px;
     height: 28px;
     flex-shrink: 0;
+    transition: stroke var(--transition-dur-and-func);
   }
 
   .shop-list-btn-icon {
     stroke: var(--white);
   }
 
-  .shop-list-btn-icon:hover,
-  .shop-list-btn-icon:focus {
+  .shop-list-btn .shop-list-btn-icon:hover,
+  .shop-list-btn .shop-list-btn-icon:focus {
     stroke: var(--accent-color-first);
+    stroke-width: 2;
   }
 
   .shop-list-img {
@@ -119,11 +140,20 @@
     gap: 8px;
   }
 
-  /* .shop-list-link{
+  .shop-list-link {
+    display: block;
+  }
 
-  } */
+  .buy-icon {
+    filter: var(--filter-icon);
+  }
 
-  /*!============ MODAL Pagination=============*/
+  .shop-list-link .buy-icon:hover,
+  .shop-list-link .buy-icon:focus {
+    filter: var(--filter-icon-hover);
+  }
+
+  /**============ MODAL Pagination=============*/
 
   .img-shop-list {
     width: 265px;
@@ -131,9 +161,21 @@
     margin-right: auto;
     margin-left: auto;
   }
+
+  #no-books-message {
+    width: 244px;
+    margin-right: auto;
+    margin-left: auto;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 11.29; /* 128.571% */
+    letter-spacing: -0.28px;
+  }
 }
 
-/** ------------TABLET-DESCTOP--------------- */
+/*! ------------TABLET--------------- */
 
 @media screen and (min-width: 768px) {
   .shop-list-main-title {
@@ -202,31 +244,35 @@
     right: 24px;
   }
 
-  /*!============ TABLET-DESCTOP Pagination=============*/
+  /**============ TABLET Pagination=============*/
 
   .img-shop-list {
     width: 322px;
     height: 241px;
   }
+
+  #no-books-message {
+    width: 349px;
+    font-size: 18px;
+    line-height: 1.33; /* 133.333% */
+    letter-spacing: -0.36px;
+  }
 }
 
-/**============ Pagination=============*/
-.empty-message {
-  text-align: center;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* padding-top: 120px;
-  padding-left: 65.5px; */
+/*! ------------DESCTOP--------------- */
+
+@media screen and (min-width: 1440px) {
+  .shop-list-item {
+    width: 996px;
+    /* max-width: 100%; */
+  }
+
+  .shop-list-info {
+    width: 808px;
+  }
 }
 
-.img-shop-list {
-  width: 265px;
-  height: 198px;
-  margin-right: auto;
-  margin-left: auto;
-}
+/*?============ Pagination=============*/
 
 .pagination {
   display: flex;
