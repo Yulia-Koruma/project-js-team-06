@@ -97,12 +97,12 @@ const supportPage = [
           `<li class="support_item ">
           <p class="support_number">${p}</p>
          <a
-            href="${url}"   
+            href="${url}"
             title="${title}"
             target="_blank">
             <img
             class="img_link_support"
-            srcset="${img}, ${img2x}"
+            srcset="${img2x} 2x"
             src="${img}"
             alt="${title}"
             height="32"

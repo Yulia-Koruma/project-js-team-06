@@ -48,8 +48,8 @@
   height: 28px;
 }
 
-.modal-shop-list-icon:hover,
-.modal-shop-list-icon:focus {
+.modal-shop-list-close .modal-shop-list-icon:hover,
+.modal-shop-list-close .modal-shop-list-icon:focus {
   stroke: var(--accent-color-first);
 }
 
