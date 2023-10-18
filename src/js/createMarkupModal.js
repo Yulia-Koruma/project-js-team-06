@@ -38,6 +38,10 @@ export function createMarkupModalAddShopList({ _id, book_image, title, author, d
       </div>
     </div>
     <button type="button" class="button btn-shop-list js-btn-add animate__animated animate__pulse animate__infinite">add to shopping list</button>
+    <p class="modal-shop-list-text visually-hidden">
+      Сongratulations! You have added the book to the shopping list. To delete,
+      press the button “Remove from the shopping list”.
+    </p>
   </div>
 </div>`;
 }
