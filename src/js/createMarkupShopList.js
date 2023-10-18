@@ -13,9 +13,9 @@ export function createMarkupShopList(arr) {
     </button>
     <img class="shop-list-img" src="${book_image}" alt="${author} ${title}" width="100" height="142" />
     <div class="shop-list-info">
-    <h2 class="shop-list-title">${title}</h2>
-    <h4 class="shop-list-category">${list_name}</h4>
-    <p class="shop-list-desc">${description}</p>
+    <h2 class="shop-list-title">${cutBookTitle(title)}</h2>
+    <h4 class="shop-list-category">${cutBookCategory(list_name)}</h4>
+    <p class="shop-list-desc">${cutBookDesc(description)}</p>
     <h3 class="shop-list-author">${author}</h3>
     <ul class="shop-list-buy">
         <li>
@@ -51,4 +51,42 @@ export function createMarkupShopList(arr) {
     </ul>
   </div>
 </li>`).join('');
+}
+
+function cutBookTitle(title) {
+  if (window.innerWidth <= 767 && title.length >= 16) {
+    return `${title.slice(0, 16)}...`;
+  }
+  if (window.innerWidth > 767 && title.length >= 16) {
+    return title;
+  }
+ 
+  return title;
+}
+
+function cutBookCategory(category) {
+  if (window.innerWidth <= 767 && category.length >= 20) {
+    return `${category.slice(0, 20)}...`;
+  }
+  if (window.innerWidth > 767 && category.length >= 20) {
+    return category;
+  }
+ 
+  return category;
+}
+
+
+
+
+function cutBookDesc(description) {
+  if (window.innerWidth <= 767 && description.length >= 80) {
+    return `${description.slice(0, 80)}...`;
+  }
+  
+  if (window.innerWidth > 767 && description.length >= 80) {
+    return description;
+    
+  }
+
+  return description;
 }
