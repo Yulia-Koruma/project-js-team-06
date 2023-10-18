@@ -46,27 +46,30 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    height: 32px;
     gap: 16px;
+   transition: var(--transition-dur-and-func);
+ 
    
  }
  .support-item:last-child {
   margin-bottom: 0px;
 }
 
-  .img_link_support{
+    .img_support{
     filter: brightness(0) invert(1);
-   
+    transition: transform 1s ease-out;
+    height: 32px;
   }
   
-  .img_link_support:hover,
-  .img_link_support:focus{
+  
+  
+  .img_support:hover,
+  .img_support:focus{
 
     filter: hue-rotate(360deg);
     transform: scale(1.2);
-    transition: var(--transition-dur-and-func);
+   
   }
-  
 
 
    .button-container{
