@@ -98,6 +98,9 @@
   }
 
   .shop-list-title {
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
     margin-bottom: 4px;
     color: var(--main-text-color);
     font-size: 16px;
@@ -108,6 +111,9 @@
   }
 
   .shop-list-category {
+    /* -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box; */
     margin-bottom: 8px;
     color: var(--text-color-first);
     font-size: 12px;
@@ -117,6 +123,9 @@
   }
 
   .shop-list-desc {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
     margin-bottom: 16px;
     overflow: hidden;
     color: var(--main-text-color);

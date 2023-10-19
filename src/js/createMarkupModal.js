@@ -34,6 +34,8 @@ export function createMarkupModalAddShopList({ _id, book_image, title, author, d
             <img class="buy-icon icon-apple-books" srcset="${apple2x} 2x" src="${apple}" alt="${buy_links[1].name}" width="33" height="32" />
           </a>
           </li>
+
+          
         </ul>
       </div>
     </div>

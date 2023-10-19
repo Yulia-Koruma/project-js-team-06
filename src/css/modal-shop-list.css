@@ -63,10 +63,9 @@
     height: 24px;
   }
 
-  .modal-shop-list-close .modal-shop-list-icon:hover,
-  .modal-shop-list-close .modal-shop-list-icon:focus {
+  .modal-shop-list-close:hover .modal-shop-list-icon,
+  .modal-shop-list-close:focus .modal-shop-list-icon {
     stroke: var(--accent-color-first);
-    background-color: transparent;
   }
 
   .modal-shop-list-info {
