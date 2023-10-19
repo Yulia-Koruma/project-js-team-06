@@ -4,7 +4,6 @@ import { saveInLocal, getFromLocal, removeFromLocal, API_KEY } from "./localStor
 import "./category";
 import "./bookcard";
 
-
 export const refs = {
     containerModalShopList: document.querySelector('#container-modal-shop-list'),
     bookGallery: document.querySelector('.js-book'),
@@ -14,8 +13,6 @@ export const refs = {
 
 refs.bookGallery.addEventListener('click', onBookCardClick);
 refs.bookList.addEventListener('click', onBookCardClick);
-
-
 
 async function onBookCardClick(event) {
     event.preventDefault();
@@ -91,7 +88,6 @@ async function onBookCardClick(event) {
     function renderMarkupRemove() {
         refs.containerModalShopList.innerHTML = createMarkupModalRemoveShopList(book);
     }
-
 
     window.addEventListener('click', onBackdropClick);
     

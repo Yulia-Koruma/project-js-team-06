@@ -104,7 +104,6 @@ const supportPage = [
       .map(
         ({ title, url, img, img2x, p, width }) =>
           `<li class="support_item">
-          
           <p class="support_number">${p}</p>
          <a class="img_link_support"
             href="${url}"   
@@ -117,17 +116,12 @@ const supportPage = [
             alt="${title}"
             width="${width}"
             height="32"
-            
         /></a>
-          
           </li>`
       )
       .join('');
-     
   }
   
-
-
   containerSupport.insertAdjacentHTML('beforeend', supportList(supportPage));
 
       const logoSupport = containerSupport.querySelectorAll('.support_item');

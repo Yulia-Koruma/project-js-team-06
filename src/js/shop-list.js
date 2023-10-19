@@ -139,11 +139,6 @@ function displayBooks() {
   }
 }
 
-
-
-
-
-
 // function removeFromLocal(key) {
 //   try {
 //     localStorage.removeItem(key);
@@ -151,8 +146,6 @@ function displayBooks() {
 //     Notiflix.Notify.failure('Something went wrong. Please try again');
 //   }
 // }
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const deleteButtons = document.querySelectorAll('.button.shop-list-btn');
@@ -175,10 +168,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-
-
-
-
 
 displayBooks();
