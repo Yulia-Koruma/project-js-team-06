@@ -21,6 +21,7 @@
 @media screen and (min-width: 375px) {
   .shop-list-container {
     background-color: var(--background-color);
+    margin: 0 auto;
   }
 
   .shop-list-main-title {
@@ -122,7 +123,7 @@
     text-overflow: ellipsis;
     font-size: 14px;
     font-weight: 400;
-    line-height: 18px; /* 128.571% */
+    line-height: 1.28; /* 128.571% */
     letter-spacing: -0.56px;
   }
 
@@ -180,11 +181,11 @@
     width: 244px;
     margin-right: auto;
     margin-left: auto;
-    color: rgba(0, 0, 0, 0.6);
+    color: var(--text-color-second);
     text-align: center;
     font-size: 14px;
     font-weight: 400;
-    line-height: 11.29; /* 128.571% */
+    line-height: 1.28; /* 128.571% */
     letter-spacing: -0.28px;
   }
 }
@@ -288,6 +289,10 @@
   }
 
   .shop-list-info {
+    width: 808px;
+  }
+
+  .shop-list-wrap {
     width: 808px;
   }
 }

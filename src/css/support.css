@@ -1,5 +1,5 @@
  .support-container {
-    max-width: 335px;
+    width: 335px;
     height: 460px;
     padding: 24px 40px 20px;
     background: linear-gradient(
@@ -117,7 +117,6 @@
    
     .support-container {
       height: 474px;
-      width: 335px;
       padding: 24px 40px 24px;
     }
 
@@ -153,13 +152,14 @@
 
     .support-container-shop{
     display: block;
-    max-width: 335px;
+    width: 356px;
     height: 460px;
     padding: 24px 40px 20px;
     background: linear-gradient(180deg,
         rgba(79, 46, 232, 1) 0%,
         rgba(255, 255, 255, 1) 130%);
     border-radius: 16px;
+    margin-right: 40px;
   }
     }
   
