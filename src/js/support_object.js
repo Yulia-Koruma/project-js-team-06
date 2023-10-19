@@ -26,6 +26,7 @@ const supportPage = [
       img: saveChildren,
       img2x: saveChildren2x,
       p: '01',
+      width: '131',
     },
     {
       title: 'Project HOPE',
@@ -33,6 +34,7 @@ const supportPage = [
       img: projectHope,
       img2x: projectHope2x,
       p: '02',
+      width: '62',
     },
     {
       title: 'International Medical Corps',
@@ -40,6 +42,7 @@ const supportPage = [
       img: medicalCorps,
       img2x: medicalCorps2x,
       p: '03',
+      width: '101',
     },
     {
       title: 'RAZOM',
@@ -47,6 +50,7 @@ const supportPage = [
       img: razom,
       img2x: razom2x,
       p: '04',
+      width: '82',
     },
     {
       title: 'Action against hunger',
@@ -54,6 +58,7 @@ const supportPage = [
       img: actionAgainstHunger,
       img2x: actionAgainstHunger2x,
       p: '05',
+      width: '55',
     },
     {
       title: 'Serhiy Prytula Charity Foundation',
@@ -61,6 +66,7 @@ const supportPage = [
       img: sergiyPrytyla,
       img2x: sergiyPrytyla2x,
       p: '06',
+      width: '115',
     },
     {
       title: 'Medicins Sans Frontieres',
@@ -68,6 +74,7 @@ const supportPage = [
       img: medicinsSans,
       img2x: medicinsSans2x,
       p: '07',
+      width: '102',
     },
     {
       title: 'World vision',
@@ -75,13 +82,15 @@ const supportPage = [
       img: worldVision,
       img2x: worldVision2x,
       p: '08',
+      width: '81',
     },
     {
-      title: 'UNITED24',
+      title: 'united24',
       url: 'https://u24.gov.ua/uk',
       img: united24,
       img2x: united242x,
       p: '09',
+      width: '114',
     },
 ];
 
@@ -89,29 +98,34 @@ const supportPage = [
   const buttonSupport = document.querySelector('.support_button');
 
 
-  function supportList(array) {
+ export function supportList(array) {
    
     return array
       .map(
-        ({ title, url, img, img2x, p }) =>
-          `<li class="support_item ">
+        ({ title, url, img, img2x, p, width }) =>
+          `<div class="support_item">
+          
           <p class="support_number">${p}</p>
-         <a
-            href="${url}"
+         <a class="img_link_support"
+            href="${url}"   
             title="${title}"
             target="_blank">
             <img
-            class="img_link_support"
-            srcset="${img2x} 2x"
+            class="img_support"
+            srcset="${img}, ${img2x}"
             src="${img}"
             alt="${title}"
+            width="${width}"
             height="32"
+            
         /></a>
-          </li>`
+          
+          </div>`
       )
       .join('');
+     
   }
-
+  
 
 
   containerSupport.insertAdjacentHTML('beforeend', supportList(supportPage));
@@ -121,7 +135,7 @@ const supportPage = [
   
       buttonSupport.addEventListener('click', toggleSupport);
   
-      function toggleSupport() {
+      export function toggleSupport() {
         changeSupport = !changeSupport;
   
         const btnArrow = document.querySelector('.button-arrow');
