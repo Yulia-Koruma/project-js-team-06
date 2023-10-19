@@ -30,6 +30,10 @@
 
   }
   
+  .img_link_support{
+    display: block;
+  }
+  
   .support_list {
    margin-bottom: 20px;
   }

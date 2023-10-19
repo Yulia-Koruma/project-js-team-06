@@ -103,7 +103,7 @@ const supportPage = [
     return array
       .map(
         ({ title, url, img, img2x, p, width }) =>
-          `<div class="support_item">
+          `<li class="support_item">
           
           <p class="support_number">${p}</p>
          <a class="img_link_support"
@@ -120,7 +120,7 @@ const supportPage = [
             
         /></a>
           
-          </div>`
+          </li>`
       )
       .join('');
      
