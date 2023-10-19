@@ -16,8 +16,9 @@ export function createMarkupShopList(arr) {
     <h2 class="shop-list-title">${cutBookTitle(title)}</h2>
     <h4 class="shop-list-category">${cutBookCategory(list_name)}</h4>
     <p class="shop-list-desc">${cutBookDesc(description)}</p>
-    <h3 class="shop-list-author">${author}</h3>
-    <ul class="shop-list-buy">
+    <div class="shop-list-wrap">
+      <h3 class="shop-list-author">${author}</h3>
+      <ul class="shop-list-buy">
         <li>
             <a
             class="link shop-list-link"
@@ -47,28 +48,44 @@ export function createMarkupShopList(arr) {
               width="16"
               height="16" />
           </a>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </li>`).join('');
 }
 
+
 function cutBookTitle(title) {
-  if (window.innerWidth <= 767 && title.length >= 16) {
-    return `${title.slice(0, 16)}...`;
+  const viewport = document.documentElement.clientWidth;
+  if (viewport <= 767 && title.length >= 16) {
+    return title.substring(0, 16).toUpperCase().replace(/\s[A-Z]*$/g, '...');
   }
-  if (window.innerWidth > 767 && title.length >= 16) {
+
+  if (viewport > 767) {
     return title;
+
   }
- 
+
   return title;
 }
+
+// function cutBookTitle(title) {
+//   if (window.innerWidth <= 767 && title.length >= 16) {
+//     return `${title.slice(0, 16)}...`;
+//   }
+//   if (window.innerWidth > 767 && title.length >= 16) {
+//     return title;
+//   }
+ 
+//   return title;
+// }
 
 function cutBookCategory(category) {
   if (window.innerWidth <= 767 && category.length >= 20) {
     return `${category.slice(0, 20)}...`;
   }
-  if (window.innerWidth > 767 && category.length >= 20) {
+  if (window.innerWidth > 767) {
     return category;
   }
  
