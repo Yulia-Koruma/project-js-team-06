@@ -115,6 +115,7 @@ async function onBookCardClick(event) {
     
     function toggleModal() {
         refs.containerModalShopList.classList.toggle('is-hidden');
+        refs.containerModalShopList.style.display = 'none';
 
         document.body.style.overflow = 'auto';
     }
