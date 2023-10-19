@@ -334,10 +334,10 @@
   pointer-events: none;
   cursor: default;
 }
-/* 
-button:hover {
+
+.buttonPag:hover {
   background-color: #ddd;
-} */
+}
 
 .shop-list {
   color: #111;
