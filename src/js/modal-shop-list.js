@@ -68,16 +68,29 @@ async function onBookCardClick(event) {
             btnCloseModalShopList.addEventListener('click', toggleModal);
 
             const btnRemoveShopList = document.querySelector('.js-btn-remove');
-            btnRemoveShopList.addEventListener('click', () => removeBookFromLocalStorage(book));
+            
+            btnRemoveShopList.addEventListener('click', () => {
+                removeBookFromLocalStorage(book);
+                btnRemoveShopList.textContent = 'add to shopping list';
+                textUnderBtn.classList.add('visually-hidden');
+                
+            }
+            );
             });
         
     } else {
+
         refs.containerModalShopList.innerHTML = '';
         renderMarkupRemove();
+
         const btnRemoveShopList = document.querySelector('.js-btn-remove');
+        const textUnderBtn = document.querySelector('.modal-shop-list-text');
+
         btnRemoveShopList.addEventListener('click', () => {
             removeBookFromLocalStorage(book);
-            // renderMarkupAdd();
+            btnRemoveShopList.textContent = 'add to shopping list';
+            textUnderBtn.style.display = 'none';
+            textUnderBtn.classList.add('visually-hidden');
         });
     }
 
@@ -103,7 +116,7 @@ async function onBookCardClick(event) {
     function toggleModal() {
         refs.containerModalShopList.classList.toggle('is-hidden');
 
-        refs.containerModalShopList.style.display = 'none';
+        // refs.containerModalShopList.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
 
