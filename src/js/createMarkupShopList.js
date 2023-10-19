@@ -16,8 +16,9 @@ export function createMarkupShopList(arr) {
     <h2 class="shop-list-title">${cutBookTitle(title)}</h2>
     <h4 class="shop-list-category">${cutBookCategory(list_name)}</h4>
     <p class="shop-list-desc">${cutBookDesc(description)}</p>
-    <h3 class="shop-list-author">${author}</h3>
-    <ul class="shop-list-buy">
+    <div class="shop-list-wrap">
+      <h3 class="shop-list-author">${author}</h3>
+      <ul class="shop-list-buy">
         <li>
             <a
             class="link shop-list-link"
@@ -47,8 +48,9 @@ export function createMarkupShopList(arr) {
               width="16"
               height="16" />
           </a>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </li>`).join('');
 }

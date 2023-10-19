@@ -68,15 +68,21 @@
     width: 28px;
     height: 28px;
     flex-shrink: 0;
-    transition: stroke var(--transition-dur-and-func);
+    transition: stroke var(--transition-dur-and-func),
+      background-color var(--transition-dur-and-func);
   }
 
   .shop-list-btn-icon {
     stroke: var(--white);
   }
 
-  .shop-list-btn .shop-list-btn-icon:hover,
-  .shop-list-btn .shop-list-btn-icon:focus {
+  .shop-list-btn:hover,
+  .shop-list-btn:focus {
+    background-color: #b4afaf;
+  }
+
+  .shop-list-btn:hover .shop-list-btn-icon,
+  .shop-list-btn:focus .shop-list-btn-icon {
     stroke: var(--accent-color-first);
     stroke-width: 2;
   }
@@ -120,10 +126,17 @@
     letter-spacing: -0.56px;
   }
 
-  .shop-list-author {
+  .shop-list-wrap {
     position: absolute;
-    left: 128px;
     bottom: 14px;
+    right: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 193px;
+  }
+
+  .shop-list-author {
     color: var(--text-color-first);
     font-size: 12px;
     font-style: italic;
@@ -132,9 +145,6 @@
   }
 
   .shop-list-buy {
-    position: absolute;
-    bottom: 14px;
-    right: 14px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -145,6 +155,10 @@
   }
 
   .buy-icon {
+    filter: grayscale(100%);
+  }
+
+  .icon-amazon {
     filter: var(--filter-icon);
   }
 
@@ -218,6 +232,12 @@
 
   .shop-list-desc {
     margin-bottom: 48px;
+  }
+
+  .shop-list-wrap {
+    bottom: 24px;
+    right: 24px;
+    width: 508px;
   }
 
   .shop-list-author {
@@ -309,10 +329,10 @@
   pointer-events: none;
   cursor: default;
 }
-
+/* 
 button:hover {
   background-color: #ddd;
-}
+} */
 
 .shop-list {
   color: #111;

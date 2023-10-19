@@ -49,7 +49,6 @@
     position: absolute;
     top: 12px;
     right: 12px;
-    /* z-index: 2000; */
     border: none;
     background: transparent;
     display: inline-flex;
@@ -116,6 +115,10 @@
   }
 
   .buy-icon {
+    filter: grayscale(100%);
+  }
+
+  .icon-amazon {
     filter: var(--filter-icon);
   }
 
