@@ -55,22 +55,37 @@ export function createMarkupShopList(arr) {
 </li>`).join('');
 }
 
+
 function cutBookTitle(title) {
-  if (window.innerWidth <= 767 && title.length >= 16) {
-    return `${title.slice(0, 16)}...`;
+  const viewport = document.documentElement.clientWidth;
+  if (viewport <= 767 && title.length >= 16) {
+    return title.substring(0, 16).toUpperCase().replace(/\s[A-Z]*$/g, '...');
   }
-  if (window.innerWidth > 767 && title.length >= 16) {
+
+  if (viewport > 767) {
     return title;
+
   }
- 
+
   return title;
 }
+
+// function cutBookTitle(title) {
+//   if (window.innerWidth <= 767 && title.length >= 16) {
+//     return `${title.slice(0, 16)}...`;
+//   }
+//   if (window.innerWidth > 767 && title.length >= 16) {
+//     return title;
+//   }
+ 
+//   return title;
+// }
 
 function cutBookCategory(category) {
   if (window.innerWidth <= 767 && category.length >= 20) {
     return `${category.slice(0, 20)}...`;
   }
-  if (window.innerWidth > 767 && category.length >= 20) {
+  if (window.innerWidth > 767) {
     return category;
   }
  
