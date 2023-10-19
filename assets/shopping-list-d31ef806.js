@@ -1,4 +1,4 @@
-import{a as $,b as E,c as P,d as x,r as I,g as y,A as d,s as M}from"./support_object-bd17b542.js";function k(e){return e.map(({_id:n,book_image:s,title:o,author:l,list_name:u,description:c,buy_links:r})=>`
+import{a as $,b as E,c as P,d as x,r as I,g as y,A as d,s as M}from"./support_object-2274562f.js";function k(e){return e.map(({_id:n,book_image:s,title:o,author:l,list_name:u,description:c,buy_links:r})=>`
     <li class="shop-list-item" data-id="${n}">
     <button class="button shop-list-btn" type="button">
     <svg class="shop-list-btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
